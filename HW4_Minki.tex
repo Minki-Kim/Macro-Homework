@@ -1,0 +1,103 @@
+\documentclass[12pt]{amsart}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{etoolbox}
+\patchcmd{\section}{\normalfont}{\normalfont\color{BrickRed}}{}{}
+\patchcmd{\subsection}{\normalfont}{\normalfont\color{blue}}{}{}
+\usepackage{lipsum}
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{sgame}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% For Matlab codes
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\usetikzlibrary{calc}
+
+\title{Econ 220B Macroeconomics B Problem Set \# 4}
+\author{Minki Kim}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+	
+% Also for Matlab code
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	frame = single
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+	
+\maketitle
+\section{Consumer's optimization problem}
+Consumer/worker's intertemporal constrained optimization problem is written as: 
+\begin{align*}
+\max &\sum_{t = 0}^{\infty} \beta^t \left( \frac{c_t^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} h_t^{\frac{1+\varepsilon}{\varepsilon}} \right) \\
+\text{s.t. } & c_t + b_{t+1} \leq w_t(s_t) h_t + (1-\delta) b_{t} + r_t(s_t) b_{t} \\
+& b_t \geq 0
+\end{align*}
+A consumer's disposable income consists of labor income, rate of return from the bond purchased in the previous period, and undepreciated part of the bond. She purchases consumptiong goods and also a bond. Negative $b_{t}, \forall t$ is interpreted as borrowing. Condition $b_t \geq 0$ implies even an unemployed (or non-working) individual should be able to pay back her debt. 
+\section{Optimal consumption and labor supply}
+Set up the Lagrangian:
+\begin{align*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \left[  \frac{c_t^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} h_t^{\frac{1+\varepsilon}{\varepsilon}} + \lambda_t(s_t) \left( w_t(s_t) h_t + (1-\delta) b_{t} + r_t(s_t) b_{t} - c_t - b_{t+1}  \right) + \phi_t(s_t) b_t \right]
+\end{align*}
+First order conditions are: 
+\begin{align*}
+&c_t^{-\theta} = \lambda_t(s_t) \\
+& \gamma h_t^{\frac{1}{\varepsilon}} = \lambda_t(s_t) w_t(s_t) \\
+& \lambda_t(s_t) = \beta \lambda_{t+1}(s_{t+1}) \left( 1- \delta + r_t(s_t)  \right) + \phi_t(s_t)
+\end{align*}
+Combining the first and third conditions, we get the Euler conditions 
+\begin{align*}
+\begin{cases}
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_t(s_t)  \right) & \text{Case (1) when } b_t > 0 \\    
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_t(s_t)  \right)  +  \beta \phi_t(s_t) & \text{Case (2) when } b_t = 0    
+\end{cases}
+\end{align*}
+When the borrowing constraint is not binding(Case (1)), we have usual Euler equation. When borrowing constraint is binding, $\phi_t(s_t)$, the Lagrange multiplier attached to the borrowing constraint, shows up in the Euler equation. Binding borrowing constraint means that the consumer is borrowing up to his limit to increase current period consumption as much as he can. Therefore, LHS denotes the marginal gain of increased consumption. The first term of RHS denotes the discounted loss in period $t+1$, coming from increased consumption in period $t$. The second term entails discounted marginal loss coming from forgone bond holdings. \\
+
+For labor supply elasticity, note that $h_t = \left( \frac{1}{\gamma} c_t^{-\theta} w_t \right)^\varepsilon$. It is easy to show that $\epsilon_{h,w} = \frac{\partial h_t}{\partial w_t} \frac{w_t}{h_t} = \varepsilon$. 
+
+\section{Firm's labor demand}
+Firm's static maxization problem is written as: 
+\begin{equation*}
+\max_{k_t, n_t} A_t(s_t) k_t^\alpha n_t^{1-\alpha} - w_t(s_t) n_t - r_t(s_t) k_t
+\end{equation*}
+From the first order condition for labor we get $w_t(s_t) = (1-\alpha) \frac{y_t(s_t)}{n_t}$
+\section{Equilibrium employment level}
+Labor market is cleared when $h_t = n_t$, i.e. 
+\begin{align*}
+&h_t^{*} = \left( \frac{1}{\gamma} c_t^{-\theta} w_t \right)^\varepsilon = \left( \frac{1}{\gamma} c_t^{-\theta} (1-\alpha) \frac{y_t}{h_t^{*}} \right)^\varepsilon \\
+&\text{by isolating $h_t^{*}$, we get} \\
+&h_t^{*} = \left(  \frac{1}{\gamma} c_t^{-\theta} (1-\alpha) y_t  \right)^{\frac{\varepsilon}{1+\varepsilon}}
+\end{align*}
+
+\section{Calibrating labor supply elasticity}
+\section{Comparative statics: $\theta = 2$}
+\section{Indivisible Labor}
+\end{document}  
