@@ -98,6 +98,21 @@ Labor market is cleared when $h_t = n_t$, i.e.
 \end{align*}
 
 \section{Calibrating labor supply elasticity}
+Take log to $h_t = \left(  \frac{1}{\gamma} c_t^{-\theta} (1-\alpha) y_t  \right)^{\frac{\varepsilon}{1+\varepsilon}}$ and calculate its variance. 
+\begin{align*}
+Var(\log h_t) &= Var \left[ \frac{\varepsilon}{1+\varepsilon} \left( -\log \gamma -\theta \log c_t + \log (1-\alpha) + \log y_t  \right) \right] \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ Var(\log y_t) + \theta^2 Var(\log c_t) - 2\theta Cov(\log y_t, \log c_t) \right] \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ Var(\log y_t) +  Var(\log c_t) - 2 Cov(\log y_t, \log c_t) \right] (\because \theta = 1) \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ Var(\log y_t) +  Var(\log c_t) \\
+& \hspace{3cm} - 2 \left( \sqrt{Var(\log y_t)} \sqrt{Var(\log c_t)} \right)\rho(\log y_t, \log c_t) \Bigg]
+\end{align*}
+Normalize $Var(\log y_t) = 1$, Then $Var(\log c_t) = 9/16, Var(\log h_t) = 9/25$. Also, $\rho(\log y_t, \log c_t)$ is given as $3/4$. We get $\varepsilon = 1.8253$ under these conditions. Hence the labor elasticity implied by the model exceeds the upper bound of microeconometric estimates.
 \section{Comparative statics: $\theta = 2$}
+\begin{align*}
+Var(\log h_t) & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ Var(\log y_t) +  4 Var(\log c_t) - 4 Cov(\log y_t, \log c_t) \right] \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ Var(\log y_t) + 4 Var(\log c_t) \\
+& \hspace{3cm} - 4 \left( \sqrt{Var(\log y_t)} \sqrt{Var(\log c_t)} \right)\rho(\log y_t, \log c_t) \Bigg]
+\end{align*}
+We get $\varepsilon = 0.7708$ under the alternative calibration. Suppose that the consumer was temporarily hit by a positive wage income shock. Since higher $\theta$ reduces the intertemporal elasticity of substitution (or induces a stronger motive for consumption smoothing), the consumer increases his consumption by less amount than he would do under $\theta=1$.  Because increased consumption is supported by larger labor income from working longer, less $\Delta c_t$ is translated into less $\Delta h_t$, which drives down the required value of $\varepsilon$. 
 \section{Indivisible Labor}
 \end{document}  
