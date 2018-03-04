@@ -1,0 +1,122 @@
+\documentclass[11pt]{amsart}
+
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\title{Econ 220B Problem Set \# 4}
+\author{Nathaniel Bechhofer}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+	
+
+
+	
+\maketitle
+
+\section{Labor supply elasticity and the business cycle in a competitive economy}
+
+\subsection{Consumer's optimization problem}
+The consumer/worker seeks to maximize their utility for their infinite lifetime, with each period's utility discounted by $\beta^t$. So they seek to maximize (using $c_t, h_t, b_t$) 
+\[
+\sum_{t = 0}^{\infty} \beta^t \left( \frac{c_t^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} h_t^{\frac{1+\varepsilon}{\varepsilon}} \right)
+\]
+with the budget constraints
+\[
+c_t + b_{t+1} \leq w(s_t) h_t + (1-\delta) b_{t} + r(s_t) b_{t}
+\]
+where $c_t$ is consumption at time $t$, $h_t$ is work at time $t$, $w(s_t)$ is the spot wage for the time period, $r(s_t)$ is the spot rate of return for the time period, and $b_t$ represents investment in bonds. They also have the condition 
+\[
+b_t \geq 0
+\]
+as they are subject to the no-Ponzi condition.
+
+
+\subsection{Optimal consumption and labor supply}
+
+With the following Lagrangian
+\begin{align*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \left[  \frac{c_t^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} h_t^{\frac{1+\varepsilon}{\varepsilon}} + \lambda_t(s_t) \left[ w(s_t) h_t + (1-\delta) b_{t} + r(s_t) b_{t} - c_t - b_{t+1}  \right] + \phi_t(s_t) b_t \right]
+\end{align*}
+they have first order conditions with respect to $c_t, h_t, b_t$: 
+\begin{align*}
+c_t^{-\theta} &= \lambda_t(s_t) \\
+\gamma h_t^{\frac{1}{\varepsilon}} &= \lambda_t(s_t) w(s_t) \\
+\lambda_t(s_t) &= \beta \lambda_{t+1}(s_{t+1}) \left( 1- \delta + r(s_{t+1}))  \right) + \phi_{t+1}(s_{t+1})
+\end{align*}
+The first and third conditions yield the Euler equations for optimal intertemporal choice:
+\begin{align*}
+\begin{cases}
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r(s_{t+1})  \right) & b_t > 0 \\    
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r(s_{t+1})  \right)  +  \phi_{t+1}(s_{t+1}) &  b_t = 0    
+\end{cases}
+\end{align*}
+When the borrowing constraint is not binding, we get the standard Euler condition. When the constraint is binding, the Lagrange multiplier attached to the borrowing constraint changes the optimal behavior (as consuming more is optimal due to the fact that additional saving is impossible). 
+
+We also have in each period
+\[
+h_t = \left( \frac{1}{\gamma} c^{-\theta} w \right)^\varepsilon
+\] 
+allowing us to obtain the Frisch elasticity
+\[
+\epsilon_{h,w} = \frac{\partial h}{\partial w} \frac{w}{h} = \frac{\varepsilon  \left(\frac{w c^{-\theta }}{\gamma }\right)^{\varepsilon }}{w} \frac{w}{h} = \frac{\varepsilon  \left(\frac{w c^{-\theta }}{\gamma }\right)^{\varepsilon }}{w} \frac{w}{\left(\frac{w c^{-\theta }}{\gamma }\right)^{\varepsilon }} = \varepsilon
+\]
+and so we have our desired result.
+
+\subsection{Firm's labor demand}
+Each firm solves: 
+\begin{equation*}
+\max_{k_t, n_t} A(s_t) k_t^\alpha n_t^{1-\alpha} - w(s_t) n_t - r(s_t) k_t
+\end{equation*}
+
+We have the standard constant returns to scale first order condition for labor 
+\[
+w(s_t) = (1-\alpha) \frac{y(s_t)}{n_t}
+\]
+
+\subsection{Equilibrium employment level}
+We need market clearing 
+\[
+h_t = n_t
+\] 
+so we solve to find
+\begin{align*}
+h_t^{*} &= \left( \frac{1}{\gamma} c_t^{-\theta} w_t \right)^\varepsilon \\
+&= \left( \frac{1}{\gamma} c_t^{-\theta} (1-\alpha) \frac{y_t}{h_t^{*}} \right)^\varepsilon \\
+&= \left(  \frac{1}{\gamma} c_t^{-\theta} (1-\alpha) y_t  \right)^{\frac{\varepsilon}{1+\varepsilon}}
+\end{align*}
+for equilibrium employment.
+
+\subsection{Calibrating labor supply elasticity}
+
+\begin{align*}
+\operatorname{Var}(\log h_t) &= \operatorname{Var} \left[ \frac{\varepsilon}{1+\varepsilon} \left( -\log \gamma -\theta \log c_t + \log (1-\alpha) + \log y_t  \right) \right] \vert \theta = 1 \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ \operatorname{Var}(\log y_t) + \theta^2 \operatorname{Var}(\log c_t) - 2\theta \operatorname{Cov}(\log y_t, \log c_t) \right] \vert \theta = 1\\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ \operatorname{Var}(\log y_t) +  \operatorname{Var}(\log c_t) - 2 \operatorname{Cov}(\log y_t, \log c_t) \right] \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ \operatorname{Var}(\log y_t) +  \operatorname{Var}(\log c_t) - 2 \left( \sigma_{\log y_t} \sigma_{\log c_t} \right)\rho(\log y_t, \log c_t) \Bigg]
+\end{align*}
+Normalizing $\operatorname{Var}(\log y_t) = 1$, we are given $\operatorname{Var}(\log c_t) = 9/16, \operatorname{Var}(\log h_t) = 9/25$, and $\rho(\log y_t, \log c_t) = 3/4$, implying $\varepsilon \approx 1.8253$, so this labor elasticity exceeds the upper bound of microeconometric estimates.
+
+
+\subsection{Comparative statics: $\theta = 2$}
+\begin{align*}
+\operatorname{Var}(\log h_t) & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ \operatorname{Var}(\log y_t) +  4 \operatorname{Var}(\log c_t) - 4 \operatorname{Cov}(\log y_t, \log c_t) \right] \\
+& = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ \operatorname{Var}(\log y_t) + 4 \operatorname{Var}(\log c_t) - 4 \left(  \sigma_{\log y_t} \sigma_{\log c_t} \right)\rho(\log y_t, \log c_t) \Bigg]
+\end{align*}
+This gives $\varepsilon = 0.7708$ under the alternative calibration, implying that a positive wage income shock causes a smaller consumption increase than in the $\theta=1$ case, as the value of consumption now relative to consumption later is smaller.
+
+\subsection{Indivisible Labor}
+In the employment lotteries case, there is no extensive margin, so there will not be a defined Frisch elasticity and hence no relation between the variances.
+
+
+\end{document}  
