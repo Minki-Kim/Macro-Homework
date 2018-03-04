@@ -112,12 +112,29 @@ Var(\log h_t) & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ Var(
 & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ Var(\log y_t) + 4 Var(\log c_t) \\
 & \hspace{3cm} - 4 \left( \sqrt{Var(\log y_t)} \sqrt{Var(\log c_t)} \right)\rho(\log y_t, \log c_t) \Bigg]
 \end{align*}
-We get $\varepsilon = 1.5$ under the alternative calibration. Suppose that the consumer was temporarily hit by a positive wage income shock. Since higher $\theta$ reduces the intertemporal elasticity of substitution (or induces a stronger motive for consumption smoothing), the consumer increases his consumption by less amount than he would do under $\theta=1$.  Because increased consumption is supported by larger labor income from working longer, less $\Delta c_t$ is translated into less $\Delta h_t$, which drives down the required value of $\varepsilon$. 
+We get $\varepsilon = 1.5$ under the alternative calibration. Suppose that the consumer is temporarily hit by a positive wage income shock. Since higher $\theta$ reduces the intertemporal elasticity of substitution (or induces a stronger motive for consumption smoothing), the consumer increases his consumption by less amount than he would do under $\theta=1$.  Because increased consumption is supported by larger labor income from working longer, less $\Delta c_t$ is translated into less $\Delta h_t$, which drives down the required value of $\varepsilon$. 
 \section{Indivisible Labor}
-Re-write the consumer's sequential problem when whether she supplies labor is determined by lotteries. 
+Suppose that supply of labor is determined by lotteries. Further suppose that the consumer supplies $\bar{h}$ amount of labor when chosen to work. Assuming that the probability of winning(?) the lottery is $\psi_t$, consumer's (expected) utility maximization problem is written as follows. 
 \begin{align*}
-\max &\sum_{t = 0}^{\infty} \beta^t \left( \frac{c_t^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} h_t^{\frac{1+\varepsilon}{\varepsilon}} \right) \\
-\text{s.t. } & c_t + b_{t+1} \leq w_t(s_t) h_t + (1-\delta) b_{t} + r_t(s_t) b_{t} \\
+\max_{c_{1,t}, c_{2,t}} &\sum_{t = 0}^{\infty} \beta^t \left[   \psi_t \left( \frac{c_{1,t}^{1-\theta}}{1-\theta}  - \gamma \frac{\varepsilon}{1+\varepsilon} \bar{h}^{\frac{1+\varepsilon}{\varepsilon}} \right) + (1-\psi_t) \frac{c_{2,t}^{1-\theta}}{1-\theta} \right] \\
+\text{s.t. } & \psi_t c_{1,t} + (1-\psi_t) c_{2,t} + b_{t+1} \leq \psi_t w_t(s_t) \bar{h} + (1-\delta) b_{t} + r_t(s_t) b_{t} \\
 & b_t \geq 0
 \end{align*}
+First order conditions for consumptions are: 
+\begin{align*}
+\psi_t c_{1,t}^{-\theta} &= \psi_t \lambda_t \\
+(1-\psi_t) c_{2,t}^{-\theta} &= (1-\psi_t) \lambda_t 
+\end{align*}
+Which implies that $c_{1,t} = c_{2,t}$. We can re-formulate the maximization problem by imposing this result. i.e.
+\begin{align*}
+\max_{c_t, \psi_t} &\sum_{t = 0}^{\infty} \beta^t   \left(  \frac{c_{t}^{1-\theta}}{1-\theta}  - \psi_t \gamma \frac{\varepsilon}{1+\varepsilon} \bar{h}^{\frac{1+\varepsilon}{\varepsilon}} \right)  \\
+\text{s.t. } & c_t + b_{t+1} \leq \psi_t w_t(s_t) \bar{h} + (1-\delta) b_{t} + r_t(s_t) b_{t} \\
+& b_t \geq 0
+\end{align*}
+First order conditions for $c_t$ and $\psi_t$\footnote{Choosing optimal $\psi_t$ can be understood either as consumer solving two-stage maximization problem, or social planner solving optimization problem to maximize agents' utility} are: 
+\begin{align*}
+c_t^{-\theta} &= \lambda_t \\
+\gamma \frac{\varepsilon}{1+\varepsilon} \bar{h}^{\frac{1+\varepsilon}{\varepsilon}} &= \lambda_t w_t(s_t) \bar{h}
+\end{align*}
+Since $h_t = \bar{h}$, variance of de-trended hours is zero, which has no relation with the variance of consumption or output. In this case where there is no intensive margin of labor, Frisch elasticity of labor supply is not defined. 
 \end{document}  
