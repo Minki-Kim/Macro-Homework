@@ -75,14 +75,13 @@ First order conditions are:
 Combining the first and third conditions, we get the Euler conditions 
 \begin{align*}
 \begin{cases}
-c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_t(s_t)  \right) & \text{Case (1) when } b_t > 0 \\    
-c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_t(s_t)  \right)  +  \beta \phi_t(s_t) & \text{Case (2) when } b_t = 0    
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_{t+1}(s_{t+1})  \right) & \text{Case (1) when } b_t > 0 \\    
+c_t^{-\theta} = \beta c_{t+1}^{-\theta} \left( 1- \delta + r_{t+1}(s_{t+1})  \right)  +  \beta \phi_{t+1}(s_{t+1}) & \text{Case (2) when } b_t = 0    
 \end{cases}
 \end{align*}
-When the borrowing constraint is not binding(Case (1)), we have usual Euler equation. When borrowing constraint is binding, $\phi_t(s_t)$, the Lagrange multiplier attached to the borrowing constraint, shows up in the Euler equation. Binding borrowing constraint means that the consumer is borrowing up to his limit to increase current period consumption as much as he can. Therefore, LHS denotes the marginal gain of increased consumption. The first term of RHS denotes the discounted loss in period $t+1$, coming from increased consumption in period $t$. The second term entails discounted marginal loss coming from forgone bond holdings. \\
+When the borrowing constraint is not binding(Case (1)), we have usual Euler equation. When borrowing constraint is binding, $\phi_{t+1}(s_{t+1})$, the Lagrange multiplier attached to the borrowing constraint, shows up in the Euler equation. Binding borrowing constraint means that the consumer is borrowing up to his limit to increase current period consumption as much as he can. Therefore, LHS denotes the marginal gain of increased consumption. The first term of RHS denotes the discounted loss in period $t+1$, coming from increased consumption in period $t$. The second term entails discounted marginal loss coming from forgone bond holdings. \\
 
 For labor supply elasticity, note that $h_t = \left( \frac{1}{\gamma} c_t^{-\theta} w_t \right)^\varepsilon$. It is easy to show that $\epsilon_{h,w} = \frac{\partial h_t}{\partial w_t} \frac{w_t}{h_t} = \varepsilon$. 
-
 \section{Firm's labor demand}
 Firm's static maxization problem is written as: 
 \begin{equation*}
@@ -106,13 +105,14 @@ Var(\log h_t) &= Var \left[ \frac{\varepsilon}{1+\varepsilon} \left( -\log \gamm
 & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ Var(\log y_t) +  Var(\log c_t) \\
 & \hspace{3cm} - 2 \left( \sqrt{Var(\log y_t)} \sqrt{Var(\log c_t)} \right)\rho(\log y_t, \log c_t) \Bigg]
 \end{align*}
-Normalize $Var(\log y_t) = 1$, Then $Var(\log c_t) = 9/16, Var(\log h_t) = 9/25$. Also, $\rho(\log y_t, \log c_t)$ is given as $3/4$. We get $\varepsilon = 1.8253$ under these conditions. Hence the labor elasticity implied by the model exceeds the upper bound of microeconometric estimates.
+Normalize $Var(\log y_t) = 1$, Then $Var(\log c_t) = 9/16, Var(\log h_t) = 9/25$. Also, $\rho(\log y_t, \log c_t)$ is given as $3/4$. We get $\varepsilon = 9.7660$ under these conditions. Hence the labor elasticity implied by the model by far exceeds the upper bound of microeconometric estimates. 
 \section{Comparative statics: $\theta = 2$}
 \begin{align*}
 Var(\log h_t) & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \left[ Var(\log y_t) +  4 Var(\log c_t) - 4 Cov(\log y_t, \log c_t) \right] \\
 & = \left( \frac{\varepsilon}{1+ \varepsilon}\right)^2 \Bigg[ Var(\log y_t) + 4 Var(\log c_t) \\
 & \hspace{3cm} - 4 \left( \sqrt{Var(\log y_t)} \sqrt{Var(\log c_t)} \right)\rho(\log y_t, \log c_t) \Bigg]
 \end{align*}
-We get $\varepsilon = 0.7708$ under the alternative calibration. Suppose that the consumer was temporarily hit by a positive wage income shock. Since higher $\theta$ reduces the intertemporal elasticity of substitution (or induces a stronger motive for consumption smoothing), the consumer increases his consumption by less amount than he would do under $\theta=1$.  Because increased consumption is supported by larger labor income from working longer, less $\Delta c_t$ is translated into less $\Delta h_t$, which drives down the required value of $\varepsilon$. 
+We get $\varepsilon = 1.5$ under the alternative calibration. Suppose that the consumer was temporarily hit by a positive wage income shock. Since higher $\theta$ reduces the intertemporal elasticity of substitution (or induces a stronger motive for consumption smoothing), the consumer increases his consumption by less amount than he would do under $\theta=1$.  Because increased consumption is supported by larger labor income from working longer, less $\Delta c_t$ is translated into less $\Delta h_t$, which drives down the required value of $\varepsilon$. 
 \section{Indivisible Labor}
+
 \end{document}  
