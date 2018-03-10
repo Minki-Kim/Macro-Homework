@@ -25,7 +25,7 @@ bmax = 2;
 betaa = 0.95;
 Nb = 501;
 T = 20000;
-psi = 0.0025;
+psi = 0.0001;
 delta = 0;
 K0 = 0.40;
 
@@ -168,11 +168,13 @@ K = K0;
         K_update = psi*K_new + (1-psi)*K;
         error_outer = abs(K_update - K);
         if error_outer < tol_outer
+            r = Z * alphaa * (K^(alphaa-1)) * (L^(1-alphaa));
+            w = Z* (1-alphaa) * (K^alphaa) * (L^(-alphaa));
             disp('')
             disp('************************************************************************')
             disp(['Aggregate capital converged in outer loop count ', num2str(t_outer)]);
             disp('')
-            disp(['Aggregate capital = ',num2str(K)])
+            disp(['Aggregate capital = ',num2str(K_update)])
             disp(['Equilibrium wage = ',num2str(w)])
             disp(['Equilibrium rental rate = ',num2str(r)])
             disp('************************************************************************')
