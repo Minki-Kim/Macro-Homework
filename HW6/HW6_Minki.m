@@ -14,7 +14,7 @@
 clear;
 clc;
 
-cd '/Users/minki/Dropbox/PhD Courses/2018 Winter Quarter/Macro B/HW6'
+cd '/Users/minki/Dropbox/Git repositories/Macro-Homework/HW6'
 
 %% 1. Parameters
 lvec = [0.1 1 1.25];
