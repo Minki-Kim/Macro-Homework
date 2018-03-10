@@ -25,9 +25,9 @@ bmax = 2;
 betaa = 0.95;
 Nb = 501;
 T = 20000;
-psi = 0.1;
+psi = 0.005;
 delta = 0;
-K0 = 1.5;
+K0 = 0.42;
 
 nlsize = 3;
 P = [.4 .5 .1; .2 .7 .1; .2 .1 .7];
@@ -55,7 +55,8 @@ F = H(1,:);
 
 % Calculating aggegate labor 
 L = F*lvec';    
-disp(['Aggregate labor is = ', num2str(L)]);
+disp(['Aggregate labor = ', num2str(L)]);
+disp(' ');
 
 %% 3. Discretizing asset grid 
 % Discretizing asset grid
@@ -114,7 +115,7 @@ K = K0;
             
             % Display internal iteration counter 
             if mod(i,40) == 0
-                disp(['Internal VFI iteration counter: ',num2str(i), ' with error size: ',num2str(error_inner)]);
+                disp(['Internal VFI iteration counter: ',num2str(i), ', with error size: ',num2str(error_inner)]);
             end
     
             if error_inner < tol_inner
@@ -167,13 +168,22 @@ K = K0;
         K_update = psi*K_new + (1-psi)*K;
         error_outer = abs(K_update - K);
         if error_outer < tol_outer
+            disp('')
+            disp('************************************************************************')
             disp(['Aggregate capital converged in outer loop count ', num2str(t_outer)]);
+            disp('')
+            disp(['Aggregate capital = ',num2str(K)])
+            disp(['Equilibrium wage = ',num2str(w)])
+            disp(['Equilibrium rental rate = ',num2str(r)])
+            disp('************************************************************************')
+            
+            save modeloutcome K w r;
             break
         end
         
         % Updating capital 
         disp(' ')
-        disp(['Outer loop iteration counting: ',num2str(t_outer),'Agge']);
+        disp(['Outer loop iteration counter: ',num2str(t_outer),', with aggregate capital error: ',num2str(error_outer)]);
         disp(' ')
         K = K_update;
         
@@ -182,5 +192,9 @@ K = K0;
 % =================================================================================================================
 
 %% 5. Plotting 
+FigHandle = figure('Position', [150, 150, 800, 800]); set(0,'defaultlinelinewidth',2);
+
+% Value function
+plot(V); grid on; legend('Lmin','L
 
 

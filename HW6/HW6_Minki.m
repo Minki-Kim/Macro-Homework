@@ -25,9 +25,9 @@ bmax = 2;
 betaa = 0.95;
 Nb = 501;
 T = 20000;
-psi = 0.01;
+psi = 0.0025;
 delta = 0;
-K0 = 0.5;
+K0 = 0.40;
 
 nlsize = 3;
 P = [.4 .5 .1; .2 .7 .1; .2 .1 .7];
@@ -114,7 +114,7 @@ K = K0;
             end
             
             % Display internal iteration counter 
-            if mod(i,40) == 0
+            if mod(i,50) == 0
                 disp(['Internal VFI iteration counter: ',num2str(i), ', with error size: ',num2str(error_inner)]);
             end
     
@@ -128,7 +128,7 @@ K = K0;
         
         % Policy functions
         apolicy = agrid(index);
-        cpolicy = (1+r).*repmat(agrid',1,3) - w.*lvec - apolicy;
+        cpolicy = (1+r).*repmat(agrid',1,3) + w.*lvec - apolicy;
     
     % (3) Third Inner Block: Simulation and getting new aggregate capital ------------------------------------------
         
@@ -192,5 +192,25 @@ K = K0;
 % =================================================================================================================
 
 %% 5. Plotting 
+FigHandle = figure('Position', [150, 150, 1000, 800]); set(0,'defaultlinelinewidth',1.5);
+currentwealth = (1+r).*repmat(agrid',1,3) + w.*lvec;
 
+% Value function
+lines = {'--b'; '-k'; '-r'};
+subplot(2,2,1);
+for z = 1:3
+    plot(currentwealth(:,z), V(:,z), lines{z}); grid on; hold on;
+end
+legend('Lmin','Lmid','Lhigh','Location','southeast'); xlim([-0.5 2.5]); title('Value Function','FontSize',16);
 
+% Policy function for consumption
+lines = {'--b'; '-k'; '-r'};
+subplot(2,2,2);
+for z = 1:3
+    plot(currentwealth(:,z), cpolicy(:,z), lines{z}); grid on; hold on;
+end
+legend('Lmin','Lmid','Lhigh','Location','southeast'); xlim([-0.5 2.5]); title('Consumption policy','FontSize',16);
+
+% Ergodic Distribution of asset
+
+% Ergodic Distribution of consumption
