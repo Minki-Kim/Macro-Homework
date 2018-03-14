@@ -27,7 +27,7 @@ Nb = 501;
 T = 20000;
 psi = 0.0001;
 delta = 0;
-K0 = 0.40;
+K0 = 0.398;
 
 nlsize = 3;
 P = [.4 .5 .1; .2 .7 .1; .2 .1 .7];
@@ -60,8 +60,8 @@ disp(' ');
 
 %% 3. Discretizing asset grid 
 % Discretizing asset grid
-agrid = linspace(B,bmax,Nb); 
-apgrid = linspace(B,bmax,Nb);
+agrid = linspace(-B,bmax,Nb); 
+apgrid = linspace(-B,bmax,Nb);
     % Shouldn't we check if this constraint is stricter than natural one? 
 
 
@@ -114,7 +114,7 @@ K = K0;
             end
             
             % Display internal iteration counter 
-            if mod(i,50) == 0
+            if mod(i,100) == 0
                 disp(['Internal VFI iteration counter: ',num2str(i), ', with error size: ',num2str(error_inner)]);
             end
     
@@ -128,40 +128,54 @@ K = K0;
         
         % Policy functions
         apolicy = agrid(index);
-        cpolicy = (1+r).*repmat(agrid',1,3) + w.*lvec - apolicy;
+        cpolicy = (1+r).*repmat(agrid',1,3) + w.*repmat(lvec,Nb,1) - apolicy;
     
     % (3) Third Inner Block: Simulation and getting new aggregate capital ------------------------------------------
         
         % Creating simulated path of productivity starting from lmin
         lsim = zeros(T,1);
         lsim(1) = lvec(2);
-    
-        % Iteration for 2 to T  
+        lsim_index = zeros(T,1);
+        lsim_index(1) = 2;
+        
+        % Iteration for 2 to T to generate simulated path of labor productivity  
         for i = 2:T
-            dist = P(lsim(i-1),:);
+            dist = P(lsim_index(i-1),:);
             cum_dist = cumsum(dist);
             
             r = rand();
             
-            lsim(i) = find(cum_dist > r, 1);
+            lsim_index(i) = find(cum_dist > r, 1);
+            lsim(i) = lvec(lsim_index(i));
         end
         
         % Simulating asset and capital 
-        asim = zeros(1,Nb);
+        asim = zeros(T,1);
         asim(1) = agrid(250);
-        asim_index = 250;
+        asim_index = zeros(T,1);
+        asim_index(1) = 250;
         
         for t = 2:T
-            asim(t) = apolicy(asim_index, lsim(t));
-            asim_index = find(agrid==asim(t));
+            asim(t) = apolicy(asim_index(t-1), lsim_index(t));
+            asim_index(t) = find(agrid==asim(t));
         end
             
         % Dropping first T/5 observation
         asim = asim(T/5:end);
         
+        % Getting distribution
+        [testa,testb] = hist(asim,unique(asim));
+        %plot(b,a);
+        
         % Defining aggregate capital
-        ksim = asim;
-        K_new = mean(ksim);
+        K_new = mean(asim);
+        K_d = ((r/(Z*alphaa))^(1/(alphaa-1)))*L;
+        disp(['Capital supply = ',num2str(K_new)])
+        if K_d > K_new
+            disp('Excess demand');
+        else
+            disp('Excess supply');
+        end
         
     % (4) Fourth Inner Block: Checking convergence and updating ----------------------------------------------------
     
@@ -190,6 +204,9 @@ K = K0;
         K = K_update;
         
     end
+
+
+    
     
 % =================================================================================================================
 
