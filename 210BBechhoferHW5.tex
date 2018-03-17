@@ -9,7 +9,7 @@
 \usepackage{upgreek}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-\title{ECON 210B Homework \#4}
+\title{ECON 210B Homework \#5}
 \author{Nathaniel Bechhofer}
 
 
@@ -153,5 +153,79 @@ implying that higher unemployment benefits increase unemployment, as they enhanc
 
 The equilibrium is plausibly unstable, as more vacancies increase the value of workers and therefore employment, which may spiral until many more workers are employed.
 
+\section{Unemployment and Business Cycles}
+
+\subsection{Equilibrium tightness}
+
+Apply the job creation and wage determination formulas.
+We have
+\[
+w = z + \beta (p-z) + \beta c \theta
+\]
+and (from the Bellman equation for a vacancy and free entry)
+\[
+\frac{c}{q(\theta)} = \frac{p - w}{r + \lambda}
+\]
+so we can write 
+\[
+\frac{c}{q(\theta)} = \frac{p - (z + \beta (p-z) + \beta c \theta)}{r + \lambda}
+\]
+equivalent to 
+\[
+\frac{r + \lambda}{q(\theta)} = \frac{p - (z + \beta (p-z) + \beta c \theta)}{c}
+\]
+and
+\[
+\frac{r + \lambda}{q(\theta)} = \frac{(1-\beta)(p-z) + \beta c \theta)}{c}
+\]
+and so we will pin down the unique equilibrium with
+\[
+\beta \theta^* = \frac{(1-\beta)(p-z)}{c} - \frac{r + \lambda}{q(\theta^*)}
+\]
+and this is unique because the left hand side is increasing in $\theta$ while the right hand side id decreasing in $\theta$ by the properties of the job filling rate. 
+
+\subsection{Elasticity with respect to productivity}
+
+Differentiate with respect to $p$ and multiply by $\frac{p}{\theta^*}$ and we get
+\[
+\beta \varepsilon_{\theta^*, p} = \frac{p}{\theta^*} \cdot \left(\frac{(1-\beta)}{c} - \frac{(r + \lambda) \frac{dq(\theta)}{dp}}{q(\theta^*)^2} \right)
+\]
+\[
+\beta \varepsilon_{\theta^*, p} = \frac{p}{\theta^*} \cdot \left(\frac{(1-\beta)}{c} - \frac{(r + \lambda) \frac{dq(\theta)}{d\theta} \frac{d\theta}{dp}}{q(\theta^*)^2} \right)
+\]
+\[
+\beta \varepsilon_{\theta^*, p} = \frac{p}{\theta^*} \cdot \left(\frac{(1-\beta)}{c} - \frac{(r + \lambda) \frac{dq(\theta)}{d\theta} \varepsilon_{\theta^*, p} \frac{\theta^*}{p} }{q(\theta^*)^2} \right)
+\]
+\[
+\beta \varepsilon_{\theta^*, p} = \frac{p}{\theta^*} \cdot \left(\frac{(1-\beta)}{c} - \frac{(r + \lambda) \frac{dq(\theta)}{d\theta} \varepsilon_{\theta^*, p} \frac{\theta^*}{pq(\theta)} }{q(\theta^*)} \right)
+\]
+\[
+\beta \varepsilon_{\theta^*, p} = \frac{p}{\theta^*} \cdot \left(\frac{(1-\beta)}{c} + \frac{(r + \lambda) \eta(\theta^*) \varepsilon_{\theta^*, p} \frac{1}{p} }{q(\theta^*)} \right)
+\]
+and solving for the elasticity gives
+\[
+\varepsilon_{\theta^*, p} = \frac{1-\beta}{\beta + \frac{r+\lambda}{\theta^* q(\theta^*)} \eta(\theta^*)} \cdot \frac{p}{c\theta^*}
+\]
+the desired formula.
+
+\subsection{Elasticity with respect to productivity: approximation}
+
+With $\eta \approx 0.5$, small values for $r$ and $\lambda$, along with $\beta \approx \eta$, we have that $\beta \approx 1 - \beta$ and we can pin down market tightness with just
+\[
+\theta \approx \frac{p-z}{c}
+\]
+and approximate the elasticity of tightness with respect to aggregate labor productivity
+\[
+\varepsilon_{\theta^*, p} \approx \frac{p}{c\theta^*}
+\]
+and so we get the final approximation
+\[
+\varepsilon_{\theta^*, p} \approx \frac{p}{p-z}
+\]
+where the right-hand side is the ratio of worker output to the difference between worker output and the outside option.
+
+\subsection{Cost of job loss}
+
+This estimate implies $p/z$ can be approximately 1.05, implying a fairly small cost of job loss/unemployment for workers (since their output is worth only about 5 percent more than the outside option).
 
 \end{document}
