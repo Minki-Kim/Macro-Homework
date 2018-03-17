@@ -1,0 +1,157 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{upgreek}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{ECON 210B Homework \#4}
+\author{Nathaniel Bechhofer}
+
+
+\begin{document}
+\maketitle
+
+\section{Unemployment Insurance}
+
+\subsection{Bellman equations}
+
+From the notes we have
+\begin{align*}
+rU_t &= z + \dot{U}_t + \theta_t q(\theta_t) (W_t - U_t) \\
+rW_t &= w_t + \dot{W}_t + \lambda (U_t - W_t) \\
+rJ_t &= p - w_t + \dot{J}_t + \lambda (V_t - J_t) \\
+rV_t &= -pc + \dot{V}_t + q (\theta_t) (J_t - V_t) 
+\end{align*}
+so in our case we have
+\begin{equation}
+rU_t = z + \dot{U}_t + \theta^{\frac{1}{2}} (W_t - U_t)
+\end{equation}
+\begin{equation}
+rW_t = w_t + \dot{W}_t + \lambda (U_t - W_t)
+\end{equation}
+\begin{equation}
+rJ_t = p - \tau - w_t + \dot{J}_t + \lambda (V_t - J_t)
+\end{equation}
+\begin{equation}
+rV_t = -(p - \tau)c + \dot{V}_t + \theta^{-\frac{1}{2}} (J_t - V_t)
+\end{equation}
+
+In the steady state, we can drop the $t$ subscripts. The Nash Bargaining solution for the wage is given by
+\[
+w = \arg \max (W - U)^{\beta} (J - V)^{1-\beta}
+\]
+So we have the first order condition (from the product rule)
+\[
+\beta (W - U)^{\beta - 1} (J - V)^{1-\beta} \frac{d (W-U)}{dw} + (1-\beta) (W - U)^{\beta}  (J - V)^{-\beta} \frac{d (J-V)}{dw} = 0
+\]
+
+The expected returns from search $U, V$ are independent of any particular $w$, so we have
+\[
+\frac{dU}{dw} = \frac{dV}{dw} = 0
+\]
+and transferable utility implies
+\[
+\frac{dW}{dw} = -\frac{dJ}{dw} 
+\]
+so we get that
+\[
+W - U = \beta ((J-V) + (W-U))
+\]
+meaning that workers get a share $\beta$ of the total surplus.
+
+Now all that is left from the first order condition is
+\[
+\beta (J-V) = (1-\beta) (W - U)
+\]
+Differentiate both sides with respect to $t$ to get
+\[
+\beta (\dot{J}-\dot{V}) = (1-\beta) (\dot{W} - \dot{U})
+\]
+Now substitute from the Bellman equations
+\begin{align*}
+\beta(rJ - p + \tau + w - \lambda (V-J) - (rV + (p - \tau)c - \theta^{-\frac{1}{2}} (J - V))) = \\(1-\beta) (rW - w - \lambda(U-W) - (rU - z - \theta^{\frac{1}{2}} (W - U)))
+\end{align*}
+Since $\beta r (J-V) = (1-\beta) r (W-U)$, we can simplify to get
+\begin{align*}
+\beta( - p + \tau + w - \lambda (V-J) - ((p - \tau)c - \theta^{-\frac{1}{2}} (J - V))) = \\(1-\beta) ( - w - \lambda(U-W) - ( - z - \theta^{\frac{1}{2}} (W - U)))
+\end{align*}
+Since $\beta \lambda (V-J) = (1-\beta) \lambda (U-W)$, we can simplify again to get
+\begin{align*}
+\beta( - p + \tau + w  - ((p - \tau)c - \theta^{-\frac{1}{2}} (J - V))) = (1-\beta) ( - w  - ( - z - \theta^{\frac{1}{2}} (W - U)))
+\end{align*}
+Using the same substitution with $\theta^{-\frac{1}{2}}$, we have
+\begin{equation}
+w = \beta (p - \tau + (p - \tau)c) + (1-\beta) z + \beta (\theta - 1) \theta^{-\frac{1}{2}} (J-V)
+\end{equation}
+
+An increase in $\tau$ makes both vacancies and employment less valuable for the firm, so they will not be willing to pay as much for workers.
+
+
+\subsection{Free entry}
+
+In equilibrium all profit opportunities from new jobs are exploited, driving rents from vacant jobs to zero. Therefore the equilibrium condition for the supply of vacant jobs is $V = 0$. From the Bellman equation for vacancies we get
+\[
+J = \frac{(p-\tau)c}{\theta^{-\frac{1}{2}}}
+\]
+and so we will have
+\begin{equation}
+w = z + \beta(p-\tau-z) + \beta \theta (p - \tau) c
+\end{equation}
+implying that wage is equal to the sum of the outside option, the bargaining share of the net return to market activity, and the average hiring cost of unemployed workers.
+
+\subsection{Balanced budget}
+
+We need the condition
+\[
+zu = (1-u) \tau
+\]
+to hold. In equilibrium, we have the steady state value of $u$ as
+\[
+u = \frac{\lambda}{\lambda + \theta q (\theta)} =  \frac{\lambda}{\lambda + \theta^{\frac{1}{2}}}
+\]
+Solving for $\tau$, we have
+\begin{equation}
+\tau = \frac{z \lambda}{\theta^{\frac{1}{2}}}
+\end{equation}
+implying a wage of 
+\begin{equation}
+w = z + \beta(p- z \lambda \theta^{-\frac{1}{2}}-z) + \beta \theta (p -  z \lambda \theta^{-\frac{1}{2}}) c
+\end{equation}
+where tighter labor markets imply that the cost of jobs is lower for the firms implying higher worker value and therefore higher wages.
+
+\subsection{Equilibrium tightness}
+
+In the steady state we can use the Bellman equation for a job to obtain
+\[
+J = \frac{p - \tau - w}{r + \lambda}
+\]
+which we can combine with our free entry condition. 
+So we have
+\[
+\frac{(p-z\lambda \theta^{-\frac{1}{2}})c}{\theta^{-\frac{1}{2}}} = \frac{p - z\lambda \theta^{-\frac{1}{2}} - z + \beta(p- z \lambda \theta^{-\frac{1}{2}}-z) + \beta \theta (p -  z \lambda \theta^{-\frac{1}{2}}) c}{r + \lambda}
+\]
+Cross multiply, distribute, and divide by $p$ to get
+\[
+(1-\beta)(1- \frac{z}{p}) - \beta \theta c + \lambda  \frac{\beta \theta + \beta - 1}{\theta^{\frac{1}{2}}} \cdot \frac{z}{p} = \frac{(r+\lambda)c}{\theta^{-\frac{1}{2}}} - \frac{(r+\lambda) \lambda c}{\theta^{\frac{3}{4}}} \cdot \frac{z}{p}
+\]
+which is the implicit equation desired.
+
+\subsection{Generosity of unemployment benefits}
+
+Solving for the ratio $\frac{z}{p}$ gives
+\[
+\frac{z}{p} = \frac{ \beta + \beta \theta c + (r+\lambda)c \theta^{-\frac{1}{2}} - 1}{\beta + (r+\lambda) \lambda c + \lambda  (\beta \theta + \beta - 1) \theta^{\frac{1}{2}} -1 }
+\]
+implying that higher unemployment benefits increase unemployment, as they enhance the outside value of not working and reduce the payoff to jobs.
+
+\subsection{Stability}
+
+The equilibrium is plausibly unstable, as more vacancies increase the value of workers and therefore employment, which may spiral until many more workers are employed.
+
+
+\end{document}
