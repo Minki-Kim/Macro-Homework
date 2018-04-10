@@ -28,6 +28,8 @@
 
 \subsection{Romer 5.8}
 
+\subsubsection*{(a)}
+
 We can start with the full Lagrangian, after substituting
 
 \[
@@ -67,6 +69,68 @@ and from linearity of expectation we can cancel terms to get
 C_t = E[C_{t+1}]
 \]
 as our Euler equation.
+
+\subsubsection*{(b)}
+
+Substituting the guessed form into the resource constraint
+\[
+C_t = (1 + A) K_t + e_t - K_{t+1}
+\]
+gets us
+\[
+\alpha + \beta K_t + \gamma e_t = (1 + A) K_t + e_t - K_{t+1}
+\]
+and upon rearranging we have
+\[
+K_{t+1} = (1 + A - \beta) K_t + (1-\gamma) e_t - \alpha
+\]
+as our function for future capital.
+
+\subsubsection*{(c)}
+
+We have given that 
+\[
+C_t = \alpha + \beta K_t + \gamma e_t 
+\]
+so we merely need to find 
+\[
+E[C_{t+1}] = E[\alpha + \beta K_{t+1} + \gamma e_{t+1}]
+\]
+
+By linearity and substituting our earlier result, we have
+\[
+E[C_{t+1}] = \alpha + \beta ((1 + A - \beta) K_t + (1-\gamma) e_t - \alpha) + \gamma E[e_{t+1}]
+\]
+Since we are given that $\varepsilon_t$ has expectation zero, we can substitute
+\[
+E[e_{t+1}] = \phi e_t
+\]
+(since we are merely applying the law of motion for $e$ in period $t+1$ rather than period $t$) and so we have
+\[
+E[C_{t+1}] = \alpha + \beta ((1 + A - \beta) K_t + (1-\gamma) e_t - \alpha) + \gamma \phi e_t
+\]
+which we can simplify as
+\[
+E[C_{t+1}] = (1 - \beta) \alpha + \beta (1 + A - \beta) K_t + (\beta - \gamma \beta + \gamma \phi) e_t
+\]
+and from the Euler equation we have
+\[
+\alpha + \beta K_t + \gamma e_t  = (1 - \beta) \alpha + \beta (1 + A - \beta) K_t + (\beta - \gamma \beta + \gamma \phi) e_t
+\]
+and so we will have
+\begin{align*}
+\alpha &= (1 - \beta) \alpha \\
+\beta &= \beta (1 + A - \beta) \\
+\gamma &= (\beta - \gamma \beta + \gamma \phi)
+\end{align*}
+which upon solving this system (with 3 equations and 3 unknowns since $A$ and $\phi$ are given) yield
+\begin{align*}
+\alpha &= 0 \\
+\beta &= A\\
+\gamma &= \frac{A}{1 + A - \phi}
+\end{align*}
+for the parameters.
+
 
 \section{Permanent income hypothesis and the ``excess smoothness'' puzzle}
 
