@@ -348,7 +348,22 @@ and we can rewrite as
 \subsection{}
 
 \subsection{}
-
+The original equation is
+\[
+Y_t = K_t^{\alpha_t} L_t^{1-\alpha_t}
+\]
+so we take logs to get
+\[
+\log(Y_t) = \alpha_t \log(K_t) + (1-\alpha_t) \log(L_t)
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+\check{Y} = \alpha  \bar{K}^{\alpha -1} \bar{L}^{1-\alpha } (K_t - \bar{K}) + (1-\alpha ) \bar{K}^{\alpha } \bar{L}^{-\alpha } (L_t - \bar{L}) + \bar{K}^{\alpha } \bar{L}^{1-\alpha } (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
+\]
+and we can rewrite as 
+\[
+\check{Y} = \alpha \bar{Y} \check{K} + (1-\alpha) \bar{Y} \check{L} + \bar{\alpha} \bar{Y} (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
+\]
 
 
 
