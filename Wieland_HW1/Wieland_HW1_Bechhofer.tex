@@ -133,6 +133,61 @@ for the parameters.
 
 \subsubsection*{(d)}
 
+\subsection{Romer 5.9}
+
+\subsubsection*{(a)}
+
+We can start with the full Lagrangian, after substituting
+
+\[
+C_t = K_t + Y_t - K_{t+1} =  K_t + A K_t + - K_{t+1}  = (1 + A) K_t - K_{t+1}
+\]
+to get
+\[
+\mathcal{L} = E \left[ \sum_{t=0}^{\infty} \frac{u(C_t) + \lambda_t ((1 + A) K_t - K_{t+1})}{(1+\rho)^t} \right]
+\]
+
+which gives first order conditions with respect to $C_t$ and $K_{t+1}$ (which are chosen each period) of 
+\[
+u'(C_t) = \lambda_t
+\]
+and
+\[
+\lambda_t = \frac{(1+A) E[\lambda_{t+1}]}{(1+\rho)}
+\]
+and combining gives
+\[
+u'(C_t) = \frac{(1+A) E[u'(C_{t+1})]}{(1+\rho)}
+\]
+but since $A=\rho$, we are left with a more standard
+\[
+u'(C_t) = E[u'(C_{t+1})]
+\]
+and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get 
+\[
+1 - 2 \theta (C_t + v_t) = 1 - 2 \theta (E[C_{t+1}] + E[v_t]) \implies C_t + v_t = E[C_{t+1}] 
+\]
+from linearity of expectation and the zero mean shock.
+
+\subsubsection*{(b)}
+
+Substituting the guessed form into the resource constraint
+\[
+C_t = (1 + A) K_t - K_{t+1}
+\]
+gets us
+\[
+\alpha + \beta K_t + \gamma v_t = (1 + A) K_t - K_{t+1}
+\]
+and upon rearranging we have
+\[
+K_{t+1} = (1 + A - \beta) K_t - \gamma v_t - \alpha
+\]
+as our function for future capital.
+
+
+
+\subsection{Romer 5.11}
 
 \section{Permanent income hypothesis and the ``excess smoothness'' puzzle}
 
