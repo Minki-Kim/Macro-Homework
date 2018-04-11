@@ -303,6 +303,25 @@ which comes out to just
 \]
 
 \subsection{}
+The original equation is
+\[
+Y_t = (\alpha K_t^{\rho} + (1-\alpha)(A_t L_t)^{\rho})^{1 \over \rho}
+\]
+so we take logs to get
+\[
+\log(Y_t) = \log((\alpha K_t^{\rho} + (1-\alpha)(A_t L_t)^{\rho})^{1 \over \rho})
+\]
+and do the first order Taylor series expansion at the steady state to get
+\begin{tiny}
+\[
+\check{y}  = \left(\frac{\alpha  \bar{K}^{\rho -1}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) (K_t - \bar{K}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{A} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) (A_t - \bar{A}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{L} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right)(L_t - \bar{L})
+\]
+\end{tiny}
+and rewrite as
+\[
+\check{y}  = \left(\frac{\alpha  \bar{K}^{\rho}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) \check{K} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{A} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{L}
+\]
+
 
 \subsection{}
 
