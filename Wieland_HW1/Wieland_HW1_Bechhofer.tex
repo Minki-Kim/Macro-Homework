@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{cancel}
 \usepackage{epstopdf}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -280,6 +281,26 @@ Log-linearizing the first order condition for investment, we have (since $I_t/K_
 \section{Practice log-linearization}
 
 \subsection{}
+The original equation is
+\[
+Y_t = C_t + I_t + G_t + NX_t
+\]
+so we take logs to get
+\[
+\log(Y_t) = \log(C_t + I_t + G_t + NX_t)
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+\cancel{\log \bar{Y}} + \frac{1}{\bar{Y}} (Y_t - \bar{Y}) = \cancel{\log(\overline{C_t + I_t + G_t + NX_t})} + \frac{1}{\bar{Y}} (C_t - \bar{C}) + \frac{1}{\bar{Y}} (I_t - \bar{I}) + \frac{1}{\bar{Y}} (G_t - \bar{G}) + \frac{1}{\bar{Y}} (NX_t - 0)
+\]
+and we rewrite as 
+\[
+\check{y} = \frac{\bar{C}}{\bar{Y}} \frac{(C_t - \bar{C})}{\bar{C}} + \frac{\bar{I}}{\bar{Y}} \frac{(I_t - \bar{I})}{\bar{I}} + \frac{\bar{G}}{\bar{Y}} \frac{(G_t - \bar{G})}{\bar{G}} + \cancel{\frac{\overline{NX}}{\bar{Y}} \frac{(NX_t - \overline{NX})}{\overline{NX}}}
+\]
+which comes out to just
+\[
+\check{y} = \frac{\bar{C}}{\bar{Y}} \check{C} + \frac{\bar{I}}{\bar{Y}} \check{Y} + \frac{\bar{G}}{\bar{Y}} \check{G}
+\]
 
 \subsection{}
 
