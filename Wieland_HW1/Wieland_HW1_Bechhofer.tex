@@ -328,6 +328,22 @@ and rewrite as
 \subsection{}
 
 \subsection{}
+The original equation is
+\[
+\exp(i_t) = \left(\frac{P_t}{P_{t-1}} \right)^{\phi_{\pi}} \left(\frac{Y_t}{Y_{t-1}} \right)^{\phi_y} \exp(\rho i_{t-1})
+\]
+so we take logs to get
+\[
+i_t = \phi_{\pi}(\log(P_t) - \log(P_{t-1})) + \phi_y (\log(Y_t) - \log(Y_{t-1})) + \rho i_{t-1}
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+i_t - \bar{i} = \frac{\phi_{\pi}}{\bar{P}} (P_t - \bar{P}) - \frac{\phi_{\pi}}{\bar{P}} (P_{t-1} - \bar{P}) +\frac{\phi_y}{\bar{Y}} (Y_t - \bar{Y}) - \frac{\phi_y}{\bar{Y}} (Y_{t-1} - \bar{Y}) + \rho(i_{t-1} - \bar{i})
+\]
+and we can rewrite as 
+\[
+\check{i}_t = \frac{\phi_{\pi}}{\bar{i}} (\check{P}_t - \check{P}_{t-1})  +\frac{\phi_y}{\bar{i}} (\check{Y}_t - \check{Y}_{t-1}) + \rho \check{i}_{t-1}
+\]
 
 \subsection{}
 
