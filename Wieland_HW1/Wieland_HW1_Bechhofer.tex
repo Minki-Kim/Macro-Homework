@@ -170,7 +170,7 @@ u'(C_t) = E[u'(C_{t+1})]
 \]
 and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get
 \[
-1 - 2 \theta (C_t + v_t) = 1 - 2 \theta (E[C_{t+1}] + E[v_t]) \implies C_t + v_t = E[C_{t+1}]
+1 - 2 \theta (C_t + v_t) = 1 - 2 \theta (E[C_{t+1}] + E[v_{t+1}]) \implies C_t + v_t = E[C_{t+1}]
 \]
 from linearity of expectation and the zero mean shock.
 
@@ -221,7 +221,7 @@ and so we will have
 \begin{align*}
 \alpha &= (1 - \beta) \alpha \\
 \beta &= \beta (1 + A - \beta) \\
-\gamma + 1 &= \gamma \beta
+\gamma + 1 &= -\gamma \beta
 \end{align*}
 which upon solving this system (with 3 equations and 3 unknowns since $A$ is given) yield
 \begin{align*}
@@ -285,13 +285,9 @@ which shows that the labor supply is constant.
 \subsubsection*{(d)}
 
 Substitutions give
-\begin{small}
-\begin{align*}
-V(K_t, A_t) = \alpha \log K_t + &(1-\alpha) \log A_t  + (1-\alpha) \log L_t - \log (1+ e^{-\rho} \beta_K) + \\
-&b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_0 + \\
-&e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + \alpha \log K_t + (1-\alpha) \log A_t  + (1-\alpha) \log L_t ] + e^{-\rho} \beta_A \rho_A \log A_t
-\end{align*}
-\end{small}
+\begin{dmath*}
+V(K_t, A_t) = \alpha \log K_t + (1-\alpha) \log A_t  + (1-\alpha) \log L_t - \log (1+ e^{-\rho} \beta_K) + b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_0 + e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + \alpha \log K_t + (1-\alpha) \log A_t  + (1-\alpha) \log L_t ] + e^{-\rho} \beta_A \rho_A \log A_t
+\end{dmath*}
 so we have
 \[
 \beta_K' = \alpha (1+ e^{-\rho} \beta_K)
@@ -301,11 +297,9 @@ along with
 \beta_A' = (1-\alpha) (1+ e^{-\rho} \beta_K) + e^{-\rho} \beta_A \rho_A
 \]
 and
-\begin{small}
-\[
-\beta_0' = (1-\alpha) \log L_t^* - \log (1+ e^{-\rho} \beta_K) + b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + (1-\alpha) \log L_t^* ]
-\]
-\end{small}
+\begin{dmath*}
+\beta_0' = (1-\alpha) \log L_t^* - \log (1+ e^{-\rho} \beta_K) + b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_K \left[ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + (1-\alpha) \log L_t^* \right]
+\end{dmath*}
 
 \subsubsection*{(e)}
 
