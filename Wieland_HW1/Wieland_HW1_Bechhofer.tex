@@ -134,6 +134,10 @@ for the parameters.
 
 \subsubsection*{(d)}
 
+First we consider the case of positive $\phi$. Consumption rises and stays persistently higher, while capital increases as it approaches a new long-run equilibrium. Output jumps at first, but then declines as it approaches a new long-run level which is still higher than it was.
+
+In the case of negative $\phi$, capital and output (and therefore consumption) will also eventually be higher, but they will oscillate around the new long-run level, as $\phi^s$ will be positive and negative depending on the period.
+
 \subsection{Romer 5.9}
 
 \subsubsection*{(a)}
@@ -246,6 +250,101 @@ and so a one time positive shock means that the capital stock is higher forever 
 
 This is the same for every value function: the choice of saving and investment must guarantee that utility in the current period is equal to the discounted expected value of the value function tomorrow, as otherwise the marginal value of allocating resources to today's utility would not be equal to the value of allocating resources for the future, violating the intertemporal first order conditions.
 
+\subsubsection*{(b)}
+
+The first order condition for consumption is 
+\[
+\frac{1}{C_t} = -\frac{e^{-\rho} \beta_K}{Y_t - C_t}
+\]
+which we can rewrite as
+\[
+\frac{Y_t - C_t}{C_t} = -e^{-\rho} \beta_K
+\]
+and solving for $Y$ we have
+\[
+Y = C_t (1+ e^{-\rho} \beta_K)
+\]
+so consumption is a constant fraction of output.
+
+\subsubsection*{(c)}
+
+The first order condition for labor is 
+\[
+-\frac{b}{1-L_t} = -\frac{e^{-\rho} \beta_K}{Y_t - C_t} \times (1-\alpha) K_t^{\alpha} A_t^{1-\alpha} L_t^{-\alpha}
+\]
+which we can rewrite using the definition of $Y$ and the first order condition for consumption as
+\[
+b L_t = (1-L_t) (1-\alpha) (1+ e^{-\rho} \beta_K)
+\]
+and so we have
+\[
+(1-L_t) = \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b}
+\]
+which shows that the labor supply is constant.
+
+\subsubsection*{(d)}
+
+Substitutions give 
+\begin{small}
+\begin{align*}
+V(K_t, A_t) = \alpha \log K_t + &(1-\alpha) \log A_t  + (1-\alpha) \log L_t - \log (1+ e^{-\rho} \beta_K) + \\
+&b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_0 + \\
+&e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + \alpha \log K_t + (1-\alpha) \log A_t  + (1-\alpha) \log L_t ] + e^{-\rho} \beta_A \rho_A \log A_t
+\end{align*}
+\end{small}
+so we have 
+\[
+\beta_K' = \alpha (1+ e^{-\rho} \beta_K)
+\]
+along with 
+\[
+\beta_A' = (1-\alpha) (1+ e^{-\rho} \beta_K) + e^{-\rho} \beta_A \rho_A
+\]
+and 
+\begin{small}
+\[
+\beta_0' = (1-\alpha) \log L_t^* - \log (1+ e^{-\rho} \beta_K) + b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + (1-\alpha) \log L_t^* ]
+\]
+\end{small}
+
+\subsubsection*{(e)}
+
+We solve the system of equations
+\begin{align*}
+\beta_K &= \alpha (1+ e^{-\rho} \beta_K) \\
+\beta_A &= (1-\alpha) (1+ e^{-\rho} \beta_K) + e^{-\rho} \beta_A \rho_A
+\end{align*}
+
+and so we get that 
+\[
+\beta_K = \frac{\alpha}{1-\alpha e^{-\rho}}
+\]
+and
+\[
+\beta_A = \frac{1-\alpha}{(1-\alpha e^{-\rho})(1-\rho_A e^{-\rho})}
+\]
+
+\subsubsection*{(f)}
+
+With this value of $\beta_K$, we get
+\[
+\frac{C_t}{Y_t} = \frac{1}{1 + \frac{\alpha e^{-\rho}}{1-\alpha e^{-\rho}}}
+\]
+which we can simplify as
+\[
+\frac{C_t}{Y_t} = 1-\alpha e^{-\rho}
+\]
+which is the same value.
+
+For labor supply, we have
+\[
+L_t = \frac{1-\alpha}{(1-\alpha) + \frac{b}{1+ \frac{\alpha e^{-\rho}}{1-\alpha e^{-\rho}}}}
+\]
+and simplifying we have
+\[
+L_t = \frac{1-\alpha}{(1-\alpha) + b (1-\alpha e^{-\rho})}
+\]
+which is also the same value as in the earlier derivation.
 
 \section{Permanent income hypothesis and the ``excess smoothness'' puzzle}
 
@@ -388,7 +487,22 @@ and we can rewrite as
 \subsection{}
 
 \subsection{}
-
+The original equation is
+\[
+Y_t = K_t^{\alpha_t} L_t^{1-\alpha_t}
+\]
+so we take logs to get
+\[
+\log(Y_t) = \alpha_t \log(K_t) + (1-\alpha_t) \log(L_t)
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+\check{Y} = \alpha  \bar{K}^{\alpha -1} \bar{L}^{1-\alpha } (K_t - \bar{K}) + (1-\alpha ) \bar{K}^{\alpha } \bar{L}^{-\alpha } (L_t - \bar{L}) + \bar{K}^{\alpha } \bar{L}^{1-\alpha } (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
+\]
+and we can rewrite as 
+\[
+\check{Y} = \alpha \bar{Y} \check{K} + (1-\alpha) \bar{Y} \check{L} + \bar{\alpha} \bar{Y} (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
+\]
 
 
 
