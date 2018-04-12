@@ -530,6 +530,11 @@ E[u_{t+1} | \check{L}_{t+1}, \check{I}_{t+1}, \check{K}_{t+1}, \check{I}_{t}, \c
 \]
 Hence by regressing $\check{r}_{t+1}$ on $(\check{L}_{t+1} - \check{K}_{t+1})$, $(\check{I}_{t+1} - \check{K}_{t+1})$, and $(\check{I}_{t} - \check{K}_{t})$, we can obtain estimates for $\beta_0$, $\beta_1$, and $\beta_2$. Given that the only unknown parameters are $\alpha$, $\delta$, and $a$, our model is just identified and we can obtain an estimate for $a$.
 
+\subsection{Immediate capital stock adjustment.}
+If capital adjusts instantly, the timing on the Euler equation changes (it isn't an Euler equation anymore, no?): all the period $t+1$ terms become period $t$ terms, and there is no expectational error. We still have 3 dependent variables in our Euler equation: $\check{L}_{t}$, $\check{I}_{t}$, and $\check{K}_{t}$, so we should still be able to estimate the Euler equation and obtain an estimate for $a$ as before.
+
+\subsection{Estimating investment as a function of $q$ vs Euler equation.}
+The former approach requires some assumptions about what $q$ is given that we cannot observe $q$. While $q$ should be $1$ when firms are not adjusting their capital stock, this is not always the case, e.g., during the period immediately after a productivity shock.
 
 \section{Practice log-linearization}
 
