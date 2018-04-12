@@ -2,7 +2,7 @@
 
 
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+\geometry{a4paper}                   % ... or a4paper or a5paper or ...
 %\geometry{landscape}                % Activate for for rotated page geometry
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{enumitem}
@@ -19,10 +19,10 @@
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
-	
 
 
-	
+
+
 \maketitle
 
 \section{Questions from textbook}
@@ -41,7 +41,7 @@ to get
 \mathcal{L} = E \left[ \sum_{t=0}^{\infty} \frac{u(C_t) + \lambda_t ((1 + A) K_t + e_t - K_{t+1})}{(1+\rho)^t} \right]
 \]
 
-which gives first order conditions with respect to $C_t$ and $K_{t+1}$ (which are chosen each period) of 
+which gives first order conditions with respect to $C_t$ and $K_{t+1}$ (which are chosen each period) of
 \[
 u'(C_t) = \lambda_t
 \]
@@ -57,14 +57,14 @@ but since $A=\rho$, we are left with a more standard
 \[
 u'(C_t) = E[u'(C_{t+1})]
 \]
-and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get 
+and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get
 \[
 u'(C_t) = 1 - 2 \theta C_t
 \]
-and we now have 
+and we now have
 \[
 1 - 2 \theta C_t = E[1 - 2 \theta C_{t+1}]
-\] 
+\]
 and from linearity of expectation we can cancel terms to get
 \[
 C_t = E[C_{t+1}]
@@ -89,11 +89,11 @@ as our function for future capital.
 
 \subsubsection*{(c)}
 
-We have given that 
+We have given that
 \[
-C_t = \alpha + \beta K_t + \gamma e_t 
+C_t = \alpha + \beta K_t + \gamma e_t
 \]
-so we merely need to find 
+so we merely need to find
 \[
 E[C_{t+1}] = E[\alpha + \beta K_{t+1} + \gamma e_{t+1}]
 \]
@@ -148,7 +148,7 @@ to get
 \mathcal{L} = E \left[ \sum_{t=0}^{\infty} \frac{u(C_t) + \lambda_t ((1 + A) K_t - K_{t+1})}{(1+\rho)^t} \right]
 \]
 
-which gives first order conditions with respect to $C_t$ and $K_{t+1}$ (which are chosen each period) of 
+which gives first order conditions with respect to $C_t$ and $K_{t+1}$ (which are chosen each period) of
 \[
 u'(C_t) = \lambda_t
 \]
@@ -164,9 +164,9 @@ but since $A=\rho$, we are left with a more standard
 \[
 u'(C_t) = E[u'(C_{t+1})]
 \]
-and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get 
+and we can substitute for $u'(C_t)$ since we are given the form of the utility function to get
 \[
-1 - 2 \theta (C_t + v_t) = 1 - 2 \theta (E[C_{t+1}] + E[v_t]) \implies C_t + v_t = E[C_{t+1}] 
+1 - 2 \theta (C_t + v_t) = 1 - 2 \theta (E[C_{t+1}] + E[v_t]) \implies C_t + v_t = E[C_{t+1}]
 \]
 from linearity of expectation and the zero mean shock.
 
@@ -188,11 +188,11 @@ as our function for future capital.
 
 \subsubsection*{(c)}
 
-We have given that 
+We have given that
 \[
-C_t = \alpha + \beta K_t + \gamma v_t 
+C_t = \alpha + \beta K_t + \gamma v_t
 \]
-so we merely need to find 
+so we merely need to find
 \[
 E[C_{t+1}] = E[\alpha + \beta K_{t+1} + \gamma v_{t+1}]
 \]
@@ -219,7 +219,7 @@ and so we will have
 \beta &= \beta (1 + A - \beta) \\
 \gamma + 1 &= \gamma \beta
 \end{align*}
-which upon solving this system (with 3 equations and 3 unknowns since $A$ is given) yield 
+which upon solving this system (with 3 equations and 3 unknowns since $A$ is given) yield
 \begin{align*}
 \alpha &= 0 \\
 \beta &= A\\
@@ -250,7 +250,47 @@ This is the same for every value function: the choice of saving and investment m
 \section{Permanent income hypothesis and the ``excess smoothness'' puzzle}
 
 \subsection{Saving responses to shocks}
+The Lagrangian is
+\begin{align*}
+	\mathcal{L} = E_t \left\lbrace \sum_{s=0}^\infty \beta^s U(C_{t+s}) + \lambda \left[ \sum_{k=0}^\infty \left( A_t - (1+r)^{-s} (C_{t+k} - Y_{t+k} ) \right) \right]\right\rbrace
+\end{align*}
+The first order conditions for $C_t$ and $C_{t+s}$ are respectively
+\begin{align*}
+	&U'(C_t) - \lambda = 0 \\
+	&E_t \left[ \beta^s U'(C_{t+s}) -\lambda (1+r)^{-s} \right] = 0
+\end{align*}
+Given we have $\beta = (1+r)^{-1}$, we can combine the FOCs and we get
+\[
+U'(C_t) = E_t \left[ U'(C_{t+s}) \right]
+\]
+As utility is quadratic, this implies
+\[
+C_t = E_t \left[ C_{t+s} \right]
+\]
+Now we use the fact that the budget constrain holds in expectation,
+\[
+A_t = E_t \left[ \sum_{s=0}^\infty (1+r)^{-s} (C_{t+s} - T_{t+s}) \right]
+\]
+and we plug in $C_t = E_t \left[ C_{t+s} \right]$ to get
+\[
+C_t = (1-\beta) A_t + (1-\beta) \sum_{s=0}^\infty \beta^s E_t [Y_{t+s}]
+\]
 
+\subsubsection*{(a) Y_t = \mu t + \phi Y_{t-1} + \epsilon_t}
+Assuming $\epsilon_k = 0$ for $k \neq t$, we can iterate the expression for $Y_{t+s}$ backwards to obtain
+\[
+Y_{t+s} = \sum_{k=0}^s \left[ \phi^k \mu (t+s-k) \right] + \phi^{s+1} Y_{t-1} + \phi^s \epsilon_t
+\]
+Hence
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] = \phi^s
+\]
+We can then use this to obtain
+\begin{align*}
+	\frac{\partial}{\partial \epsilon_t} C_t &= (1-\beta) \sum_{s=0}^\infty \beta^s \frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] \\
+	&= (1-\beta) \sum_{s=0}^\infty \beta^s \phi^s \\
+	&= (1-\beta) \frac{1}{1-\beta \phi}
+\end{align*}
 \section{Estimation of adjustment costs}
 
 \subsection{Optimality conditions}
@@ -259,11 +299,11 @@ First we write the Lagrangian
 \[
 \mathcal{L} = E \left\{ \sum_{t=0}^{\infty} R_t \left[(1 - \tau) K_t^{\alpha} L_t^{1-\alpha} - w_t L_t - I_t \left(1 + a(I_t / K_t - \delta) \right) \right] + q_t ((1-\delta) K_t + I_t - K_{t+1}) \right\}
 \]
-which gives first order conditions with respect to $L_t$, $I_t$, and $K_{t+1}$ (which are chosen each period) of 
+which gives first order conditions with respect to $L_t$, $I_t$, and $K_{t+1}$ (which are chosen each period) of
 \[
 (1-\alpha)(1 - \tau) K_t^{\alpha} L_t^{-\alpha} = w_t
 \]
-for $L_t$, 
+for $L_t$,
 \[
 q_t = 1 + a(I_t / K_t - \delta) + a(I_t / K_t)
 \]
@@ -293,13 +333,13 @@ and do the first order Taylor series expansion at the steady state to get
 \[
 \cancel{\log \bar{Y}} + \frac{1}{\bar{Y}} (Y_t - \bar{Y}) = \cancel{\log(\overline{C_t + I_t + G_t + NX_t})} + \frac{1}{\bar{Y}} (C_t - \bar{C}) + \frac{1}{\bar{Y}} (I_t - \bar{I}) + \frac{1}{\bar{Y}} (G_t - \bar{G}) + \frac{1}{\bar{Y}} (NX_t - 0)
 \]
-and we rewrite as 
+and we rewrite as
 \[
 \check{y} = \frac{\bar{C}}{\bar{Y}} \frac{(C_t - \bar{C})}{\bar{C}} + \frac{\bar{I}}{\bar{Y}} \frac{(I_t - \bar{I})}{\bar{I}} + \frac{\bar{G}}{\bar{Y}} \frac{(G_t - \bar{G})}{\bar{G}} + \cancel{\frac{\overline{NX}}{\bar{Y}} \frac{(NX_t - \overline{NX})}{\overline{NX}}}
 \]
 which comes out to just
 \[
-\check{y} = \frac{\bar{C}}{\bar{Y}} \check{C} + \frac{\bar{I}}{\bar{Y}} \check{Y} + \frac{\bar{G}}{\bar{Y}} \check{G}
+\check{Y} = \frac{\bar{C}}{\bar{Y}} \check{C} + \frac{\bar{I}}{\bar{Y}} \check{Y} + \frac{\bar{G}}{\bar{Y}} \check{G}
 \]
 
 \subsection{}
@@ -314,12 +354,12 @@ so we take logs to get
 and do the first order Taylor series expansion at the steady state to get
 \begin{tiny}
 \[
-\check{y}  = \left(\frac{\alpha  \bar{K}^{\rho -1}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) (K_t - \bar{K}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{A} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) (A_t - \bar{A}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{L} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right)(L_t - \bar{L})
+\check{Y}  = \left(\frac{\alpha  \bar{K}^{\rho -1}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) (K_t - \bar{K}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{A} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) (A_t - \bar{A}) + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\bar{L} \left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right)(L_t - \bar{L})
 \]
 \end{tiny}
 and rewrite as
 \[
-\check{y}  = \left(\frac{\alpha  \bar{K}^{\rho}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) \check{K} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{A} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{L}
+\check{Y}  = \left(\frac{\alpha  \bar{K}^{\rho}}{\alpha  \bar{K}^{\rho }-(\alpha -1) (\bar{A} \bar{L})^{\rho }}\right) \check{K} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{A} + \left(\frac{(\alpha -1) (\bar{A} \bar{L})^{\rho }}{\left((\alpha -1) (\bar{A} \bar{L})^{\rho }-\alpha  \bar{K}^{\rho }\right)}\right) \check{L}
 \]
 
 
@@ -340,7 +380,7 @@ and do the first order Taylor series expansion at the steady state to get
 \[
 i_t - \bar{i} = \frac{\phi_{\pi}}{\bar{P}} (P_t - \bar{P}) - \frac{\phi_{\pi}}{\bar{P}} (P_{t-1} - \bar{P}) +\frac{\phi_y}{\bar{Y}} (Y_t - \bar{Y}) - \frac{\phi_y}{\bar{Y}} (Y_{t-1} - \bar{Y}) + \rho(i_{t-1} - \bar{i})
 \]
-and we can rewrite as 
+and we can rewrite as
 \[
 \check{i}_t = \frac{\phi_{\pi}}{\bar{i}} (\check{P}_t - \check{P}_{t-1})  +\frac{\phi_y}{\bar{i}} (\check{Y}_t - \check{Y}_{t-1}) + \rho \check{i}_{t-1}
 \]
@@ -352,4 +392,4 @@ and we can rewrite as
 
 
 
-\end{document}  
+\end{document}
