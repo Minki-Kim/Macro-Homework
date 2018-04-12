@@ -404,17 +404,39 @@ which gives first order conditions with respect to $L_t$, $I_t$, and $K_{t+1}$ (
 \]
 for $L_t$,
 \[
-q_t = 1 + a(I_t / K_t - \delta) + a(I_t / K_t)
+q_t = 1 + a(I_t / K_t - \delta) + a \cdot \frac{I_t}{K_t}
 \]
 for $I_t$,
 \[
-q_t = E \left[\frac{\alpha (1-\tau) K_t^{\alpha-1} L_t^{1-\alpha} + a(I_{t+1} / K_{t+1}) + (1-\delta) q_{t+1}}{1 + r_t} \right]
+R_t q_t = E \left[ R_{t+1} (\alpha (1-\tau) K_{t+1}^{\alpha-1} L_{t+1}^{1-\alpha} + a(I_{t+1} / K_{t+1})^2 + (1-\delta) q_{t+1} )\right]
 \]
-for $K_t$.
+for $K_{t+1}$.
 
-Optimal level of investment requires only the constant for the function $\phi$.
+Optimal level of investment requires the capital stock and the value for $a$, as we can rewrite the investment optimality condition as
+\[
+q_t = 2a \frac{I_t}{K_t} + 1 - \delta a
+\]
 
-Log-linearizing the first order condition for investment, we have (since $I_t/K_t = \delta$ in the steady state)
+
+Log-linearizing the first order condition for investment, with $\delta = \frac{\bar{I}}{\bar{K}}$, we have
+\[
+\bar{q} = \delta a + 1 \implies \check{q} = \frac{2 \delta a}{1 + \delta a} \times (\check{I} - \check{K})
+\]
+Estimating $a$ using this equation would be simply a matter of regressing estimates of $q$ deviations on investment and capital deviations, and then solving for $a$ given that the coefficient would be $frac{2 \delta a}{1 + \delta a}$. However, the error term would also be picking up transitions to a new steady state in addition to mere measurement error, and since one might expect investment and capital to rise over time, the error term would likely be correlated with growth and would be larger (and serially correlated) in times of more rapid growth.
+
+\subsection{Euler equation}
+
+Substituting the investment optimality condition and the definition of $R$, we have
+\[
+2a \frac{I_t}{K_t} + 1 - \delta a = E\left[ \frac{1}{1+r_{t+1}} \times (\alpha (1-\tau) K_{t+1}^{\alpha-1} L_{t+1}^{1-\alpha} + a(I_{t+1} / K_{t+1})^2 + (1-\delta) (2a \frac{I_{t+1}}{K_{t+1}} + 1 - \delta a) )\right]
+\]
+and we can proceed with log linearization.
+
+The steady state value of $I/K$ is just $\delta$, so we have
+\[
+\frac{2 \delta a}{1 + \delta a} (\check{I}_t - \check{K}_t)
+\]
+for the left hand side.
 
 
 \section{Practice log-linearization}
