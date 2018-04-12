@@ -252,7 +252,7 @@ This is the same for every value function: the choice of saving and investment m
 
 \subsubsection*{(b)}
 
-The first order condition for consumption is 
+The first order condition for consumption is
 \[
 \frac{1}{C_t} = -\frac{e^{-\rho} \beta_K}{Y_t - C_t}
 \]
@@ -268,7 +268,7 @@ so consumption is a constant fraction of output.
 
 \subsubsection*{(c)}
 
-The first order condition for labor is 
+The first order condition for labor is
 \[
 -\frac{b}{1-L_t} = -\frac{e^{-\rho} \beta_K}{Y_t - C_t} \times (1-\alpha) K_t^{\alpha} A_t^{1-\alpha} L_t^{-\alpha}
 \]
@@ -284,7 +284,7 @@ which shows that the labor supply is constant.
 
 \subsubsection*{(d)}
 
-Substitutions give 
+Substitutions give
 \begin{small}
 \begin{align*}
 V(K_t, A_t) = \alpha \log K_t + &(1-\alpha) \log A_t  + (1-\alpha) \log L_t - \log (1+ e^{-\rho} \beta_K) + \\
@@ -292,15 +292,15 @@ V(K_t, A_t) = \alpha \log K_t + &(1-\alpha) \log A_t  + (1-\alpha) \log L_t - \l
 &e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + \alpha \log K_t + (1-\alpha) \log A_t  + (1-\alpha) \log L_t ] + e^{-\rho} \beta_A \rho_A \log A_t
 \end{align*}
 \end{small}
-so we have 
+so we have
 \[
 \beta_K' = \alpha (1+ e^{-\rho} \beta_K)
 \]
-along with 
+along with
 \[
 \beta_A' = (1-\alpha) (1+ e^{-\rho} \beta_K) + e^{-\rho} \beta_A \rho_A
 \]
-and 
+and
 \begin{small}
 \[
 \beta_0' = (1-\alpha) \log L_t^* - \log (1+ e^{-\rho} \beta_K) + b \log \left( \frac{b}{(1-\alpha)(1+ e^{-\rho} \beta_K) + b} \right) + e^{-\rho} \beta_K [ \log e^{-\rho} \beta_k - \log (1+ e^{-\rho} \beta_K) + (1-\alpha) \log L_t^* ]
@@ -315,7 +315,7 @@ We solve the system of equations
 \beta_A &= (1-\alpha) (1+ e^{-\rho} \beta_K) + e^{-\rho} \beta_A \rho_A
 \end{align*}
 
-and so we get that 
+and so we get that
 \[
 \beta_K = \frac{\alpha}{1-\alpha e^{-\rho}}
 \]
@@ -366,7 +366,7 @@ As utility is quadratic, this implies
 \[
 C_t = E_t \left[ C_{t+s} \right]
 \]
-Now we use the fact that the budget constrain holds in expectation,
+Now we use the fact that the budget constraint holds in expectation,
 \[
 A_t = E_t \left[ \sum_{s=0}^\infty (1+r)^{-s} (C_{t+s} - T_{t+s}) \right]
 \]
@@ -390,6 +390,71 @@ We can then use this to obtain
 	&= (1-\beta) \sum_{s=0}^\infty \beta^s \phi^s \\
 	&= (1-\beta) \frac{1}{1-\beta \phi}
 \end{align*}
+Recall that savings is defined as $Y_{t+s} - C_{t+s}$, so the change in savings is
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s} - C_{t+s}] = \phi^s - (1-\beta) \frac{1}{1-\beta \phi} > 0
+\]
+Note that savings increase a lot initially but decreases over time. This is to be expected: given that the effect of an income shock diminishes over time (as $\phi \in (0,1)$), the increase in income is temporary and the consumer, who wants to smooth consumption, will want to save that increased initial income and spread the increased consumption across all periods.
+
+\subsubsection*{(b) $Y_t = Y_{t-1} + \epsilon_t$}
+Assuming $\epsilon_k = 0$ for $k \neq t$, we can iterate the expression for $Y_{t+s}$ backwards to obtain
+\[
+Y_{t+s} = Y_t + \epsilon_t
+\]
+Hence
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] = 1
+\]
+We can then use this to obtain
+\begin{align*}
+	\frac{\partial}{\partial \epsilon_t} C_t &= (1-\beta) \sum_{s=0}^\infty \beta^s \frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] \\
+	&= (1-\beta) \sum_{s=0}^\infty \beta^s \\
+	&= (1-\beta) \frac{1}{1-\beta} \\
+	&= 1
+\end{align*}
+Thus the change in savings is
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s} - C_{t+s}] = 1 - 1 = 0
+\]
+Since the initial shock to income increases income permanently, i.e., income in every period increases by $\epsilon_t$, there is no desire on part of the consumer to alter their savings behavior. Consumption simply increases 1-for-1 with the income shock.
+
+\subsubsection*{c) $\Delta(Y_t) = \phi\Delta(Y_{t-1}) + \epsilon_t$}
+Note that \[
+\Delta(Y_{t+s}) = \phi^s(\Delta(Y_t) + \epsilon_t)
+\]
+Using the fact that by definition
+\begin{align*}
+	Y_{t+s} - Y_{t-1} &= \Delta(Y_{t+s}) + \Delta(Y_{t+s-1}) + \Delta(Y_{t+s-2}) + \ldots + \Delta(Y_{t+1}) + \Delta(Y_{t}) \\
+	&= \phi^s(\Delta(Y_t) + \epsilon_t) + \phi^{s-1}(\Delta(Y_t) + \epsilon_t) + \ldots + \phi(\Delta(Y_t) + \epsilon_t) + (\Delta(Y_{t-1}) + \epsilon_t)
+\end{align*}
+we have
+\begin{align*}
+	Y_{t+s} &= \sum_{k=0}^s \left[ \phi^{s-k} (\Delta(Y_t) + \epsilon_t) \right] + Y_{t-1} \\
+	&= Y_{t-1} + \sum_{k=0}^s \left[ \phi^{k} \Delta(Y_t) \right] + \sum_{k=0}^s \left[ \phi^{k} \epsilon_t \right] \\
+	&= Y_{t-1} + \frac{1 - \phi^{s+1}}{1 - \phi} \Delta(Y_t) + \frac{1 - \phi^{s+1}}{1 - \phi} \epsilon_t
+\end{align*}
+Hence
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] = \frac{1 - \phi^{s+1}}{1 - \phi}
+\]
+We can then use this to obtain
+\begin{align*}
+	\frac{\partial}{\partial \epsilon_t} C_t &= (1-\beta) \sum_{s=0}^\infty \beta^s \frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s}] \\
+	&= (1-\beta) \sum_{s=0}^\infty \beta^s \frac{1 - \phi^{s+1}}{1 - \phi} \\
+	&= (1-\beta) \sum_{s=0}^\infty \frac{\beta^s}{1 - \phi} - (1-\beta) \sum_{s=0}^\infty \frac{\beta^s\phi^{s+1}}{1 - \phi} \\
+	&= \frac{1}{1-\phi} - \frac{(1-\beta) \phi}{(1-\phi)(1-\beta\phi)}
+\end{align*}
+Hence the change in savings is
+\[
+\frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s} - C_{t+s}] = \frac{1 - \phi^{s+1}}{1 - \phi} - \frac{1}{1-\phi} + \frac{(1-\beta) \phi}{(1-\phi)(1-\beta\phi)}
+\]
+Initial change in savings is small or negative, while future change in savings in large. This is because the initial shock to income increases future income more than present income (the initial shock is amplified over time). Hence to smooth consumption future savings should increase more than current savings.
+
+\subsection{Discuss permanent income hypothesis.} In this model, consumer's spread out any temporary gains in income over all time periods. In (a), the initial temporary gain in income leads to a large increase in initial savings that decreases over time, while in (c) we get the reverse: a large increase in future income causes savings to increase over time. However, in (b), a permanent income change that is uniform across all periods causes no change in savings. In all 3 cases, bumps in income translate into smooth (uniform across period) changes in consumption.
+
+\subsection{Smooth consumption puzzle.}
+No, this is not a puzzle: If consumers want to smooth consumption (due to risk aversion for example), then transitory shocks in income should not lead to large changes in consumption.
+
 \section{Estimation of adjustment costs}
 
 \subsection{Optimality conditions}
@@ -499,7 +564,7 @@ and do the first order Taylor series expansion at the steady state to get
 \[
 \check{Y} = \alpha  \bar{K}^{\alpha -1} \bar{L}^{1-\alpha } (K_t - \bar{K}) + (1-\alpha ) \bar{K}^{\alpha } \bar{L}^{-\alpha } (L_t - \bar{L}) + \bar{K}^{\alpha } \bar{L}^{1-\alpha } (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
 \]
-and we can rewrite as 
+and we can rewrite as
 \[
 \check{Y} = \alpha \bar{Y} \check{K} + (1-\alpha) \bar{Y} \check{L} + \bar{\alpha} \bar{Y} (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
 \]
