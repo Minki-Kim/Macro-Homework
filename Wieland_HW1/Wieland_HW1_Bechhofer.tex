@@ -12,7 +12,7 @@
 \usepackage{cancel}
 \usepackage{epstopdf}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
-
+\usepackage{breqn}
 
 \title{Econ 220C Problem Set \# 1}
 \author{Nathaniel Bechhofer}
@@ -492,9 +492,9 @@ Estimating $a$ using this equation would be simply a matter of regressing estima
 \subsection{Euler equation}
 
 Substituting the investment optimality condition and the definition of $R$, we have
-\[
-2a \frac{I_t}{K_t} + 1 - \delta a = E\left[ \frac{1}{1+r_{t+1}} \times (\alpha (1-\tau) K_{t+1}^{\alpha-1} L_{t+1}^{1-\alpha} + a(I_{t+1} / K_{t+1})^2 + (1-\delta) (2a \frac{I_{t+1}}{K_{t+1}} + 1 - \delta a) )\right]
-\]
+\begin{dmath*}
+	2a \frac{I_t}{K_t} + 1 - \delta a = E\left[ \frac{1}{1+r_{t+1}} \times (\alpha (1-\tau) K_{t+1}^{\alpha-1} L_{t+1}^{1-\alpha} + a(I_{t+1} / K_{t+1})^2 + (1-\delta) (2a \frac{I_{t+1}}{K_{t+1}} + 1 - \delta a) )\right]
+\end{dmath*}
 and we can proceed with log linearization.
 
 The steady state value of $I/K$ is just $\delta$, so we have
@@ -502,6 +502,33 @@ The steady state value of $I/K$ is just $\delta$, so we have
 \frac{2 \delta a}{1 + \delta a} (\check{I}_t - \check{K}_t)
 \]
 for the left hand side.
+
+\subsection{Regression to estimate Euler equation.}
+I denote the expectational error term as
+\[
+\epsilon_{\check{x}_{t+1}} = \check{x}_{t+1} - E_t[\check{x}_{t+1}]
+\]
+and define
+\[
+\bar{X} = (1-\tau)\alpha\left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} + \alpha \delta^2 + (1-\delta)(1+a\delta)
+\]
+I can rearrange the log-linearized Euler equation with expectational error terms to be
+\begin{dmath*}
+	\check{r}_{t+1} = \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (\check{L}_{t+1} - \check{K}_{t+1}) + \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta (\check{I}_{t+1} - \check{K}_{t+1}) - \frac{1+\bar{r}}{\bar{r}} \frac{2a\delta}{1+a\delta} (\check{I}_{t} - \check{K}_{t}) - \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (\epsilon_{\check{L}_{t+1}} - \epsilon_{\check{K}_{t+1}}) - \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta (\epsilon_{\check{I}_{t+1}} - \epsilon_{\check{K}_{t+1}}) + \epsilon_{\check{r}_{t+1}} \\
+	= \beta_0 (\check{L}_{t+1} - \check{K}_{t+1}) + \beta_1 (\check{I}_{t+1} - \check{K}_{t+1}) + \beta_2 (\check{I}_{t} - \check{K}_{t}) + u_{t+1}
+\end{dmath*}
+which is in the form of a linear model of observed variables, with
+\begin{align*}
+	\beta_0 &= \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} \\
+	\beta_1 &= \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta \\
+	\beta_2 &= -\frac{1+\bar{r}}{\bar{r}} \frac{2a\delta}{1+a\delta} \\
+	u_{t+1} &= \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (\epsilon_{\check{L}_{t+1}} - \epsilon_{\check{K}_{t+1}}) - \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta (\epsilon_{\check{I}_{t+1}} - \epsilon_{\check{K}_{t+1}}) + \epsilon_{\check{r}_{t+1}}
+\end{align*}
+Since $u_{t+1}$ consists of just constants multiplied with expectational error terms,
+\[
+E[u_{t+1} | \check{L}_{t+1}, \check{I}_{t+1}, \check{K}_{t+1}, \check{I}_{t}, \check{K}_{t}] = 0
+\]
+Hence by regressing $\check{r}_{t+1}$ on $(\check{L}_{t+1} - \check{K}_{t+1})$, $(\check{I}_{t+1} - \check{K}_{t+1})$, and $(\check{I}_{t} - \check{K}_{t})$, we can obtain estimates for $\beta_0$, $\beta_1$, and $\beta_2$. Given that the only unknown parameters are $\alpha$, $\delta$, and $a$, our model is just identified and we can obtain an estimate for $a$.
 
 
 \section{Practice log-linearization}
@@ -560,7 +587,7 @@ so we take logs to get
 \]
 and do the first order Taylor series expansion at the steady state to get
 \[
-\check{K} = 
+\check{K} =
 \]
 
 \subsection{}
