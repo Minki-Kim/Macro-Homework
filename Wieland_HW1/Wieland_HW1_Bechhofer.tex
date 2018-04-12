@@ -586,18 +586,16 @@ so we take logs to get
 \]
 and do the first order Taylor series expansion at the steady state to get
 \[
-<<<<<<< Updated upstream
-\check{K} =
-=======
-\check{K} = \left(\frac{-\delta +1 +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta \bar{K})}{\bar{K}^3}}{-\frac{\bar{I} \psi  (\bar{I}-\delta  \bar{K})^2}{\bar{K}^2}+\bar{J}-\delta  \bar{K}+\bar{K}} \right) (K_{t-1} - \bar{K})  + \left(\frac{3 \bar{I}^2 \psi -4 \delta  \bar{I} \bar{K} \psi +\bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)+(\delta -1) \bar{K}^3} \right) (I_{t-1} - \bar{I})
+\check{K} = \left( \frac{-\delta +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta  \bar{K})}{K^3}+1}{-\frac{\bar{I} \psi  (\bar{I}-\delta  \bar{K})^2}{\bar{K}^2}\bar{I}-\delta  \bar{K}+\bar{K}} \right) (K_{t-1} - \bar{K}) + \left( \frac{3 \bar{I}^2 \psi -4 \delta  \bar{I} \bar{K} \psi +\bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)+(\delta -1) \bar{K}^3} \right) (I_t - \bar{I})
 \]
 and rewrite as
 \[
-\check{K} = \left(\frac{-\delta  \bar{K}+\bar{K} +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta \bar{K})}{\bar{K}^2}}{-\frac{\bar{I} \psi  (\bar{I}-\delta  \bar{K})^2}{\bar{K}^2}+\bar{J}-\delta  \bar{K}+\bar{K}} \right) \check{K} + \left(\frac{3 \bar{I}^3 \psi -4 \delta  \bar{I}^2 \bar{K} \psi + \bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)+(\delta -1) \bar{K}^3} \right) \check{I}
->>>>>>> Stashed changes
+\check{K} = \left( -\delta +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta  \bar{K})}{K^3}+1 \right) \check{K}_{t-1} + \left( \frac{3 \bar{I}^3 \psi -4 \delta  \bar{I}^2 \bar{K} \psi + \bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1 \right)+(\delta -1) \bar{K}^3} \right) \check{I}_t
 \]
 
 \subsection{}
+
+Since this is just a version of 4.3 with an additional term that is a constant in the steady state, the answer is the same.
 
 \subsection{}
 The original equation is
@@ -619,6 +617,23 @@ and we can rewrite as
 
 \subsection{}
 
+The original equation is
+\[
+A \times F(L) = \frac{\frac{\partial U}{\partial L}}{\frac{\partial U}{\partial C}}
+\]
+so we take logs to get
+\[
+\log A + \log F(L) = \log \frac{\partial U}{\partial L} - \log \frac{\partial U}{\partial C}
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+\frac{1}{\bar{A}} (A_t - \bar{A}) + \frac{\overline{F'(L})}{\overline{F(L)}} (F(L_t) - \overline{F(L)}) = \frac{\overline{\frac{\partial^2 U}{\partial L^2} }}{\overline{\frac{\partial U}{\partial L} }} (\frac{\partial U}{\partial L} - \overline{\frac{\partial U}{\partial L} }) + \frac{\overline{\frac{\partial^2 U}{\partial C^2} }}{\overline{\frac{\partial U}{\partial C} }} (\frac{\partial U}{\partial C} - \overline{\frac{\partial U}{\partial C} })
+\]
+and we can rewrite as
+\[
+\check{A} + F'(\bar{L})F(\check{L}) = \frac{\partial^2 U(\bar{L})}{\partial L^2} \times \check{\frac{\partial U}{\partial L}} +  \frac{\partial^2 U(\bar{L})}{\partial C^2} \times \check{\frac{\partial U}{\partial C}}
+\]
+
 \subsection{}
 The original equation is
 \[
@@ -630,11 +645,11 @@ so we take logs to get
 \]
 and do the first order Taylor series expansion at the steady state to get
 \[
-\check{Y} =  \frac{\alpha }{\bar{K}} (K_t - \bar{K}) + \frac{1-\alpha }{\bar{L}} (L_t - \bar{L}) + (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
+\check{Y} =  \frac{\bar{\alpha} }{\bar{K}} (K_t - \bar{K}) + \frac{1-\bar{\alpha} }{\bar{L}} (L_t - \bar{L}) + (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
 \]
 and we can rewrite as
 \[
-\check{Y} = \alpha \check{K} + (1-\alpha) \check{L} + (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
+\check{Y} = \bar{\alpha} \check{K} + (1-\bar{\alpha}) \check{L} + (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
 \]
 
 
