@@ -442,9 +442,9 @@ Hence the change in savings is
 \[
 \frac{\partial}{\partial \epsilon_t} E_t [Y_{t+s} - C_{t+s}] = \frac{1 - \phi^{s+1}}{1 - \phi} - \frac{1}{1-\phi} + \frac{(1-\beta) \phi}{(1-\phi)(1-\beta\phi)}
 \]
-Initial change in savings is small or negative, while future change in savings in large. This is because the initial shock to income increases future income more than present income (the initial shock is amplified over time). Hence to smooth consumption future savings should increase more than current savings.
+Initial change in savings is small or negative, while future change in savings in large. This is because the initial shock to income increases future income more than present income (the initial shock is amplified over time). Smooth consumption implies future savings should increase more than current savings.
 
-\subsection{Discuss permanent income hypothesis.} In this model, consumers spread out any temporary gains in income over all time periods. In (a), the initial temporary gain in income leads to a large increase in initial savings that decreases over time, while in (c) we get the reverse: a large increase in future income causes savings to increase over time. However, in (b), a permanent income change that is uniform across all periods causes no change in savings. In all 3 cases, bumps in income translate into smooth (uniform across period) changes in consumption.
+\subsection{Discuss permanent income hypothesis.} In this model, consumers spread out any temporary gains in income over all time periods. In (a), the initial temporary gain in income leads to a large increase in initial savings that decreases over time, while in (c) we get the reverse: a large increase in future income causes savings to increase over time. However, in (b), a permanent income change that is uniform across all periods causes no change in savings. In all 3 cases, bumps in income translate into smooth (uniform across periods) changes in consumption.
 
 \subsection{Smooth consumption puzzle.}
 No, this is not a puzzle: If consumers want to smooth consumption (due to risk aversion for example), then transitory shocks in income should not lead to large changes in consumption.
@@ -481,7 +481,7 @@ Log-linearizing the first order condition for investment, with $\delta = \frac{\
 \[
 \bar{q} = \delta a + 1 \implies \check{q} = \frac{2 \delta a}{1 + \delta a} \times (\check{I} - \check{K})
 \]
-Estimating $a$ using this equation would be simply a matter of regressing estimates of $q$ deviations on investment and capital deviations, and then solving for $a$ given that the coefficient would be $frac{2 \delta a}{1 + \delta a}$. However, the error term would also be picking up transitions to a new steady state in addition to mere measurement error, and since one might expect investment and capital to rise over time, the error term would likely be correlated with growth and would be larger (and serially correlated) in times of more rapid growth.
+Estimating $a$ using this equation would be simply a matter of regressing estimates of $q$ deviations on investment and capital deviations, and then solving for $a$ given that the coefficient would be $\frac{2 \delta a}{1 + \delta a}$. However, the error term would also be picking up transitions to a new steady state in addition to mere measurement error, and since one might expect investment and capital to rise over time, the error term would likely be correlated with growth and would be larger (and serially correlated) in times of more rapid growth.
 
 \subsection{Euler equation}
 
@@ -505,7 +505,7 @@ For the right hand side, we get
 
 
 \subsection{Regression to estimate Euler equation.}
-I denote the expectational error term as
+Denote the expectational error term as
 \[
 \epsilon_{\check{x}_{t+1}} = \check{x}_{t+1} - E_t[\check{x}_{t+1}]
 \]
@@ -513,7 +513,7 @@ and define
 \[
 \bar{X} = (1-\tau)\alpha\left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} + \alpha \delta^2 + (1-\delta)(1+a\delta)
 \]
-I can rearrange the log-linearized Euler equation with expectational error terms to be
+and rearrange the log-linearized Euler equation with expectational error terms to be
 \begin{dmath*}
 	\check{r}_{t+1} = \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (\check{L}_{t+1} - \check{K}_{t+1}) + \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta (\check{I}_{t+1} - \check{K}_{t+1}) - \frac{1+\bar{r}}{\bar{r}} \frac{2a\delta}{1+a\delta} (\check{I}_{t} - \check{K}_{t}) - \frac{1+\bar{r}}{\bar{r}\bar{X}} (1-\tau) \alpha (1-\alpha) \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (\epsilon_{\check{L}_{t+1}} - \epsilon_{\check{K}_{t+1}}) - \frac{1+\bar{r}}{\bar{r}\bar{X}} 2 \alpha \delta (\epsilon_{\check{I}_{t+1}} - \epsilon_{\check{K}_{t+1}}) + \epsilon_{\check{r}_{t+1}} \\
 	= \beta_0 (\check{L}_{t+1} - \check{K}_{t+1}) + \beta_1 (\check{I}_{t+1} - \check{K}_{t+1}) + \beta_2 (\check{I}_{t} - \check{K}_{t}) + u_{t+1}
@@ -532,7 +532,7 @@ E[u_{t+1} | \check{L}_{t+1}, \check{I}_{t+1}, \check{K}_{t+1}, \check{I}_{t}, \c
 Hence by regressing $\check{r}_{t+1}$ on $(\check{L}_{t+1} - \check{K}_{t+1})$, $(\check{I}_{t+1} - \check{K}_{t+1})$, and $(\check{I}_{t} - \check{K}_{t})$, we can obtain estimates for $\beta_0$, $\beta_1$, and $\beta_2$. Given that the only unknown parameters are $\alpha$, $\delta$, and $a$, our model is just identified and we can obtain an estimate for $a$.
 
 \subsection{Immediate capital stock adjustment.}
-If capital adjusts instantly, the timing on the Euler equation changes (it isn't an Euler equation anymore, no?): all the period $t+1$ terms become period $t$ terms, and there is no expectational error. We still have 3 dependent variables in our Euler equation: $\check{L}_{t}$, $\check{I}_{t}$, and $\check{K}_{t}$, so we should still be able to estimate the Euler equation and obtain an estimate for $a$ as before.
+If capital adjusts instantly, the timing on the Euler equation changes, there is no expectational error. There are still 3 dependent variables in the Euler equation: $\check{L}_{t}$, $\check{I}_{t}$, and $\check{K}_{t}$, so the Euler equation is still estimable, allowing one to obtain an estimate for $a$ as before.
 
 \subsection{Estimating investment as a function of $q$ vs Euler equation.}
 The former approach requires some assumptions about what $q$ is given that we cannot observe $q$. While $q$ should be $1$ when firms are not adjusting their capital stock, this is not always the case, e.g., during the period immediately after a productivity shock.
