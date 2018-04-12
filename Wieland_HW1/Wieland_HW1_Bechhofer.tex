@@ -532,7 +532,11 @@ E[u_{t+1} | \check{L}_{t+1}, \check{I}_{t+1}, \check{K}_{t+1}, \check{I}_{t}, \c
 Hence by regressing $\check{r}_{t+1}$ on $(\check{L}_{t+1} - \check{K}_{t+1})$, $(\check{I}_{t+1} - \check{K}_{t+1})$, and $(\check{I}_{t} - \check{K}_{t})$, we can obtain estimates for $\beta_0$, $\beta_1$, and $\beta_2$. Given that the only unknown parameters are $\alpha$, $\delta$, and $a$, our model is just identified and we can obtain an estimate for $a$.
 
 \subsection{Immediate capital stock adjustment.}
-If capital adjusts instantly, the timing on the Euler equation changes, there is no expectational error. There are still 3 dependent variables in the Euler equation: $\check{L}_{t}$, $\check{I}_{t}$, and $\check{K}_{t}$, so the Euler equation is still estimable, allowing one to obtain an estimate for $a$ as before.
+If capital adjusts instantly, the timing on the Euler equation changes, and the log-linearized Euler equation changes to become
+\begin{dmath*}
+	\frac{2a\delta}{\bar{X}}(\check{I}_t - \check{K}_t) - \frac{1}{\bar{X}}(1-\tau)\alpha \left( \frac{\bar{L}}{\bar{K}} \right)^{1-\alpha} (1-\alpha) (\check{L}_t - \check{K}_t) + \frac{2a\delta^2}{\bar{X}}(\check{I}_t - \check{K}_t) = E_t \left[\frac{2a\delta}{1+a\delta} (\check{I}_{t+1} - \check{K}_{t+1}) - \frac{\bar{r}}{1+\bar{r}} \check{r}_{t+1} \right]
+\end{dmath*}
+There should be less expectation error. We should still be able to estimate $a$ by rearranging this log-linearized Euler equation except with different timings on the variables.
 
 \subsection{Estimating investment as a function of $q$ vs Euler equation.}
 The former approach requires some assumptions about what $q$ is given that we cannot observe $q$. While $q$ should be $1$ when firms are not adjusting their capital stock, this is not always the case, e.g., during the period immediately after a productivity shock.
@@ -592,13 +596,13 @@ so we take logs to get
 \log(K_t) = \log((1-\delta) K_{t-1} + I_t - \psi \left(\frac{I_t}{K_{t-1}} - \delta \right)^2 I_t)
 \]
 and do the first order Taylor series expansion at the steady state to get
-\[
+\begin{dmath*}
 \check{K} = \left( \frac{-\delta +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta  \bar{K})}{K^3}+1}{-\frac{\bar{I} \psi  (\bar{I}-\delta  \bar{K})^2}{\bar{K}^2}\bar{I}-\delta  \bar{K}+\bar{K}} \right) (K_{t-1} - \bar{K}) + \left( \frac{3 \bar{I}^2 \psi -4 \delta  \bar{I} \bar{K} \psi +\bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)+(\delta -1) \bar{K}^3} \right) (I_t - \bar{I})
-\]
+\end{dmath*}
 and rewrite as
-\[
+\begin{dmath*}
 \check{K} = \left( -\delta +\frac{2 \bar{I}^2 \psi  (\bar{I}-\delta  \bar{K})}{K^3}+1 \right) \check{K}_{t-1} + \left( \frac{3 \bar{I}^3 \psi -4 \delta  \bar{I}^2 \bar{K} \psi + \bar{I} \bar{K}^2 \left(\delta ^2 \psi -1\right)}{\bar{I}^3 \psi -2 \delta  \bar{I}^2 \bar{K} \psi +\bar{I} \bar{K}^2 \left(\delta ^2 \psi -1 \right)+(\delta -1) \bar{K}^3} \right) \check{I}_t
-\]
+\end{dmath*}
 
 \subsection{}
 
