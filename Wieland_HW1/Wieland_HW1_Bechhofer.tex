@@ -485,6 +485,18 @@ and rewrite as
 
 
 \subsection{}
+The original equation is
+\[
+K_t = (1-\delta) K_{t-1} + I_t - \psi \left(\frac{I_t}{K_{t-1}} - \delta \right)^2 I_t
+\]
+so we take logs to get
+\[
+\log(K_t) = \log((1-\delta) K_{t-1} + I_t - \psi \left(\frac{I_t}{K_{t-1}} - \delta \right)^2 I_t)
+\]
+and do the first order Taylor series expansion at the steady state to get
+\[
+\check{K} = 
+\]
 
 \subsection{}
 
@@ -519,11 +531,11 @@ so we take logs to get
 \]
 and do the first order Taylor series expansion at the steady state to get
 \[
-\check{Y} = \alpha  \bar{K}^{\alpha -1} \bar{L}^{1-\alpha } (K_t - \bar{K}) + (1-\alpha ) \bar{K}^{\alpha } \bar{L}^{-\alpha } (L_t - \bar{L}) + \bar{K}^{\alpha } \bar{L}^{1-\alpha } (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
+\check{Y} =  \frac{\alpha }{\bar{K}} (K_t - \bar{K}) + \frac{1-\alpha }{\bar{L}} (L_t - \bar{L}) + (\log(\bar{K}) - \log(\bar{L})) (\alpha_t - \bar{\alpha})
 \]
 and we can rewrite as 
 \[
-\check{Y} = \alpha \bar{Y} \check{K} + (1-\alpha) \bar{Y} \check{L} + \bar{\alpha} \bar{Y} (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
+\check{Y} = \alpha \check{K} + (1-\alpha) \check{L} + (\log(\bar{K}) - \log(\bar{L})) \check{\alpha}
 \]
 
 
