@@ -29,7 +29,7 @@
 \section{Investment and the Housing Market}
 \subsection{Explain the model}
 \begin{enumerate}
-	\item $I = \psi (P)$: Gross investment in housing is an increasing function of the price of houses. This specification makes sense because housing investment is interpreted as housing supply. 
+	\item $I = \psi (P)$: Gross investment in housing is an increasing function of the price of houses. This specification implies that housing investment can be interpreted as a supply of new housings. 
 	\item $r + \delta = (R + \dot{P})/P$: I assume that $\delta$ denotes the depreciation rate of a house. LHS is opportunity costs of investing into a house: forgone real interest rate and depreciation of the house. RHS is benefits of investing into a house: (real) rental payment and capital gains from the price of house. 
 	\item $R = R(H)$: Rental cost $R$ is a decreasing function of available quantity of housing stock. 
 	\item $\dot{H} = I - \delta H$: Change in $H$ is the difference between housing investment (new housing) and depreciated housing stock. 
@@ -68,8 +68,68 @@ Below is the impulse responses of each variable in response to the interest rate
 \end{figure}
 
 \section{Discount Factor Shock}
-\section{News Shock}
+Time-varying discount factor is being incorporated in the model through the Euler equation. Below is the model developed in the class with time-varying discount factor. 
+\begin{align*}
+\lambda_t &= \frac{1}{C_t} \\
+\frac{C_{t+1}}{C_t} &=  \mathbb{E}_t \beta_{t+1} (1+ R_{t+1})\\
+W_t &= (1-\alpha) Z_t \left( \frac{K_{t-1}}{L_t} \right)^\alpha \\
+R_t + \delta & = \alpha Z_t \left( \frac{K_{t-1}}{L_t} \right)^{\alpha-1} \\
+L_t^{\frac{1}{\eta}} C_t &= W_t \\
+C_t + I_t + G_t &= Z_t L_t \left(\frac{K_{t-1}}{L_t} \right)^\alpha \\
+K_t &= (1-\delta) K_{t-1} + I_t
+\end{align*}
+
+The model has seven endogenous variables ($\lambda_t, K_t, W_t, C_t, L_t, R_t, I_t$ ) and three exogenous variables ($\beta_t, Z_t, G_t)$. We can also reduce the model into a 2-equation system. A log-linearized version of the system is as follows:
+
+\begin{align*}
+\Delta \check{K_t} &= \frac{\bar{Y}}{\bar{K}} \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_t} + \left( \frac{\alpha (1-\alpha )}{\alpha + 1/\eta}  \frac{\bar{Y_t}}{\bar{K_t}}  + \alpha \frac{\bar{Y}}{\bar{K}} - \delta  \right) \check{K_{t-1}}  \\
+&+ \left( \frac{\bar{C}}{\bar{K}} + \frac{\bar{Y}}{\bar{K}} \frac{(1-\alpha)}{\alpha + 1/\eta}\right) \check{\lambda_t} - \frac{\bar{G}}{\bar{K}}\check{G_t} \\
+\Delta \check{\lambda_{t+1}}  &=  - \check{\beta_{t+1}} - \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + 1 - \delta} \left[   \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_{t+1}} + (1-\alpha) \left( \frac{\alpha}{1/\eta + \alpha} -1 \right) \check{K_t} + \frac{1-\alpha}{1/\eta + \alpha} \check{\lambda_{t+1}}  \right]
+\end{align*}
+
+By setting $\Delta \lambda_t = 0$, we have the locus of points where the marginal utility of wealth is not changing.
+\paragraph{\bf Locus $\Delta \lambda_t = 0$} 
+\begin{equation*}
+\check{\lambda_{t+1}} = -  \frac{1/\eta + \alpha}{1-\alpha} \left[  \left( \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + 1 - \delta} \right)^{-1} \check{\beta_{t+1}} +  \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_{t+1}} + (1-\alpha) \left( \frac{\alpha}{1/\eta + \alpha} -1 \right) \check{K_t} \right] 
+\end{equation*}
+
+Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locus, the phase diagram for this economy is similar to the one we drew in class. 
+
+\paragraph{ \bf Permanant discount factor shocks}
+The increase in the discount factor means that agents become more patient - they value future utility relatively more than before. This means that they want to consume less in the present and - 
+
+\paragraph{\bf Transitory discount factor shocks}
+
+\section{(Noise) News Shock}
 \section{Labor Supply}
+\begin{enumerate}[label=(\alph*)]
+	\item To prepare for the days when $w_t$ level is not high enough to compensate the consumption level $C$ she would like to spend every period, she has to save some fraction of her income. Let the saving in period $t$ be $S_t$. Her intertemporal and lifetime budget constraints are written as follows: 
+	\begin{align*}
+	C + S_t &= w_t N_t + S_{t-1} \\
+	\sum_{t=0}^{T} w_t N_t & = C \times T
+	\end{align*} Now set up a Lagrangian: 
+	\begin{equation*}
+	\mathcal{L} = \sum_{t=0}^{T}  \left[ \ln (1+ N_t) + \lambda_t \left(C + S_t - w_t N_t - S_{t-1} \right) \right] + \psi \sum_{t=0}^{T} \left( w_t N_t - C \cdot T\right)  
+	\end{equation*}
+    First order conditions for $S_t$ and $N_t$ are: 
+    \begin{align*}
+    \lambda_t &= \lambda_{t+1} \\
+    \frac{1}{1+N_t} + \psi w_t &= \lambda_t w_t 
+    \end{align*}
+    Combining the above two equations gives us the Euler equation: 
+    \begin{equation*}
+    w_t (1+ N_t) = w_{t+1} (1+N_{t+1})
+    \end{equation*}
+    \textbf{There is no stochastic factor, why does the question state 'stochastic'?}
+    \item Rearrage the Euler equation: 
+    \begin{equation*}
+    \frac{w_{t+1}}{w_t} = \frac{1+N_t}{1+ N_{t+1}} = \frac{\text{Marginal disutility of labor in period $t+1$ } (MU_{t+1}) }{\text{Marginal disutility of labor in period $t$ } (MU_t) }
+    \end{equation*}
+    If wage goes up in current period, either $MU_t$ goes up or $MU_{t+1}$ goes down, which means the individual either works more in this period to take advantage of the higher wage, or work less in the next period using up increased savings accumulated in period $t$. 
+    
+    \item 
+    \item 
+\end{enumerate}
 \section{Impulse Responses}
 \section{Impulse Responses (2)}
 
