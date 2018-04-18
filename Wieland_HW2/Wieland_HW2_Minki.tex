@@ -110,7 +110,7 @@ The increase in the discount factor means that agents become more patient - they
 	\includegraphics[width=0.7\textwidth]{2_1_Minki.png}
 	\caption{Response to permanent discount factor shock}
 \end{figure}
-In response to the shock, marginal utility jumps up to the new stable arm, inducing higher labor supply and investment along with lower consumption. Marginal utility and investments gradually decrease as the economy approaches to the new steady state, chracterized by a higher capital stock and steady state consumption level. 
+In response to the shock, marginal utility jumps up to the new stable arm, inducing higher labor supply and investment along with lower consumption. Marginal utility and investments gradually decrease as the economy approaches to the new steady state, chracterized by a higher capital stock and steady state consumption level. With more capital stock being accumulated, labor demand also increases, building up higher aggregate labor as well as output. Steady state wage is higher than the wage before the shock, since steady state interest rate is lowered ($\because R = \frac{1}{\beta}$). This implies that labor demand reacts more aggresively relative to labor supply. Transition paths for each variable are summarized in the table below. 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{cccc}
@@ -121,11 +121,11 @@ In response to the shock, marginal utility jumps up to the new stable arm, induc
 		$\lambda$ &   $\uparrow$      &   $\downarrow$   &   $\downarrow$     \\
 		$K$           &   0                      &   $\uparrow$       &    $\uparrow$    \\
 		$C$           &  $\downarrow$   &   $\uparrow$       &     $\uparrow$       \\
-		$L$           &   $\uparrow$       &                     &              \\
-		$Y$           &   $\uparrow$       &                     &              \\
+		$L$           &   $\uparrow$       &    $\uparrow$       &  $\uparrow$            \\
+		$Y$           &   $\uparrow$       &     $\uparrow$      &   $\uparrow$           \\
 		$I$            &   $\uparrow$       &  $\downarrow$   & $\uparrow$              \\
-		$W$          &   $\downarrow$  &                       &              \\
-		$R$           &   $\uparrow$       &                       &             \\
+		$W$          &   $\downarrow$  &   $\uparrow$       &      $\uparrow$        \\
+		$R$           &   $\uparrow$       &    $\downarrow$ &     $\downarrow$        \\
 		\hline
 	\end{tabular}
 	\caption{Response to a permanent discount factor shock}
@@ -137,6 +137,17 @@ In response to a transitory discount factor shock, marginal utility jumps up jus
 	\includegraphics[width=0.7\textwidth]{2_2_Minki.png}
 	\caption{Response to transitory discount factor shock}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{2_3_Minki.png}
+	\caption{Labor market response to transitory discount factor shock}
+\end{figure}
+At the time of shock $(t_0)$, $\lambda$ jumps up, inducing higher labor supply and lower consumption. Higher output with less consumption means higher investment, followed by a larger stock of capital. Higher labor supply induces lower real wage, and with no change in productivity it means that higher real interest rate (FPPF argument). 
+
+In constrast to a permanent shock, the economy accumulates more capital only to support temporarily higher consumption level while the shock persists. In the course of the period that the shock is effective, households gradually increase their consumption and decrease labor supply, eating up the capital they accumulated earlier. This is demonstrated in the above labor supply curve. Since labor demand also increases due to the higher capital stock, the effect of a transitory discount shock on aggregate labor (hence output) largely depends on the elasticity of labor supply and labor demand.  
+
+After period $t_1$, the economy follows the initial stable arm and returns to the initial steady state. Consumption goes back to its initial level, along with higher labor supply to support it. Since we can't sign aggregarte labor, we can't use production function to sign output. However, Using $Y = C+ I$ we can back out the sign of $Y$. Transition dynamics are summarized in the table below.   
 \begin{table}[H]
 	\centering
 	\begin{tabular}{cccccc}
@@ -144,14 +155,14 @@ In response to a transitory discount factor shock, marginal utility jumps up jus
 		& Impact  & Transition I          & Inflection & Transition II & Steady State  \\
 		& $t=t_0$ & $t \in (t_0, t_1)$ & $t = t_1$ & $t \in (t_1, \infty)$ & $t = \infty$ \\
 		\hline 
-		$\lambda$ &  $\uparrow$    &         &         &  &0     \\
-		$K$           &      0                &         &         &  &    0\\
-		$C$          & $\downarrow$ &         &         &  &    0\\
-		$L$          &   $\uparrow$    &         &        &  &      0\\
-		$Y$          &    $\uparrow$   &         &        &  &      0\\
-		$I$           &   $\uparrow$    &         &          &  &    0\\
-		$W$         & $\downarrow$ &         &         &  &  0   \\
-		$R$          &  $\uparrow$    &          &          &  &  0 \\
+		$\lambda$ &  $\uparrow$    &    $\downarrow$     &    0     & $\uparrow$ &0     \\
+		$K$           &      0                &    $\uparrow \rightarrow \downarrow$  &   0      & $\downarrow$ &    0\\
+		$C$          & $\downarrow$ &   $\uparrow$      &   0      & $\downarrow$ &    0\\
+		$L$          &   $\uparrow$    &   ?      & 0     &  ? &      0\\
+		$Y$          &    $\uparrow$   &    ?    &    0    &  $\downarrow$  &      0\\
+		$I$           &   $\uparrow$    &  $\uparrow \rightarrow \downarrow$  & 0 & $\downarrow$  &    0\\
+		$W$         & $\downarrow$ &    $\uparrow$     &    0     & $\downarrow$ &  0   \\
+		$R$          &  $\uparrow$    &     $\downarrow$     &    0     & $\uparrow$  &  0 \\
 		\hline
 	\end{tabular}
 	\caption{Response to a transitory discount factor shock}
@@ -161,7 +172,7 @@ In response to a transitory discount factor shock, marginal utility jumps up jus
 \section{(Noise) News Shock}
 \section{Labor Supply}
 \begin{enumerate}[label=(\alph*)]
-	\item To prepare for the days when $w_t$ level is not high enough to compensate the consumption level $C$ she would like to spend every period, she has to save some fraction of her income. Let the saving in period $t$ be $S_t$. Her intertemporal and lifetime budget constraints are written as follows: 
+	\item Since the path of the wage rate $w_t$ is known at $t=0$, there is no uncertainty in the economy. To prepare for the days when $w_t$ level is not high enough to compensate the consumption level $C$ she would like to spend every period, she has to save some fraction of her income. Let the saving in period $t$ be $S_t$. Her intertemporal and lifetime budget constraints are written as follows: 
 	\begin{align*}
 	C + S_t &= w_t N_t + S_{t-1} \\
 	\sum_{t=0}^{T} w_t N_t & = C \times T
