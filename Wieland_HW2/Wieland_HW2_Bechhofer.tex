@@ -200,6 +200,87 @@ $R$ increases gradually starting immediately toward the new higher steady state 
 
 If people have static expectations and there is an interest rate shock, then the model matches everything in the housing crisis; prices and construction dropped rapidly, while there was little effect on rental costs.
 
+\section{Discount Factor Shocks}
+
+The only equation affected is the Euler equation, so we have our model:
+\begin{align*}
+\lambda_t &= \frac{1}{C_t} \\
+\frac{C_{t+1}}{C_t} &=  E[\beta_{t+1} (1+ R_{t+1})]\\
+W_t &= (1-\alpha) Z_t \left( \frac{K_{t-1}}{L_t} \right)^\alpha \\
+R_t + \delta & = \alpha Z_t \left( \frac{K_{t-1}}{L_t} \right)^{\alpha-1} \\
+L_t^{\frac{1}{\eta}} C_t &= W_t \\
+C_t + I_t + G_t &= Z_t L_t \left(\frac{K_{t-1}}{L_t} \right)^\alpha \\
+K_t &= (1-\delta) K_{t-1} + I_t
+\end{align*}
+
+We have the endogenous variables ($\lambda_t, K_t, W_t, C_t, L_t, R_t, I_t$ ) and exogenous variables ($\beta_t, Z_t, G_t)$, and so we can follow the derivation from class, only replacing the Euler equation
+
+\begin{align*}
+\Delta \check{K_t} &= \frac{\bar{Y}}{\bar{K}} \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_t} + \left( \frac{\alpha (1-\alpha )}{\alpha + 1/\eta}  \frac{\bar{Y_t}}{\bar{K_t}}  + \alpha \frac{\bar{Y}}{\bar{K}} - \delta  \right) \check{K_{t-1}}  \\
+&+ \left( \frac{\bar{C}}{\bar{K}} + \frac{\bar{Y}}{\bar{K}} \frac{(1-\alpha)}{\alpha + 1/\eta}\right) \check{\lambda_t} - \frac{\bar{G}}{\bar{K}}\check{G_t} \\
+\Delta \check{\lambda_{t+1}}  &=  - \check{\beta_{t+1}} - \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + 1 - \delta} \left[   \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_{t+1}} + (1-\alpha) \left( \frac{\alpha}{1/\eta + \alpha} -1 \right) \check{K_t} + \frac{1-\alpha}{1/\eta + \alpha} \check{\lambda_{t+1}}  \right]
+\end{align*}
+
+By setting $\Delta \lambda_t = 0$, we have the locus of points where the marginal utility of consumption is constant.
+\paragraph{\bf Locus $\Delta \lambda_t = 0$} 
+\begin{equation*}
+\check{\lambda_{t+1}} = -  \frac{1/\eta + \alpha}{1-\alpha} \left[  \left( \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + 1 - \delta} \right)^{-1} \check{\beta_{t+1}} +  \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_{t+1}} + (1-\alpha) \left( \frac{\alpha}{1/\eta + \alpha} -1 \right) \check{K_t} \right] 
+\end{equation*}
+
+Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locus, the phase diagram for this economy is similar to the one we drew in class. 
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=3cm]
+\draw [name path=A--B]
+(0,0.5) -- 
+(1.8,1.5) node[right] {$\Delta \lambda = 0$};
+\draw[name path=C--D]
+(0,1.5) --
+(1.8,0.5) node[right] {$\Delta K = 0$};
+\draw[name path=F--G, color=green]
+(0,0.9) --
+(1.8,1.9) node[right] {$\Delta \lambda = 0 (\uparrow \beta)$};
+\path [name intersections={of=A--B and C--D,by=E}];
+%\path [name intersections={of=A--B and F--G,by=H}];
+%\node [fill=red,inner sep=1pt] at (E) {};
+\draw[->]
+  (0,0) -- (2,0) node[right] {$K$};
+\draw[->]
+  (0,-0) -- (0,2) node[above] {$\lambda$};
+%\draw [dashed, name path=Hdash] 
+%  ($(-0.1,0)!(E)!(2,0)$) -- (E);
+%\node [fill=red,inner sep=1pt] at (H) {};
+\draw[myarr]
+  (0.4, 1.8) -- 
+  (E);
+\draw[myarr]
+  (1.4, 0.4) -- 
+  (E);
+%\draw[myarr, color=green]
+%  (0.2,0.8) -- 
+%  (H);
+%\draw[myarr, color=green, name path=J--K]
+%  (1.6,0.6) -- 
+%  (H);
+%\path [name intersections={of=Hdash and J--K,by=J}];
+%\node [fill=red,inner sep=1pt] at (J) {};
+%\draw[myarr, color=red]
+%  (E) -- 
+%  (J);
+%\draw[myarr, color=red]
+%  (J) -- 
+%  (H);
+%\path
+%  pic[yscale=-1] at (0.3,1) {coordsys}
+%  pic[xscale=-1] at (1.7,1) {coordsys}
+%  pic at (0.8,1.7) {coordsys}
+%  pic[rotate=180] at (1.5,0.3) {coordsys};
+\end{tikzpicture}
+\caption{Change in $\beta$}
+\label{fig2}
+\end{center}
+\end{figure}
 
 
 \end{document}
