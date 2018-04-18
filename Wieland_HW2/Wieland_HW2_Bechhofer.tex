@@ -213,8 +213,7 @@ C_t + I_t + G_t &= Z_t L_t \left(\frac{K_{t-1}}{L_t} \right)^\alpha \\
 K_t &= (1-\delta) K_{t-1} + I_t
 \end{align*}
 
-We have the endogenous variables ($\lambda_t, K_t, W_t, C_t, L_t, R_t, I_t$ ) and exogenous variables ($\beta_t, Z_t, G_t)$, and so we can follow the derivation from class, only replacing the Euler equation
-
+We have the endogenous variables ($\lambda_t, K_t, W_t, C_t, L_t, R_t, I_t$ ) and exogenous variables ($\beta_t, Z_t, G_t)$, and so we can follow the derivation from class, only replacing the Euler equation to get the $\check{\beta_t}$ term.
 \begin{align*}
 \Delta \check{K_t} &= \frac{\bar{Y}}{\bar{K}} \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_t} + \left( \frac{\alpha (1-\alpha )}{\alpha + 1/\eta}  \frac{\bar{Y_t}}{\bar{K_t}}  + \alpha \frac{\bar{Y}}{\bar{K}} - \delta  \right) \check{K_{t-1}}  \\
 &+ \left( \frac{\bar{C}}{\bar{K}} + \frac{\bar{Y}}{\bar{K}} \frac{(1-\alpha)}{\alpha + 1/\eta}\right) \check{\lambda_t} - \frac{\bar{G}}{\bar{K}}\check{G_t} \\
@@ -239,17 +238,19 @@ Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locu
 (0,1.5) --
 (1.8,0.5) node[right] {$\Delta K = 0$};
 \draw[name path=F--G, color=green]
-(0,0.9) --
-(1.8,1.9) node[right] {$\Delta \lambda = 0 (\uparrow \beta)$};
+(0,0.2) --
+(1.8,1.2) node[right] {$\Delta \lambda = 0 (\uparrow \beta)$};
 \path [name intersections={of=A--B and C--D,by=E}];
-%\path [name intersections={of=A--B and F--G,by=H}];
+\path [name intersections={of=C--D and F--G,by=H}];
 %\node [fill=red,inner sep=1pt] at (E) {};
 \draw[->]
   (0,0) -- (2,0) node[right] {$K$};
 \draw[->]
   (0,-0) -- (0,2) node[above] {$\lambda$};
-%\draw [dashed, name path=Hdash] 
-%  ($(-0.1,0)!(E)!(2,0)$) -- (E);
+\draw [dashed, name path=Hdash] 
+  ($(0,0)!(E)!(2,0)$) -- (E);
+\draw [dashed, name path=Hdashprime] 
+  (E) -- ($(0,2)!(E)!(2,2)$);
 %\node [fill=red,inner sep=1pt] at (H) {};
 \draw[myarr]
   (0.4, 1.8) -- 
@@ -257,30 +258,64 @@ Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locu
 \draw[myarr]
   (1.4, 0.4) -- 
   (E);
-%\draw[myarr, color=green]
-%  (0.2,0.8) -- 
-%  (H);
-%\draw[myarr, color=green, name path=J--K]
-%  (1.6,0.6) -- 
-%  (H);
-%\path [name intersections={of=Hdash and J--K,by=J}];
+\draw[myarr, color=green, name path=J--K]
+  (0.6,1.8) -- 
+  (H);
+\draw[myarr, color=green]
+  (1.4,0.6) -- 
+  (H);
+\path [name intersections={of=Hdashprime and J--K,by=J}];
 %\node [fill=red,inner sep=1pt] at (J) {};
-%\draw[myarr, color=red]
-%  (E) -- 
-%  (J);
-%\draw[myarr, color=red]
-%  (J) -- 
-%  (H);
-%\path
-%  pic[yscale=-1] at (0.3,1) {coordsys}
-%  pic[xscale=-1] at (1.7,1) {coordsys}
-%  pic at (0.8,1.7) {coordsys}
-%  pic[rotate=180] at (1.5,0.3) {coordsys};
+\draw[myarr, color=red]
+  (E) -- 
+  (J);
+\draw[myarr, color=red]
+  (J) -- 
+  (H);
+\path
+  pic[rotate=180] at (0.3,1) {coordsys}
+  pic at (1.7,1) {coordsys}
+  pic[yscale=-1] at (0.8,1.7) {coordsys}
+  pic[xscale=-1] at (1.5,0.3) {coordsys};
 \end{tikzpicture}
 \caption{Change in $\beta$}
 \label{fig2}
 \end{center}
 \end{figure}
+
+\begin{table}[htp]
+\caption{Response to permanent $\beta$ shock}
+\begin{center}
+\begin{tabular}{c|c|c|c|}
+& Impact & Transition & Steady State \\ \hline
+$C$ & $\downarrow$ & $\uparrow$ & $\uparrow$ \\
+$Y$ & $\uparrow$ & ? & $\uparrow$ \\
+$I$ & $\uparrow$ & $\downarrow$ & $\uparrow$ \\
+$L$ & $\uparrow$ & ? & $\uparrow$ \\
+$W$ & $\downarrow$ & $\uparrow$ & $\uparrow$ \\
+$R$ & $\downarrow$ & $\uparrow$ & $\downarrow$ \\
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}
+
+\begin{table}[htp]
+\caption{Response to temporary $\beta$ shock}
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c}
+& Impact & Transition & Inflection & Transition & Steady State \\ \hline
+$C$ & $\downarrow$ & $\uparrow$ & 0 & $\downarrow$ & 0\\
+$Y$ & $\uparrow$ & $\uparrow$ & 0 & $\downarrow$ & 0\\
+$I$ & $\uparrow$ & $\downarrow$ & $\downarrow$ & $\downarrow$ & 0\\
+$L$ & $\uparrow$ & $\uparrow$  & 0 & $\downarrow$ & 0  \\
+$W$ & $\downarrow$ & ? & 0 & $\downarrow$ & 0\\
+$R$ & $\downarrow$ & ? & 0 & $\uparrow$ & 0 \\
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}
+
+
 
 
 \end{document}
