@@ -1,0 +1,47 @@
+\documentclass[11pt]{amsart}
+
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{breqn}
+
+\title{Econ 210C Problem Set \# 2}
+\author{Nathaniel Bechhofer}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+
+
+
+\maketitle
+
+\section{Investment and the Housing Market}
+
+\subsection*{(a)}
+\begin{enumerate}
+	\item $I = \psi (P)$: Gross investment in housing is an increasing function of the price of houses. This specification implies that housing investment can be interpreted as the supply of new housing. 
+	\item $r + \delta = (R + \dot{P})/P$: This implies that the costs of investing into a house, namely forgone investment income and depreciation are equal to the benefits, namely rental payments and capital gains. 
+	\item $R = R(H)$: Rental cost is a decreasing function of the size of the housing stock. 
+	\item $\dot{H} = I - \delta H$: The housing stock can change in two ways, housing investment and depreciation.
+\end{enumerate}
+
+\subsection*{(b)}
+
+We merely substitute to obtain
+
+\begin{align*}
+\dot{H} &= \psi(P) - \delta H \\
+r + \delta &= (R(H) + \dot{P}) / P
+\end{align*}
+
+\end{document}
