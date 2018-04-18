@@ -27,7 +27,8 @@
 \maketitle
 
 \section{Investment and the Housing Market}
-\subsection{Explain the model}
+\begin{enumerate}[label=(\alph*)]
+	\item Explain the model 
 \begin{enumerate}
 	\item $I = \psi (P)$: Gross investment in housing is an increasing function of the price of houses. This specification implies that housing investment can be interpreted as a supply of new housings. 
 	\item $r + \delta = (R + \dot{P})/P$: I assume that $\delta$ denotes the depreciation rate of a house. LHS is opportunity costs of investing into a house: forgone real interest rate and depreciation of the house. RHS is benefits of investing into a house: (real) rental payment and capital gains from the price of house. 
@@ -36,36 +37,43 @@
 \end{enumerate}
 The model is closed: it has 4 endogenous variables ($I,R,P,H$) with 4 equations.
 
-\subsection{Reduce the model into a 2-equation system}
+\item Reduce the model into a 2-equation system
 \begin{align*}
 \dot{H} &= \psi(P) - \delta H \\
 r + \delta &= (R(H) + \dot{P}) / P
 \end{align*}
 Here $R$ is a function, not a variable. 
-\subsection{Draw phase diagram}
+\item Draw phase diagram. 
 *Lines do not have to be linear. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\textwidth]{1c_Minki.png}
+	\caption{Phase diagram for the housing market}
 \end{figure}
-
-\subsection{Steady state effect of an increase in the real interest rate}
+\item Steady state effect of an increase in the real interest rate
 $r$ only shows up in the equation for $\dot{P}$. Rewriting the equation: 
 \begin{equation*}
 \dot{P} + R(H) = P (r + \delta)
 \end{equation*}
 Given a level of $P$, an increase in $r$ makes RHS larger, requiring $R(H)$ getting larger by the same amount to satisfy $\dot{P} = 0$. Since $R$ is a decreasing function of $H$, it means that $H$ has to decrease. Hence, $\dot{P} = 0$ locus shifts to the left. 
 
-\subsection{Permanent increase in the real interest rate} Suppose the real interest rate changes from $r$ to $r^{*}$, where $r < r^{*}$. Recall that in the initial steady state, $P = \frac{R(H)}{r+\delta}$. At the arrival of the change, $P$ drops to the level $\frac{R(H)}{r^{*} + \delta}$. Cheaper real price of housing assets (or higher opportunity cost of investing in housing) reduces the amount of housing investments. As the housing investment decreases, the quantity of housing stock gradually decreases, until $R(H)$ goes up enough to satisfy $\dot{P}=0$ again.   
+\item Permanent increase in the real interest rate. Suppose the real interest rate changes from $r$ to $r^{*}$, where $r < r^{*}$. Recall that in the initial steady state, $P = \frac{R(H)}{r+\delta}$. At the arrival of the change, $P$ drops to the level $\frac{R(H)}{r^{*} + \delta}$. Cheaper real price of housing assets (or higher opportunity cost of investing in housing) reduces the amount of housing investments. As the housing investment decreases, the quantity of housing stock gradually decreases, until $R(H)$ goes up enough to satisfy $\dot{P}=0$ again.   
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.65\textwidth]{1e1_Minki.png}
+	\caption{Phase diagram for a permanent increase in the real interest rate}
 \end{figure}
 Below is the impulse responses of each variable in response to the interest rate change. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{1e2_Minki.png}
+	\caption{Effect of permament increase of $r$ on $H,P,I,R$ }
 \end{figure}
+\item Temporary increase in the real interest rate 
+\item An announced (anticipated) permanent increase in the real interest rate
+\item Static expectation
+\item Use of this model to analyze the housing crisis
+\end{enumerate}
 
 \section{Discount Factor Shock}
 Time-varying discount factor is being incorporated in the model through the Euler equation. Below is the model developed in the class with time-varying discount factor. 
@@ -100,9 +108,55 @@ The increase in the discount factor means that agents become more patient - they
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{2_1_Minki.png}
+	\caption{Response to permanent discount factor shock}
 \end{figure}
 In response to the shock, marginal utility jumps up to the new stable arm, inducing higher labor supply and investment along with lower consumption. Marginal utility and investments gradually decrease as the economy approaches to the new steady state, chracterized by a higher capital stock and steady state consumption level. 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccc}
+		\hline \hline 
+		& Impact  & Transition            & Steady State \\
+		& $t=t_0$ & $t \in (t_0, \infty)$ & $t = \infty$ \\
+		\hline 
+		$\lambda$ &   $\uparrow$      &   $\downarrow$   &   $\downarrow$     \\
+		$K$           &   0                      &   $\uparrow$       &    $\uparrow$    \\
+		$C$           &  $\downarrow$   &   $\uparrow$       &     $\uparrow$       \\
+		$L$           &   $\uparrow$       &                     &              \\
+		$Y$           &   $\uparrow$       &                     &              \\
+		$I$            &   $\uparrow$       &  $\downarrow$   & $\uparrow$              \\
+		$W$          &   $\downarrow$  &                       &              \\
+		$R$           &   $\uparrow$       &                       &             \\
+		\hline
+	\end{tabular}
+	\caption{Response to a permanent discount factor shock}
+\end{table}
 \paragraph{\bf Transitory discount factor shocks}
+In response to a transitory discount factor shock, marginal utility jumps up just to make sure to land on the initial stable arm when the shock disappears at $t= t_1$. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{2_2_Minki.png}
+	\caption{Response to transitory discount factor shock}
+\end{figure}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccccc}
+		\hline \hline 
+		& Impact  & Transition I          & Inflection & Transition II & Steady State  \\
+		& $t=t_0$ & $t \in (t_0, t_1)$ & $t = t_1$ & $t \in (t_1, \infty)$ & $t = \infty$ \\
+		\hline 
+		$\lambda$ &  $\uparrow$    &         &         &  &0     \\
+		$K$           &      0                &         &         &  &    0\\
+		$C$          & $\downarrow$ &         &         &  &    0\\
+		$L$          &   $\uparrow$    &         &        &  &      0\\
+		$Y$          &    $\uparrow$   &         &        &  &      0\\
+		$I$           &   $\uparrow$    &         &          &  &    0\\
+		$W$         & $\downarrow$ &         &         &  &  0   \\
+		$R$          &  $\uparrow$    &          &          &  &  0 \\
+		\hline
+	\end{tabular}
+	\caption{Response to a transitory discount factor shock}
+\end{table}
+
 
 \section{(Noise) News Shock}
 \section{Labor Supply}
@@ -124,7 +178,6 @@ In response to the shock, marginal utility jumps up to the new stable arm, induc
     \begin{equation*}
     w_t (1+ N_t) = w_{t+1} (1+N_{t+1})
     \end{equation*}
-    \textbf{There is no stochastic factor, why does the question state 'stochastic'?}
     \item Rearrage the Euler equation: 
     \begin{equation*}
     \frac{w_{t+1}}{w_t} = \frac{1+N_t}{1+ N_{t+1}} = \frac{\text{Marginal disutility of labor in period $t+1$ } (MU_{t+1}) }{\text{Marginal disutility of labor in period $t$ } (MU_t) }
