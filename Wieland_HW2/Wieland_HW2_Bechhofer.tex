@@ -316,6 +316,37 @@ $R$ & $\downarrow$ & ? & 0 & $\uparrow$ & 0 \\
 \end{table}
 
 
+\section{Labor Supply}
+
+\subsection*{(a)}
+We have budget constraints
+	\begin{align*}
+	C + S_t &= w_t N_t + S_{t-1} \\
+	\sum_{t=0}^{T} w_t N_t & = C \times T
+	\end{align*} 
+allowing us to get out first order conditions from
+	\begin{equation*}
+	\mathcal{L} = \sum_{t=0}^{T}  \left[ \ln (1+ N_t) + \lambda_t \left(C + S_t - w_t N_t - S_{t-1} \right) \right] + \psi \sum_{t=0}^{T} \left( w_t N_t - C \cdot T\right)  
+	\end{equation*}
+    First order conditions for $S_t$ and $N_t$ are: 
+    \begin{align*}
+    \lambda_t &= \lambda_{t+1} \\
+    \frac{1}{1+N_t} + \psi w_t &= \lambda_t w_t 
+    \end{align*}
+    Combining the above two equations gives us the Euler equation: 
+    \begin{equation*}
+    w_t (1+ N_t) = w_{t+1} (1+N_{t+1})
+    \end{equation*}
+
+\subsection*{(b)}
+Rearranging, we have
+    \begin{equation*}
+    \frac{w_{t+1}}{w_t} = \frac{1+N_t}{1+ N_{t+1}} 
+    \end{equation*}
+
+implying that the ratio of wages between period are equal to the ratio of marginal utilities for leisure.
+    
+
 
 
 \end{document}
