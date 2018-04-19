@@ -98,7 +98,7 @@ dynare_output = oo_.irfs;
 save dynare_output dynare_output;
 
 load dynare_output;
-FigHandle = figure('Position', [250, 300, 800, 800]); set(0,'defaultlinelinewidth',2);
+FigHandle = figure('Position', [250, 300, 1000, 800]); set(0,'defaultlinelinewidth',2);
 subplot(2,2,1); plot(dynare_output.y_epsilon, '--rx'); hold on; plot(y_path, '--b'); title('Output','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
 subplot(2,2,2); plot(dynare_output.c_epsilon, '--rx'); hold on; plot(c_path, '--b'); title('Consumption','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
 subplot(2,2,3); plot(dynare_output.i_epsilon, '--rx'); hold on; plot(i_path, '--b'); title('Investment','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);

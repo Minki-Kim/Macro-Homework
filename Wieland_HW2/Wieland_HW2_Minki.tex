@@ -69,10 +69,19 @@ Below is the impulse responses of each variable in response to the interest rate
 	\includegraphics[width=0.7\textwidth]{1e2_Minki.png}
 	\caption{Effect of permament increase of $r$ on $H,P,I,R$ }
 \end{figure}
-\item Temporary increase in the real interest rate 
-\item An announced (anticipated) permanent increase in the real interest rate
-\item Static expectation
-\item Use of this model to analyze the housing crisis
+\item An unexpected, temporary increase in the real interest rate will shifts $\dot{P}=0$ locus inward. Since agents anticipate that $r$ will return to its initial level, prices decrease to a lesser extent than with a permanent shock. During the period the new $r$ prevails, housing stock decumulates and $P$ increases. Once the transitory shock disappers, $P,H$ will be on the initial stable arm and housing stock will gradually recover to its original level. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\textwidth]{1f_Minki.png}
+	\caption{Phase diagram for a transitory increase in the real interest rate}
+\end{figure}
+\item In anticipation of future increase in $r$, prices will decrease even before the shock. When the shock arrives, housing stock will adjust to a new (lower) steady state. 
+\item If people have static expectation, $\dot{P} =0$. Then we have 
+\begin{equation*}
+R(H) = P(r + \delta)
+\end{equation*}
+In this case, an increase in $r$ implies an immediate drop in $P$, even more than in perfect forsight case. $P$ drops immediately to the new $\dot{P}=0$ trajectory, and gradually increases to its new steady value. In response to a large drop in $P$, $I$ drops immediately, and rises to its new steady state value. Along the path, $H$ graduallly decreases to its new lower steady state value. A decrease in $H$ is accompanied with a rise in $R$. 
+\item When people have static expectations on housing prices, or simply just too optimistic about the prices, an interest rate shock (regardless of where it stemmed from) can induce a large drop in housing prices and residential investment. In this case, the model's prediction matches with the housing crisis scenario. 
 \end{enumerate}
 
 \section{Discount Factor Shock}
@@ -249,14 +258,14 @@ Another important feature is that a news shock fails to generate comovements of 
     \item Below is the impulse response of consumption, output, investment, and technology to a unit shock in technology. I assume that $\varepsilon_t$ was zero before period $t$, becomes 0.01 at period $t$, and returns to zero afterward. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=0.85\textwidth]{5b_Minki.png}
+    	\includegraphics[width=0.9\textwidth]{5b_Minki.png}
     	\caption{Impulse response for a transitory shock}
     \end{figure}
     
     \item In response to a permanent shock, the economy converges to a new (higher) steady state. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=0.85\textwidth]{5c_Minki.png}
+    	\includegraphics[width=0.9\textwidth]{5c_Minki.png}
     	\caption{Impulse response for a permanent shock}
     \end{figure}
 
@@ -277,7 +286,7 @@ Another important feature is that a news shock fails to generate comovements of 
     Impulse responses show that the economy takes longer period of time to return to the initial steady state. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=0.85\textwidth]{5d_Minki.png}
+    	\includegraphics[width=0.9\textwidth]{5d_Minki.png}
     	\caption{Impulse response for a transitory shock: $\alpha = 2/3$}
     \end{figure}
 \end{enumerate}
@@ -285,7 +294,7 @@ Another important feature is that a news shock fails to generate comovements of 
 I simulated the model with the same parameter values and same magnitude of shock using dynare. I used first order approximation in dynare, so solution is expected to be same. Impulse responses of variables from dynare are qualitatively same as the impulse responses obtained from the reduced form solution of the log-linearized model. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{6_Minki.png}
+	\includegraphics[width=1\textwidth]{6_Minki.png}
 	\caption{Impulse responses from dynare}
 \end{figure}
 
