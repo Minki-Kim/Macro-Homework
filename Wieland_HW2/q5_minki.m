@@ -9,7 +9,7 @@ clc;
 alpha = 0.33;
 delta = 0.076;
 betaa = 0.99;
-rho = 0.95;
+rho = 1;
 sigma_epsilon = 0.007; % To set std of TFP close to 2.29
 
 y_k = (1/alpha)*(1/betaa + delta - 1);
