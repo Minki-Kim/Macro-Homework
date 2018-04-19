@@ -1,4 +1,4 @@
-function [residual, g1, g2, g3] = ECON210C_PS2_dynare_static(y, x, params)
+function [residual, g1, g2, g3] = Ken_dynare_static(y, x, params)
 %
 % Status : Computes static model for Dynare
 %

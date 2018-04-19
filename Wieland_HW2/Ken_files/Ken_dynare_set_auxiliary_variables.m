@@ -1,4 +1,4 @@
-function y = ECON210C_PS2_dynare_set_auxiliary_variables(y, x, params)
+function y = Ken_dynare_set_auxiliary_variables(y, x, params)
 %
 % Status : Computes static model for Dynare
 %
