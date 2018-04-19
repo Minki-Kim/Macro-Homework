@@ -170,6 +170,23 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
 
 
 \section{(Noise) News Shock}
+As in class, we focus on the case in which $\bar{\lambda}$ is lower and $\bar{K}$ is higher after the shock, in which the new stable arm in the phase diagram is below the original steady state. When a news shock arrives, the economy reacts in anticipation, as if positive a positive shock actually arrived. In the phase diagram below, marginal utility drops immediately (point A), to put the economy on the new stable arm when the shock is actually realized in $t_1$ (point B). Households increase consumption by eating up existing capital stock, because they expect that positive shock will arrive in $t_1$ so they can recover the capital stock they had eaten. 
+
+However, at period $t_1$, the anticipated news shock turns out to be a noise. This generates a response from the economy which is similar to a response to a negative shock. Households now know that they will not have productivity increase. Without productivity increase, the only way to recover the initial capital stock is by decreasing consumption. Consumption decreases immediately (point C), to put the economy back to the initial stable arm. The economy returns to the old steady state from there. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{3_1_Minki.png}
+	\caption{Response to a fake news shock}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{3_2_Minki.png}
+	\caption{Labor market response to a fake news shock}
+\end{figure}
+Same logic applies to the labor market. In anticipation of a positive shock in the future, households reduce the labor suppy (point A), pushing up wage and decreasing aggregate labor. As the households eat up capital stock until $t_1$, labor demand also decrease (point B). Reduced amount of capital and labor means that output falls as well. Combined with increased consumption, a drop in output means that investment falls, too. \textbf{In short, a positive news shock brings a recession to the economy!} As the news turns out to be a fake, labor supply spikes up immediately (point C), and goes back to its initial level gradually. 
+
+Another important feature is that a news shock fails to generate comovements of consumption and investment, which is a quite robust feature of business cycles. Therefore, it is hard to say that news shocks are main drivers of business cycles. 
+
 \section{Labor Supply}
 \begin{enumerate}[label=(\alph*)]
 	\item Since the path of the wage rate $w_t$ is known at $t=0$, there is no uncertainty in the economy. To prepare for the days when $w_t$ level is not high enough to compensate the consumption level $C$ she would like to spend every period, she has to save some fraction of her income. Let the saving in period $t$ be $S_t$. Her intertemporal and lifetime budget constraints are written as follows: 
@@ -213,7 +230,7 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
 		\includegraphics[width=1\textwidth]{5a_Minki.png}
 		\caption{Simulated business cycles}
 	\end{figure}
-    Volatilities (sample standard deviations) of key aggregate variables are compared to the estimates from Stock and Watson paper. Below table summarizes the result. 
+    Volatilities (sample standard deviations) of key aggregate variables are compared to the estimates from Stock and Watson paper. Below table summarizes the result. Simulated investments are more volatile than consumption and output, but less than the estimate from the actual data. Consumption is less volatile than output, which is consistent with the data. 
     \begin{table}[H]
     	\centering
     	\begin{tabular}{ccc}
@@ -227,19 +244,19 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
     	\end{tabular}
     	\caption{Comparison of volatilities to Stock and Watson }
     \end{table}
-    Simulated investments are more volatile than consumption and output, but less than the estimate from the actual data. Consumption is less volatile than output, which is consistent with the data. 
+    
     
     \item Below is the impulse response of consumption, output, investment, and technology to a unit shock in technology. I assume that $\varepsilon_t$ was zero before period $t$, becomes 0.01 at period $t$, and returns to zero afterward. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=1\textwidth]{5b_Minki.png}
+    	\includegraphics[width=0.85\textwidth]{5b_Minki.png}
     	\caption{Impulse response for a transitory shock}
     \end{figure}
     
     \item In response to a permanent shock, the economy converges to a new (higher) steady state. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=1\textwidth]{5c_Minki.png}
+    	\includegraphics[width=0.85\textwidth]{5c_Minki.png}
     	\caption{Impulse response for a permanent shock}
     \end{figure}
 
@@ -260,7 +277,7 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
     Impulse responses show that the economy takes longer period of time to return to the initial steady state. 
     \begin{figure}[H]
     	\centering
-    	\includegraphics[width=1\textwidth]{5d_Minki.png}
+    	\includegraphics[width=0.85\textwidth]{5d_Minki.png}
     	\caption{Impulse response for a transitory shock: $\alpha = 2/3$}
     \end{figure}
 \end{enumerate}
@@ -268,7 +285,7 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
 I simulated the model with the same parameter values and same magnitude of shock using dynare. I used first order approximation in dynare, so solution is expected to be same. Impulse responses of variables from dynare are qualitatively same as the impulse responses obtained from the reduced form solution of the log-linearized model. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{6_Minki.png}
+	\includegraphics[width=0.85\textwidth]{6_Minki.png}
 	\caption{Impulse responses from dynare}
 \end{figure}
 
