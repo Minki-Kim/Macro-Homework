@@ -6,9 +6,9 @@ clear;
 clc;
 
 % Setting parameters
-alpha = 2/3;
+alpha = 0.33;
 delta = 0.076;
-betaa = 0.99;
+betaa = 0.976;
 rho = 0.95;
 sigma_epsilon = 0.007; % To set std of TFP close to 2.29
 
@@ -60,19 +60,21 @@ disp(['Standard deviation of investment is ', num2str(std(i_simul))]);
 
 % Impulse response
 epsilon_path = zeros(40,1);
-epsilon_path(1) = 0.01;
+epsilon_path(1) = 0.1;
 z_path = zeros(40,1);
-z_path(1) = 0.01;
+z_path(1) = 0.1;
 
 c_path = zeros(40,1);
 k_path = zeros(40,1);
 i_path = zeros(40,1);
 y_path = zeros(40,1);
+w_path = zeros(40,1);
 
 c_path(1) = nu_cz*z_path(1);
 k_path(1) = nu_kz*z_path(1);
 y_path(1) = z_path(1);
 i_path(1) = k_path(1)/delta;
+w_path(1) = alpha*k_path(1);
 
 
 for i = 2:40
@@ -81,12 +83,27 @@ for i = 2:40
     c_path(i) = nu_ck*k_path(i-1) + nu_cz*z_path(i);
     i_path(i) = k_path(i)/delta - ((1-delta)/delta)*k_path(i-1);
     y_path(i) = c_y*c_path(i) + i_y*i_path(i);
+    w_path(i) = alpha*k_path(i);
 end
 
 FigHandle = figure('Position', [250, 300, 1000, 400]); set(0,'defaultlinelinewidth',2);
-plot(c_path); hold on; plot(y_path); hold on; plot(i_path); hold on; plot(z_path);
+plot(c_path); hold on; plot(y_path); hold on; plot(i_path); hold on; plot(w_path); hold on; plot(z_path);
 ylabel('Deviation from steady state','FontSize',15); xlabel('Time','FontSize',15); 
-legend({'Consumption','Output','Investment','Technology'},'FontSize',14,'Location','northeast'); xlim([1 40]); grid on;
+legend({'Consumption','Output','Investment','Wage','Technology'},'FontSize',14,'Location','northeast'); xlim([1 40]); grid on;
+
+% Comparing with dynare IRF
+
+dynare Minki_dynare.mod
+dynare_output = oo_.irfs;
+save dynare_output dynare_output;
+
+load dynare_output;
+FigHandle = figure('Position', [250, 300, 800, 800]); set(0,'defaultlinelinewidth',2);
+subplot(2,2,1); plot(dynare_output.y_epsilon, '--rx'); hold on; plot(y_path, '--b'); title('Output','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
+subplot(2,2,2); plot(dynare_output.c_epsilon, '--rx'); hold on; plot(c_path, '--b'); title('Consumption','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
+subplot(2,2,3); plot(dynare_output.i_epsilon, '--rx'); hold on; plot(i_path, '--b'); title('Investment','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
+subplot(2,2,4); plot(dynare_output.w_epsilon, '--rx'); hold on; plot(w_path, '--b'); title('Wage','FontSize',20); legend({'Dynare IRF','Simulation IRF'},'FontSize',15);
+
 
 
 
