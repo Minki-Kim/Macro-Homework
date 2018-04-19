@@ -6,10 +6,10 @@ clear;
 clc;
 
 % Setting parameters
-alpha = 0.33;
+alpha = 2/3;
 delta = 0.076;
 betaa = 0.99;
-rho = 1;
+rho = 0.95;
 sigma_epsilon = 0.007; % To set std of TFP close to 2.29
 
 y_k = (1/alpha)*(1/betaa + delta - 1);
@@ -31,6 +31,7 @@ nu_cz = y_c - k_c*nu_kz;
 
 % Simluating the model 
 simul_length = 1000;
+rng(425);
 
 epsilon_simul = normrnd(0,sigma_epsilon,[simul_length,1]);
 z_simul = zeros(simul_length,1);
