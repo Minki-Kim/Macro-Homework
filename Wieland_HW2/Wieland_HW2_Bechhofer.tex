@@ -308,7 +308,7 @@ $R$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
 		\hline 
 		$C$          & $\downarrow$ &   $\uparrow$      &   0      & $\downarrow$ &    0\\
 		$Y$          &    $\uparrow$   &    ?    &    0    &  $\downarrow$  &      0\\
-		$I$           &   $\uparrow$    &  $\uparrow \rightarrow \downarrow$  & 0 & $\downarrow$  &    0\\
+		$I$           &   $\uparrow$    &  $\downarrow$  & 0 & $\downarrow$  &    0\\
 		$L$          &   $\uparrow$    &   ?      & 0     &  ? &      0\\
 		$W$         & $\downarrow$ &    $\uparrow$     &    0     & $\downarrow$ &  0   \\
 		$R$          &  $\uparrow$    &     $\downarrow$     &    0     & $\uparrow$  &  0 \\
@@ -317,6 +317,89 @@ $R$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
 \end{center}
 \label{default}
 \end{table}
+
+\section{News Shocks}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=3cm]
+\draw [name path=A--B]
+(0,0.5) -- 
+(1.8,1.5) node[right] {$\Delta \lambda = 0$};
+\draw[name path=C--D]
+(0,1.5) --
+(1.8,0.5) node[right] {$\Delta K = 0$};
+\draw[name path=F--G, color=green]
+(0,0.2) --
+(1.8,1.2) node[right] {$\Delta \lambda = 0 (\uparrow Z)$};
+\draw[name path=J--K, color = green]
+(0,1.2) --
+(1.8,0.2) node[right] {$\Delta K = 0 (\uparrow Z)$};
+\path [name intersections={of=A--B and C--D,by=E}];
+%\node [fill=red,inner sep=1pt] at (E) {};
+\draw[->]
+  (0,0) -- (2,0) node[right] {$K$};
+\draw[->]
+  (0,-0) -- (0,2) node[above] {$\lambda$};
+\draw [dashed, name path=Edash] 
+  (E) -- ($(0,0)!(E)!(2,0)$)  node[below] {$K_0$};
+\draw [dashed, name path=Edashprime] 
+  (E) -- ($(0,2)!(E)!(2,2)$);
+\draw [dashed, name path=newK] 
+  (0.75,2) -- (0.75,0) node[below] {$K_1$};
+%\node [fill=red,inner sep=1pt] at (H) {};
+\draw[myarr]
+  (0.4, 1.8) -- 
+  (E);
+\draw[myarr]
+  (1.4, 0.4) -- 
+  (E);
+\path
+  pic[rotate=180] at (0.3,1) {coordsys}
+  pic at (1.7,1) {coordsys}
+  pic[yscale=-1] at (0.8,1.7) {coordsys}
+  pic[xscale=-1] at (1.5,0.3) {coordsys};
+\end{tikzpicture}
+\caption{News shock phase diagram}
+\label{NewsShocksPhaseDiagram}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=3cm]
+\draw [name path=LSbar]
+(0.1,0.3) -- 
+(1.8,1.5) node[right] {$L^S(\bar{\lambda})$};
+\draw [name path=LS0]
+(0.1,0.5) -- 
+(1.8,1.7) node[right] {$L^S(\lambda_{t_0})$};
+\draw [name path=LStrans]
+(0.1,0.7) -- 
+(1.8,1.9) node[right] {$L^S(\lambda_{t \in (t_0,t_1)})$};
+\draw [name path=LS1]
+(0.1,0) -- 
+(1.8,1.2) node[right] {$L^S(\lambda_{t_1})$};
+\draw [name path=LD0]
+(0.1,1.2) -- 
+(1.4,0.2) node[right] {$L^D(K_{t_0})$};
+\draw [name path=LDtrans]
+(0.1,1.5) -- 
+(1.4,0.5) node[right] {$L^D(K_{t \in (t_0,t_1)})$};
+\draw [name path=LDtrans]
+(0.1,1.8) -- 
+(1.4,0.8) node[right] {$L^D(\bar{K})$};
+\draw[->]
+  (0,0) -- (2,0) node[right] {$L$};
+\draw[->]
+  (0,-0) -- (0,2) node[above] {$W$};
+
+\end{tikzpicture}
+\caption{News shock labor diagram}
+\label{NewsShocksLaborDiagram}
+\end{center}
+\end{figure}
+
 
 
 \section{Labor Supply}

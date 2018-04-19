@@ -206,6 +206,66 @@ After period $t_1$, the economy follows the initial stable arm and returns to th
     Therefore this example implies that labor supply elasticity is always one. 
 \end{enumerate}
 \section{Impulse Responses}
+\begin{enumerate}[label = (\alph*)]
+	\item Simulated values of output, consumption, investment and capital are shown in the below graph. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{5a_Minki.png}
+		\caption{Simulated business cycles}
+	\end{figure}
+    Volatilities (sample standard deviations) of key aggregate variables are compared to the estimates from Stock and Watson paper. Below table summarizes the result. 
+    \begin{table}[H]
+    	\centering
+    	\begin{tabular}{ccc}
+    		\hline \hline 
+    		 \bf Variable  & \bf Simulation St.Dev           & \bf Stock and Watson \\
+    		\hline 
+    	    Output                &  2.56       &   1.66      \\
+    		Consumption      &   2.22      &   1.26         \\
+    	    Investment         &   3.74      &    4.97       \\
+    		\hline
+    	\end{tabular}
+    	\caption{Comparison of volatilities to Stock and Watson }
+    \end{table}
+    Simulated investments are more volatile than consumption and output, but less than the estimate from the actual data. Consumption is less volatile than output, which is consistent with the data. 
+    
+    \item Since labor supply is inelastic, the deviation of wage is equal to the deviation of output in a log-linearized model. Below is the impulse response of consumption, output, investment, and technology to a unit shock in technology. 
+    
+    I assume that $\varepsilon_t$ was zero before period $t$, becomes 0.01 at period $t$, and returns to zero afterward. 
+    \begin{figure}[H]
+    	\centering
+    	\includegraphics[width=1\textwidth]{5b_Minki.png}
+    	\caption{Impulse response for a transitory shock}
+    \end{figure}
+    
+    \item In response to a permanent shock, the economy converges to a new (higher) steady state. 
+    \begin{figure}[H]
+    	\centering
+    	\includegraphics[width=1\textwidth]{5c_Minki.png}
+    	\caption{Impulse response for a permanent shock}
+    \end{figure}
+
+    \item With $\alpha = 2/3$, the effect of shock becomes more persistent. With labor supply fixed at one, production only depends on productivity and capital stock. With a heavier emphasis on capital's role in production, more output is produced with the same amount of capital stock. Because of this amplifyiing effect, volatilities of aggregate variables become larger.  
+    \begin{table}[H]
+    	\centering
+    	\begin{tabular}{cccc}
+    		\hline \hline 
+    		\bf Variable  &$\alpha = 2/3$ & \bf$\alpha=1/3$          & \bf Stock and Watson \\
+    		\hline 
+    		Output            &   3.99  &  2.56       &   1.66      \\
+    		Consumption  &   3.56  &   2.22      &   1.26         \\
+    		Investment      &   4.42  &   3.74      &    4.97       \\
+    		\hline
+    	\end{tabular}
+    	\caption{Volatilities when $\alpha = 2/3$}
+    \end{table}
+    Impulse responses show that the economy takes longer period of time to return to the initial steady state. 
+    \begin{figure}[H]
+    	\centering
+    	\includegraphics[width=1\textwidth]{5d_Minki.png}
+    	\caption{Impulse response for a transitory shock: $\alpha = 2/3$}
+    \end{figure}
+\end{enumerate}
 \section{Impulse Responses (2)}
 
 
