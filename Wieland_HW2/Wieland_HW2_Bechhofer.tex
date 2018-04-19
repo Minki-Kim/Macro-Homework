@@ -226,7 +226,7 @@ By setting $\Delta \lambda_t = 0$, we have the locus of points where the margina
 \check{\lambda_{t+1}} = -  \frac{1/\eta + \alpha}{1-\alpha} \left[  \left( \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + 1 - \delta} \right)^{-1} \check{\beta_{t+1}} +  \left( 1 + \frac{1-\alpha}{\alpha + 1/\eta} \right) \check{Z_{t+1}} + (1-\alpha) \left( \frac{\alpha}{1/\eta + \alpha} -1 \right) \check{K_t} \right] 
 \end{equation*}
 
-Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locus, the phase diagram for this economy is similar to the one we drew in class. 
+The phase diagram for this economy is identical to the phase diagram in the notes. 
 
 \begin{figure}[htbp]
 \begin{center}
@@ -283,6 +283,35 @@ Since $\check{\beta_t}$ does not change the slope of the $\Delta \lambda_t$ locu
 \end{center}
 \end{figure}
 
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=3cm]
+\draw [name path=LSbar]
+(0.1,0.3) -- 
+(1.8,1.5) node[right] {$L^S(\lambda_{t_0})$};
+\draw [name path=LS0]
+(0.1,0.5) -- 
+(1.8,1.7) node[right] {$L^S(\bar{\lambda})$};
+\draw [name path=LStrans]
+(0.1,0.7) -- 
+(1.8,1.9) node[right] {$L^S(\lambda_{t_1})$};
+\draw [name path=LD0]
+(0.1,1.2) -- 
+(1.4,0.2) node[right] {$L^D(\bar{K})$};
+\draw [name path=LDtrans]
+(0.1,1.5) -- 
+(1.4,0.5) node[right] {$L^D(K_{t \in (t_0,t_1)})$};
+\draw[->]
+  (0,0) -- (2,0) node[right] {$L$};
+\draw[->]
+  (0,-0) -- (0,2) node[above] {$W$};
+
+\end{tikzpicture}
+\caption{Discount factor shock (temporay) labor diagram}
+\label{DiscountFactorLaborDiagram}
+\end{center}
+\end{figure}
+
 \begin{table}[htp]
 \caption{Response to permanent $\beta$ shock}
 \begin{center}
@@ -317,6 +346,24 @@ $R$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
 \end{center}
 \label{default}
 \end{table}
+
+With more patient agents, consumption drops immediately.
+Marginal utility jumps up to the new stable arm, so we know that we will have higher labor supply and investment.
+Investments decreases and consumption increases as the economy approaches to the new steady state.
+In the steady state, the capital stock and consumption are both higher. 
+The increased labor demand from the capital stock implies higher emplyment output. 
+Wages are higher and the interest rate is lower. 
+
+
+For a transitory discount factor shock, marginal utility jumps up and moves so it is back on the initial stable arm when the shock ends. 
+Labor supply jumps up and consumption jumps down immediately. 
+The reduced consumption also means a jump in output and investment. 
+Capital increases gradually. 
+Increased labor supply implies lower wages; the interest rate increases.
+Consumption increases as labor supply decreases during the period of the shock. 
+Increased labor demand means that the effect on employment and output is ambiguous.
+When the shock ends, the economy moves along the initial stable arm to the initial steady state. 
+
 
 \section{News Shocks}
 
@@ -386,7 +433,7 @@ $R$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
 \draw [name path=LDtrans]
 (0.1,1.5) -- 
 (1.4,0.5) node[right] {$L^D(K_{t \in (t_0,t_1)})$};
-\draw [name path=LDtrans]
+\draw [name path=LDbar]
 (0.1,1.8) -- 
 (1.4,0.8) node[right] {$L^D(\bar{K})$};
 \draw[->]
@@ -400,12 +447,23 @@ $R$ & $\uparrow$ & $\downarrow$ & $\downarrow$ \\
 \end{center}
 \end{figure}
 
+Marginal utility drops to get to a path on the new stable arm when the shock comes. 
+Households increase consumption in anticipation of higher output.
+When the shock does not come, households decrease consumption immediately. 
+The economy now moves back to the initial stable arm.
+When the shock is anticipated, labor supply goes down, implying higher wages and lower employment. 
+Labor demand drops due to reduced investment, as does output. 
+Labor supply jumps up at $t_1$ and then goes down slowly back to the initial level.
+The typical co-movement of consumption and investment is missing here, so this seems a poor model of business cycles.
+
+
+
 
 
 \section{Labor Supply}
 
 \subsection*{(a)}
-We have budget constraints
+We have budget constraints (where $S$ is saving)
 	\begin{align*}
 	C + S_t &= w_t N_t + S_{t-1} \\
 	\sum_{t=0}^{T} w_t N_t & = C \times T
@@ -430,8 +488,71 @@ Rearranging, we have
     \frac{w_{t+1}}{w_t} = \frac{1+N_t}{1+ N_{t+1}} 
     \end{equation*}
 
-implying that the ratio of wages between period are equal to the ratio of marginal utilities for leisure.
+implying that the ratio of wages between period are equal to the ratio of marginal utilities for leisure, exactly the same as the standard microeconomic tangency condition.
     
+\subsection*{(c)}
+In the cross section, we should see that higher wages lead to lower lifetime labor supply. 
+Higher wage periods will have more labor supply.
+Within the lifecycle, we can also test if ages associated with lower wages have lower labor supply.
+
+\subsection*{(d)}
+A permanent wage shock implies lower lifetime working hours.
+
+\subsection*{(e)}
+An expected wage shock implies hours worked will go down immediately, as the worker will shift their hours to the higher wage period.
+
+\subsection*{(f)}
+The signs of long-run and short-run elasticities may be reversed (so we may see a short-run positive elasticity and yet still have a long-run backward bending supply curve).
+
+\section{Impulse Responses}
+
+
+
+Plots for this section are in the attached Jupyter notebook.
+
+\subsection*{(a)}
+
+I used FRED to get standard deviations for percentage change in the time series from 1953 to 1996.     
+\begin{table}[]
+    	\centering
+    	\begin{tabular}{ccc}
+    		\hline \hline 
+    		 Variable  & Simulation St.Dev           &  FRED values \\
+    		\hline 
+    	    Output                &  0.03       &   0.982      \\
+    		Consumption      &   0.02      &   0.754         \\
+    	    Investment         &   0.04      &    4.57       \\
+	    Wages & 0.02 & 1.10
+	        	\end{tabular}
+    	\caption{Comparison of volatilities}
+    \end{table}
+I get much lower volatility, which may be because recessions cause very large shocks that are not taken into account here. I do get mostly the same pattern, except for wages, which may be because the assumption of inelastic labor supply is too strong.
+
+\subsection*{(b)}
+
+In response to a shock, investment moves much more, as one would expect, but it only takes a few periods to get back to the new steady state.
+
+\subsection*{(c)}
+
+When $\rho=1$, the new steady state is permanently higher, and investment jumps and then declines, as one would expect.
+
+\subsection*{(d)}
+
+Interestingly, a higher value of $\alpha$ means that wages are highly responsive, which is likely due to the increased return to saving causing much higher levels of investment (and we've ruled out a labor supply response by assumption).
+
+\subsection*{(e)}
+
+One could use a nonlinear solver to find the best approximation to volatilities, but the $\rho$ parameter would have to be matched not with volatility, but to the persistence of the autoregressive processes found. With these 5 data points, one would likely find a unique solution within the possible ranges of the structural parameters that would match volatilities.
+
+\section{Impulse Responses (2)}
+
+\begin{figure}[]
+	\centering
+	\includegraphics[width=1\textwidth]{Ken_files/ECON210C_PS2_dynare_IRF_e.eps}
+	\caption{Impulse responses from Dynare}
+\end{figure}
+
+As one would expect, the impulse response looks the same as it does for the simulation.
 
 
 
