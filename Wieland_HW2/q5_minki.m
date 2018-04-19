@@ -19,6 +19,8 @@ k_c = 1/c_k;
 y_c = y_k/c_k;
 c_y = 1/y_c;
 i_y = delta*k_y;
+y_i = 1/i_y;
+c_i = c_y / y_i;
 
 gamma = 1/betaa + 1 - c_k*(1 - betaa*(1-delta))*(alpha - 1);
 nu_kk = (gamma - sqrt(gamma^2 - 4/betaa))/2;
@@ -55,10 +57,35 @@ disp(['Standard deviation of output is ', num2str(std(y_simul))]);
 disp(['Standard deviation of consumption is ', num2str(std(c_simul))]);
 disp(['Standard deviation of investment is ', num2str(std(i_simul))]);
 
-
-% Impulse response 
+% Impulse response
+epsilon_path = zeros(40,1);
+epsilon_path(1) = 0.01;
 z_path = zeros(40,1);
+z_path(1) = 0.01;
+
 c_path = zeros(40,1);
+k_path = zeros(40,1);
 i_path = zeros(40,1);
 y_path = zeros(40,1);
-w_path = zeros(40,1);
+
+c_path(1) = nu_cz*z_path(1);
+k_path(1) = nu_kz*z_path(1);
+y_path(1) = z_path(1);
+i_path(1) = k_path(1)/delta;
+
+
+for i = 2:40
+    z_path(i) = rho*z_path(i-1) + epsilon_path(i);
+    k_path(i) = nu_kk*k_path(i-1) + nu_kz*z_path(i);
+    c_path(i) = nu_ck*k_path(i-1) + nu_cz*z_path(i);
+    i_path(i) = k_path(i)/delta - ((1-delta)/delta)*k_path(i-1);
+    y_path(i) = c_y*c_path(i) + i_y*i_path(i);
+end
+
+FigHandle = figure('Position', [250, 300, 1000, 400]); set(0,'defaultlinelinewidth',2);
+plot(c_path); hold on; plot(y_path); hold on; plot(i_path); hold on; plot(z_path);
+ylabel('Deviation from steady state','FontSize',15); xlabel('Time','FontSize',15); 
+legend({'Consumption','Output','Investment','Technology'},'FontSize',14,'Location','northeast'); xlim([1 40]); grid on;
+
+
+
