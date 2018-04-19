@@ -10,7 +10,7 @@ alpha = 0.33;
 delta = 0.076;
 betaa = 0.99;
 rho = 0.95;
-sigma_epsilon = 0.007; % To set std of TFP close to 2.29
+sigma_epsilon = 0.01; % To set std of TFP close to 2.29
 
 y_k = (1/alpha)*(1/betaa + delta - 1);
 k_y = 1/y_k;
@@ -47,14 +47,12 @@ end
 
 FigHandle = figure('Position', [250, 300, 1200, 400]); set(0,'defaultlinelinewidth',1.3);
 plot(k_simul(400:500)); hold on; plot(c_simul(400:500)); hold on; plot(i_simul(400:500)); hold on; plot(y_simul(400:500));
-ylabel('Simulated values','FontSize',13); xlabel('time','FontSize',13); legend('Capital','Consumption','Investment','Output','Location','northeast'); xlim([0 100]); grid on;
+ylabel('Simulated values','FontSize',13); xlabel('time','FontSize',13); legend('Capital','Consumption','Investment','Output','Location','southeast'); xlim([0 100]); grid on;
 
-format short;
-disp(['Standard deviation of TFP is ', num2str(std(z_simul))]);
+disp(['Standard deviation of o is ', num2str(std(y_simul))]);
 disp(['Standard deviation of output is ', num2str(std(y_simul))]);
 disp(['Standard deviation of consumption is ', num2str(std(c_simul))]);
 disp(['Standard deviation of investment is ', num2str(std(i_simul))]);
-
 
 % Impulse response 
 z_path = zeros(40,1);
