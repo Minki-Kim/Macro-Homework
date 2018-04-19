@@ -18,7 +18,7 @@ delta = 0.076;
 rho = 0.95;
 sigma = 0.007;
 
-KYbar = 3.32;
+KYbar = 1/((1/alpha)*(1/beta + delta - 1));
 CKbar = (1/KYbar) - delta;
 YCbar = (1/KYbar) / CKbar;
 
@@ -59,25 +59,29 @@ for t = 2:reps
         Z(t) = rho*Z(t-1) + epsilon(t);
     end
 
-    C(t) = nu_ck*K(t-1) + nu_cz*Z(t-1);
-    K(t) = nu_kk*K(t-1) + nu_kz*Z(t-1);
+    C(t) = nu_ck*K(t-1) + nu_cz*Z(t);
+    K(t) = nu_kk*K(t-1) + nu_kz*Z(t);
     I(t) = (1/delta)*(K(t) - (1-delta)*K(t-1));
     Y(t) = Z(t) + alpha*K(t-1);
+    % Y(t) = (1/YCbar)*C(t) + delta*KYbar*I(t);
     w(t) = Z(t) + alpha*K(t-1);
 
 end
 
-subplot(2, 2, 1), plot(C(shockt:end, 1))
+std(Y)
+std(C)
+std(I)
+
+subplot(2, 2, 1), plot(C(shockt-1:end, 1))
 
 hold on
-subplot(2, 2, 1), plot(K(shockt:end, 1))
-subplot(2, 2, 1), plot(I(shockt:end, 1))
-subplot(2, 2, 1), plot(Y(shockt:end, 1))
-subplot(2, 2, 1), plot(w(shockt:end, 1))
+subplot(2, 2, 1), plot(K(shockt-1:end, 1))
+subplot(2, 2, 1), plot(I(shockt-1:end, 1))
+subplot(2, 2, 1), plot(Y(shockt-1:end, 1))
+subplot(2, 2, 1), plot(w(shockt-1:end, 1))
 hold off
 
 title('rho = 0.95, alpha = 0.33'); xlabel('Time since shock'); legend('Consumption', 'Capital', 'Investment', 'Output', 'Wage', 'Location','northeast');
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % rho = 0.95, alpha = 0.66 %
@@ -111,21 +115,26 @@ r = zeros(reps, 1);
 
 for t = 2:reps
 
-    C(t) = nu_ck*K(t-1) + nu_cz*Z(t-1);
-    K(t) = nu_kk*K(t-1) + nu_kz*Z(t-1);
+    C(t) = nu_ck*K(t-1) + nu_cz*Z(t);
+    K(t) = nu_kk*K(t-1) + nu_kz*Z(t);
     I(t) = (1/delta)*(K(t) - (1-delta)*K(t-1));
     Y(t) = Z(t) + alpha*K(t-1);
+    % Y(t) = (1/YCbar)*C(t) + delta*KYbar*I(t);
     w(t) = Z(t) + alpha*K(t-1);
 
 end
 
-subplot(2, 2, 2), plot(C(shockt:end, 1))
+std(Y)
+std(C)
+std(I)
+
+subplot(2, 2, 2), plot(C(shockt-1:end, 1))
 
 hold on
-subplot(2, 2, 2), plot(K(shockt:end, 1))
-subplot(2, 2, 2), plot(I(shockt:end, 1))
-subplot(2, 2, 2), plot(Y(shockt:end, 1))
-subplot(2, 2, 2), plot(w(shockt:end, 1))
+subplot(2, 2, 2), plot(K(shockt-1:end, 1))
+subplot(2, 2, 2), plot(I(shockt-1:end, 1))
+subplot(2, 2, 2), plot(Y(shockt-1:end, 1))
+subplot(2, 2, 2), plot(w(shockt-1:end, 1))
 hold off
 
 title('rho = 0.95, alpha = 0.66'); xlabel('Time since shock'); legend('Consumption', 'Capital', 'Investment', 'Output', 'Wage', 'Location','northeast');
@@ -169,21 +178,22 @@ for t = 2:reps
         Z(t) = rho*Z(t-1) + epsilon(t);
     end
 
-    C(t) = nu_ck*K(t-1) + nu_cz*Z(t-1);
-    K(t) = nu_kk*K(t-1) + nu_kz*Z(t-1);
+    C(t) = nu_ck*K(t-1) + nu_cz*Z(t);
+    K(t) = nu_kk*K(t-1) + nu_kz*Z(t);
     I(t) = (1/delta)*(K(t) - (1-delta)*K(t-1));
     Y(t) = Z(t) + alpha*K(t-1);
+    % Y(t) = (1/YCbar)*C(t) + delta*KYbar*I(t);
     w(t) = Z(t) + alpha*K(t-1);
 
 end
 
-subplot(2, 2, 3), plot(C(shockt:end, 1))
+subplot(2, 2, 3), plot(C(shockt-1:end, 1))
 
 hold on
-subplot(2, 2, 3), plot(K(shockt:end, 1))
-subplot(2, 2, 3), plot(I(shockt:end, 1))
-subplot(2, 2, 3), plot(Y(shockt:end, 1))
-subplot(2, 2, 3), plot(w(shockt:end, 1))
+subplot(2, 2, 3), plot(K(shockt-1:end, 1))
+subplot(2, 2, 3), plot(I(shockt-1:end, 1))
+subplot(2, 2, 3), plot(Y(shockt-1:end, 1))
+subplot(2, 2, 3), plot(w(shockt-1:end, 1))
 hold off
 
 title('rho = 1, alpha = 0.33'); xlabel('Time since shock'); legend('Consumption', 'Capital', 'Investment', 'Output', 'Wage', 'Location','southeast');
@@ -198,7 +208,7 @@ delta = 0.076;
 rho = 1;
 sigma = 0.007;
 
-KYbar = 3.32;
+KYbar = 1/((1/alpha)*(1/beta + delta - 1));
 CKbar = (1/KYbar) - delta;
 YCbar = (1/KYbar) / CKbar;
 
@@ -220,21 +230,22 @@ r = zeros(reps, 1);
 
 for t = 2:reps
 
-    C(t) = nu_ck*K(t-1) + nu_cz*Z(t-1);
-    K(t) = nu_kk*K(t-1) + nu_kz*Z(t-1);
+    C(t) = nu_ck*K(t-1) + nu_cz*Z(t);
+    K(t) = nu_kk*K(t-1) + nu_kz*Z(t);
     I(t) = (1/delta)*(K(t) - (1-delta)*K(t-1));
     Y(t) = Z(t) + alpha*K(t-1);
+    % Y(t) = (1/YCbar)*C(t) + delta*KYbar*I(t);
     w(t) = Z(t) + alpha*K(t-1);
 
 end
 
-subplot(2, 2, 4), plot(C(shockt:end, 1))
+subplot(2, 2, 4), plot(C(shockt-1:end, 1))
 
 hold on
-subplot(2, 2, 4), plot(K(shockt:end, 1))
-subplot(2, 2, 4), plot(I(shockt:end, 1))
-subplot(2, 2, 4), plot(Y(shockt:end, 1))
-subplot(2, 2, 4), plot(w(shockt:end, 1))
+subplot(2, 2, 4), plot(K(shockt-1:end, 1))
+subplot(2, 2, 4), plot(I(shockt-1:end, 1))
+subplot(2, 2, 4), plot(Y(shockt-1:end, 1))
+subplot(2, 2, 4), plot(w(shockt-1:end, 1))
 hold off
 
 title('rho = 1, alpha = 0.66'); xlabel('Time since shock'); legend('Consumption', 'Capital', 'Investment', 'Output', 'Wage', 'Location','southeast');
