@@ -1,0 +1,85 @@
+\documentclass[11pt]{amsart}
+
+
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{tikz}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{breqn}
+
+\usetikzlibrary{calc,intersections,through,backgrounds,arrows,decorations.markings}
+
+\tikzset{
+  coordsys/.pic={
+    \draw[->] (0,0) -- ++(6mm,0pt);
+    \draw[->] (0,0) -- ++(0pt,6mm);
+  },
+  myarr/.style={decoration={
+      markings,
+      mark=between positions 0 and 1 step 2mm with {\arrow{stealth}},
+    },
+    postaction=decorate
+  },
+}
+
+\title{Econ 210C Problem Set \# 3}
+\author{Nathaniel Bechhofer}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+\section{}
+
+
+\section{Variable capital utilization in an RBC model}
+
+\subsection*{(a)}
+
+Firms choose capital utilization $U$, capital $K$, and labor demand $N$.
+
+The production function that we can use directly (since the output is the numeraire) is
+\[
+Y_t = (U_t K_{t-1})^{\alpha} (Z_t N_t)^{1-\alpha}
+\]
+and since the firms own capital, they face the constraint
+\[
+K_t = I_t + (1 - \delta(U_t)) K_{t-1}
+\]
+but they also have to pay wages $W_t N_t$ and invest $I_t$
+so we can set up the Lagrangian
+\begin{tiny}
+\[
+\mathcal{L} = E \sum_s (\prod_{k=1}^s (1+r_{t+k})^{-1}) \bigg{(} (U_{t+s} K_{t+s-1})^{\alpha} (Z_{t+s} N_{t+s})^{1-\alpha} - W_{t+s} N_{t+s} - I_{t+s} + q_{t+s} (-K_{t+s} +  I_{t+s} + (1 - \delta(U_{t+s})) K_{t+s-1}) \bigg{)}
+\]
+\end{tiny}
+so we have first order conditions:
+
+for labor we have
+\[
+W_t = (1-\alpha) (U_{t} K_{t-1})^{\alpha} Z_{t}^{1-\alpha} N_t^{-\alpha}
+\]
+for investment we have
+\[
+q_t = 1
+\]
+for capital at time $t$ we have
+\[
+q_t = E \left[ \frac{1}{1+r_{t+1}} \left( \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} (Z_{t+1} N_{t+1})^{1-\alpha} + q_{t+1} (1 - \delta(U_{t+1})  \right) \right]
+\]
+and finally we have the condition for utilization
+\[
+\alpha U_t^{\alpha - 1} K_{t-1}^{\alpha} (Z_{t+1} N_{t+1})^{1-\alpha} = q_t K_{t-1} \delta'(U_t)
+\]
+
+
+\end{document}
