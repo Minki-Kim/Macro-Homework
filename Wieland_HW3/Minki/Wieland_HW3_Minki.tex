@@ -48,6 +48,47 @@
 \end{table}
 As one would expect, the fits get better as we calibrate the Frisch elasticity to bigger values. A large Frisch elasticity generates stronger intertemporal substitution of labor suppply, and hence amplifies the effect of shocks. However, even with a large Frisch elasticity, consumption is too smooth, and the volatility of hours generated from the model falls short of the empirical counterpart. 
 
+\section{Variable capital utilization in an RBC model}
+\begin{enumerate}[label=(\alph*)]
+	\item The Lagrangian of the firm's profit maximization problem is: 
+	\begin{align*}
+	\mathcal{L} =& \mathbb{E}_t \sum_{s} \left( \prod_{k=1}^{s} \left(1 + R_{t+k} \right) \right)^{-1} \\\
+	 &\times \left[  \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} \left(Z_{t+s} N_{t+s}  \right)^{1-\alpha}  - W_{t+s} N_{t+s} - I_{t+s} + q_{t+s} \left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) \right] 
+	\end{align*}
+	The first order conditions are: 
+	
+	\begin{align*}
+	\frac{\partial \mathcal{L}}{\partial N_{t}} : \quad & W_{t} = (1-\alpha)  \left( U_{t} K_{t-1}  \right)^{\alpha} \left(Z_{t} N_{t}  \right)^{-\alpha} \\
+	\frac{\partial \mathcal{L}}{\partial I_{t}} : \quad & q_t = 1 \\
+	\frac{\partial \mathcal{L}}{\partial K_{t}} : \quad & q_t = \mathbb{E}_t \frac{1}{1 + R_{t+1}} \left[ \alpha \left( U_{t+1} K_{t}  \right)^{\alpha} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha}  + q_{t+1} \left( 1-\delta(U_{t+1}) \right) \right] \\
+		\frac{\partial \mathcal{L}}{\partial U_{t}} : \quad & q_t \delta^{'}(U_t) K_{t-1}  = \alpha \left( U_t K_{t-1} \right)^{\alpha -1} K_{t-1} \left( Z_t N_t \right)^{1-\alpha} 
+	\end{align*}
+	
+	Combining the second and the third equations, we get the expression for the rental rate of capital. 
+	\begin{equation*}
+	R_{t+1} = \alpha \left( U_{t+1} K_{t}  \right)^{\alpha} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha} - \delta(U_{t+1})
+	\end{equation*}
+	The rental rate depends on $U_t$ because both $MPK$ and depreciation rates depend on $U_t$. 
+	
+	\item Log linearized version of $q_t \delta^{'}(U_t) K_{t-1}  = \alpha U_t^{\alpha -1} K_{t-1}^\alpha \left( Z_t N_t \right)^{1-\alpha}$ is
+	\begin{align*}
+	&\check{q_t}+ \frac{\delta^{''}(\bar{U}) \bar{U}}{\delta^{'}(\bar{U})} \check{U}_t + \check{K}_{t-1} = (\alpha -1) \check{U_t} + \alpha \check{K_{t-1}}  + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right) 
+	\end{align*}
+	Using $\check{q_t}=0$ and $\check{Y_t} = \alpha \left( \check{U_t} + \check{K_{t-1}} \right) + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right)$, we can express $\check{U_t}$ in terms of $\check{Y_t}, \check{K_t}$, and $\Delta$. 
+	\begin{align*}
+	\check{U_t} = \frac{1}{1 + \Delta} \left( \check{Y_t} - \check{K_{t-1}}\right)
+	\end{align*}
+	
+	\item The production function in a log-linear form is: 
+	\begin{align*}
+	\check{Y_t} &= \alpha \left( \check{U_t} + \check{K_{t-1}} \right) + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right) \\
+	& = \frac{\alpha}{1 + \Delta} \left( \check{Y_t} - \check{K_{t-1}} \right) + \alpha \check{K_{t-1}} + (1-\alpha ) \left(  \check{Z_t} + \check{N_t}\right)
+	\end{align*} 
+	Isolate $\check{Y_t}$:
+	\begin{equation*}
+	\check{Y_t} = \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + \frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t}\right)
+	\end{equation*}
+\end{enumerate}
 
 
 
