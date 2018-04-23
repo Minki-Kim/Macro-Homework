@@ -85,10 +85,26 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	& = \frac{\alpha}{1 + \Delta} \left( \check{Y_t} - \check{K_{t-1}} \right) + \alpha \check{K_{t-1}} + (1-\alpha ) \left(  \check{Z_t} + \check{N_t}\right)
 	\end{align*} 
 	Isolate $\check{Y_t}$:
-	\begin{equation*}
-	\check{Y_t} = \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + \frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t}\right)
-	\end{equation*}
+	\begin{align*}
+	\check{Y_t} &= \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + \frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t} \right)  \\
+	& = \check{Z_t} + \check{N_t} \quad \left( \text{when } \Delta = 0 \right) \\
+	& = \alpha \check{K_{t-1}} + (1-\alpha) \left( \check{Z_t } + \check{N_t} \right)   \quad \left( \text{when } \Delta = \infty \right)
+	\end{align*}
+	\begin{enumerate}[label = (\roman*)]
+    \item $\Delta = 0 $ means that the steady state capital utilization rate is zero. Hence no matter how big the capital stock is, it does not contribute to the output. Therefore, deviations of output from its steady state solely depend on technology and labor. 
+    
+    \item $\Delta = \infty$ means that steady state capital utilization rate is one. In this case, this model boils down to a model without capital utilization, since 100\% of capital stock is always used in production. Therefore, deviations of output from its steady state depend on all three inputs of the production function, with weights corresponding to the inputs same as the Cobb-Douglas coefficients. 
+    
+    \item Consider the case when $0 < \Delta < \infty$. In this case, the log linearized production function is written as: 
+    \begin{equation*}
+    \check{Y_t} = \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + (1-\alpha) \left( \check{Z_t} + \check{N_t} \right)+ \frac{\alpha (1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t} \right)
+    \end{equation*}
+    Since capital stock is not fully used in production, the contributions of $Z_t$ and $N_t$ in $Y_t$ is higher than when $\Delta = \infty$. 
+    \end{enumerate}
+    \item 
 \end{enumerate}
+
+\section{Homework in macroeconomics}
 
 
 
