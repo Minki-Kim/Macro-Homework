@@ -24,23 +24,23 @@ eta = 0.5;
 
 model;
 exp(c(+1))/exp(c) = betaa*(1+exp(r(+1)));
-exp(y) = exp(z)*(exp(k(-1))^alpha)*exp(l)^(1-alpha);
+exp(y) = exp(z)*(exp(k(-1))^alpha)*(exp(l)^(1-alpha));
 exp(y) = exp(c) + exp(i);
 exp(k) = exp(k(-1))*(1-delta) + exp(i);
 exp(z) = (exp(z(-1))^rho)*exp(epsilon);
-exp(w) = (1-alpha)*(exp(k(-1))^alpha)*(exp(l)^(-alpha));
-exp(c)*(exp(l)^(1/eta)) = (1-alpha)*exp(y)/exp(l);
-exp(r) = alpha*exp(z)*exp(k(-1))^(alpha-1) - delta;
+exp(w) = (1-alpha)*exp(y)/exp(l);
+exp(c)*(exp(l)^(1/eta)) = exp(w);
+exp(r) = alpha*exp(y)/exp(k) - delta;
 end;
 
 initval;
-k = log(30);
+k = log(20);
 y = log(3);
 i = log(.5);
 c = log(2.5);
 l = log(1.5);
 r = (1/betaa)-1;
-w = log(1);
+w = log(2);
 z = log(1);
 end;
 

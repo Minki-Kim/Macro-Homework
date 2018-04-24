@@ -142,13 +142,13 @@ eta = M_.params( 5 );
 % INITVAL instructions
 %
 options_.initval_file = 0;
-oo_.steady_state( 6 ) = 3.401197381662155;
+oo_.steady_state( 6 ) = 2.995732273553991;
 oo_.steady_state( 2 ) = 1.09861228866811;
 oo_.steady_state( 3 ) = (-0.6931471805599453);
 oo_.steady_state( 1 ) = 0.9162907318741551;
 oo_.steady_state( 8 ) = 0.4054651081081644;
 oo_.steady_state( 7 ) = 1/M_.params(1)-1;
-oo_.steady_state( 4 ) = 0;
+oo_.steady_state( 4 ) = 0.6931471805599453;
 oo_.steady_state( 5 ) = 0;
 if M_.exo_nbr > 0
 	oo_.exo_simul = ones(M_.maximum_lag,1)*oo_.exo_steady_state';
