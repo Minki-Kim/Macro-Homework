@@ -105,7 +105,37 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 \end{enumerate}
 
 \section{Homework in macroeconomics}
+\begin{enumerate}[label = (\alph*)]
+	\item The Lagrangian for the household's maximization problem is:
+	\begin{equation*}
+	\mathcal{L} = \left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho}} - \left( \frac{1}{\eta} + 1 \right)^{-1} \left(  L_h + L_m \right)^{\frac{1}{\eta} + 1} + \lambda \left( W L_m - C_m \right) + \xi \left(L_h - C_h \right)
+	\end{equation*}
+	The first order conditions for the interior solutions are:
+	\begin{align*}
+	\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1} C_m^{\rho-1} &= \lambda \\
+	\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1} C_h^{\rho-1} & = \xi \\
+	\left(  L_h + L_m \right)^{\frac{1}{\eta} }  &=\lambda W \\
+	\left(  L_h + L_m \right)^{\frac{1}{\eta} }  &= \xi 	 
+	\end{align*}
+	\item $\xi = \lambda W $
+	\item $\xi = \lambda \left( \frac{C_m}{C_h} \right)^{1-\rho}$ \\
+	\item Assuming an interior solution, $C_h = L_h = C_m W^{\frac{1}{\rho-1}}$
+	\item 
+\end{enumerate}
 
-
+\section{$q$-Theory with Variable Capital Utilization}
+\begin{enumerate}[label = (\alph*)]
+	\item The Lagrangian of the firm's profit maximization problem is: 
+	\begin{align*}
+	\mathcal{L} =& \mathbb{E}_t \sum_{s} \left( \prod_{k=1}^{s} \left(1 + r_{t+k} \right) \right)^{-1} \\
+	\begin{split}
+	&\times \left\lgroup  Z_{t+s} \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} L_{t+s}^{1-\alpha}  - W_{t+s} L_{t+s} - I_{t+s} \left[ 1 + \phi \left( \frac{I_{t+s}}{K_{t+s-1}} \right) \right] \right. \\
+	& \qquad + q_{t+s} \left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) \left. \right\rgroup
+	\end{split}
+	\end{align*}
+	This problem is truly dynamic because the presence of an adjustment cost links the present and future period investment decisions. 
+	\item 
+\end{enumerate}
+\section{Fiscal multiplier in the RBC model}
 
 \end{document}
