@@ -38,8 +38,30 @@
 \maketitle
 
 
-\section{}
+\section{Variable labor supply in the RBC model}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{Minki/Q1}
+	\caption{Impulse responses with varying $\eta$}
+\end{figure}
 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ccccc}
+		\hline \hline 
+		& $\eta=0.5$  & $\eta = 1$          & $\eta = 2$ & Data  \\
+		\hline 
+		$\sigma_Y$ &  1.54    & 1.64    & 1.74    & 1.72     \\
+		$\sigma_C$ &  0.97    & 1.02   & 1.08       & 1.27 \\
+		$\sigma_L$ &   0.23   &  0.37   & 0.53     &  1.59 \\
+		\hline
+	\end{tabular}
+	\caption{Response to a transitory discount factor shock}
+\end{table}
+Larger Frisch elasticity values imply a better fit, as they generate stronger inter-temporal substitution of labor supply, amplifying the effect of shocks. 
+Consumption is still too smooth, and the volatility of hours is too low. 
+
+\newpage
 
 \section{Variable capital utilization in an RBC model}
 
@@ -86,5 +108,36 @@ Combining the investment and capital optimality conditions yields the expression
 	R_{t+1} = \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha} - \delta(U_{t+1})
 \]
 The rental rate depends on utilization because the marginal product of capital and its depreciation rate depend on utilization. 
+
+\section{Homework in macroeconomics}
+
+\subsection*{(a)}
+
+ The Lagrangian for the household's maximization problem is:
+\[
+	\mathcal{L} = \left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho}} - \left( \frac{1}{\eta} + 1 \right)^{-1} \left(  L_h + L_m \right)^{\frac{1}{\eta} + 1} + \lambda \left( W L_m - C_m \right) + \xi \left(L_h - C_h \right)
+\]
+	The first order conditions for the interior solutions are:
+	\begin{align*}
+	\cancel{\frac{1}{\rho}}\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1} \cancel{\rho}  C_m^{\rho-1} &= \lambda \\
+	\cancel{\frac{1}{\rho}} \left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1} \cancel{\rho} C_h^{\rho-1} & = \xi \\
+	\left(  L_h + L_m \right)^{\frac{1}{\eta} }  &=\lambda W \\
+	\left(  L_h + L_m \right)^{\frac{1}{\eta} }  &= \xi 	 
+	\end{align*}
+
+\subsection*{(b)}
+
+From the two first order conditions for labor, we have 
+\[
+\xi = \lambda W
+\]
+
+\subsection*{(c)}
+
+From the two first order conditions for consumption, we have
+\[
+\xi = \lambda \left( \frac{C_h}{C_m} \right)^{\rho-1}
+\]
+
 
 \end{document}
