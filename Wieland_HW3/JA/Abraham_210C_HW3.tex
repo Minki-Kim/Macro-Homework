@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex, style=authortitle, citestyle=authoryear-icomp, url=false]{biblatex}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{caption, graphicx}
+\usepackage{secdot, sectsty}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{inconsolata}
+
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\asconv}{\xrightarrow{a.s.}}
+\newcommand{\pconv}{\xrightarrow{p}}
+\newcommand{\dconv}{\xrightarrow{d}}
+\newcommand{\msconv}{\xrightarrow{m.s.}}
+\newcommand{\liminfty}{\lim_{n \to \infty}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\lhood}{\mathcal{L}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{claim}{Claim}
+
+\let\oldforall\forall
+\let\forall\undefined
+\DeclareMathOperator{\forall}{\oldforall}
+\DeclareMathOperator{\ev}{E}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em
+}
+
+\allsectionsfont{\rmfamily}
+\sectionfont{\normalsize}
+\subsectionfont{\normalfont\normalsize\selectfont\itshape}
+\subsubsectionfont{\normalfont\normalsize\selectfont\itshape}
+
+\sectiondot{subsection}
+
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\thesection.\Alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\linespread{1}
+\pagestyle{fancy}
+\rhead{Econ 210C Homework 3}
+\lhead{Justin Abraham}
+
+\begin{document}
+
+\section{RBC with Variable Labor Supply}
+
+    Table \ref{tab:varlabor} compares volatilities across different parameterizations of $\eta$ with what is observed in the data. Larger values of $\eta$ improve the fit of the model. There is greater persistence since more elastic labor supply means shocks affect hours and wages to a greater extent. Consumption and labor supply, however, remain excessively smooth. The classical RBC model implies a greater Frisch elasticity based on the data.
+
+    \begin{table}[h]
+    \caption{Comparing second moments of output, consumption, and labor supply}
+    \label{tab:varlabor}
+    \centering
+    \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+    \hline
+     & Data & $\eta = 0.5$ & $\eta = 1$ & $\eta = 2$ \tabularnewline
+    \hline
+    Consumption & 1.27 & 0.97 & 1.03 & 1.09 \tabularnewline
+    Output & 1.72 & 1.56 & 1.67 & 1.79 \tabularnewline
+    Hours & 1.59 & 0.24 & 0.41 & 0.60 \tabularnewline
+    \hline
+    \end{tabular}
+    \end{table}
+
+\section{RBC with Variable Capital Utilization}
+
+    The firm solves the profit maximization problem.
+
+        $$ \max_{\{N_t, I_t, U_t\}} \ev \sum_{t=0}^\infty \prod_{s=0}^t (1+r_t)^{-1} (Y_t - N_t w_t - I_t) $$
+        $$ Y_t = (U_t K_t)^\alpha (Z_t N_t)^{1-\alpha} $$
+        $$ K_{t+1} = (1-\delta(U_t))K_t + I_t $$
+
+    We equalize prices of capital and the consumption good as in equilibrium.
+
+    \begin{enumerate}
+
+        \item The first order conditions are given by
+
+            \begin{align*}
+                \text{Labor demand:~} & w_t = (1-\alpha) Z_t^{1-\alpha} \bigg ( \frac{U_t K_t}{N_t} \bigg )^\alpha \\
+                \text{Shadow value of capital:~} & q_t = 1 \\
+                \text{Euler equation:~} & \ev (1+r_t)^{-1} \bigg ( \alpha U_{t+1}^\alpha \bigg ( \frac{K_{t+1}}{Z_{t+1} N_{t+1}} \bigg )^{\alpha-1} + q_{t+1} (1-\delta_{t+1}) \bigg ) \\
+                \text{Utilization:~} & \alpha K_t^\alpha \bigg ( \frac{U_t}{Z_t N_t} \bigg )^{\alpha-1} = q_t \delta'(U_t) K_t
+            \end{align*}
+
+            $$ 1 + r_t = \alpha U_{t+1}^\alpha \bigg ( \frac{K_{t+1}}{Z_{t+1} N_{t+1}} \bigg )^{\alpha-1} + 1 - \delta(U_t) $$
+
+        Rental rate depends on the marginal product of capital and depreciation which are themselves both dependant on $U_t$.
+
+        \item Utilization satisfies $\alpha K_t^\alpha \big ( \frac{U_t}{Z_t N_t} \big )^{\alpha-1} = q_t \delta'(U_t) K_t$.
+
+            $$ \ln \alpha + \alpha \ln K_t + (\alpha - 1) (\ln U_t - \ln Z_t - \ln N_t) = \ln q_t + \ln \delta'(U_t) + \ln K_t $$
+            $$ \ln \alpha + (\alpha - 1) (\ln K_t + \ln U_t - \ln Z_t - \ln N_t) = \ln q_t + \ln \delta'(U_t) $$
+            $$ (\alpha - 1) (\check K_t + \check U_t - \check Z_t - \check N_t) = \check q_t + \frac{\delta''(\bar U)}{\delta'(\bar U)} (U_t - \bar U) $$
+            $$ (\alpha - 1) (\check K_t + \check U_t - \check Z_t - \check N_t) = \check q_t + \frac{\delta''(\bar U) \bar U}{\delta'(\bar U)} \check U_t = \check q_t + \Delta $$
+            $$ \check U_t = \frac{\check q_t + \Delta}{\alpha - 1} (\check Z_t + \check N_t - \check K_t) = \frac{1}{1+\Delta} (\check Y_t - \check K_t) $$
+
+        The final equality uses $\check q_t = 0$ from the first order condition and log linearized production.
+
+        \item We can use the previous derivation to reduce $\check Y_t$ as a function of technology and inputs.
+
+            $$ \check Y_t = \alpha (\check U_t + \check K_t) + (1-\alpha) (\check Z_t + \check N_t) $$
+            $$ = \frac{\alpha}{1+\Delta} (\check Y_t - \check K_t) + \alpha \check K_t + (1-\alpha) (\check Z_t + \check N_t) $$
+            $$ \frac{1-\alpha+\Delta}{1+\Delta} \check Y_t = \frac{\alpha \Delta}{1+\Delta} \check K_t + (1-\alpha) (\check Z_t + \check N_t) $$
+            $$ \check Y_t = \frac{\alpha \Delta}{1-\alpha+\Delta} \check K_t + \frac{(1-\alpha) (1+\Delta)}{1-\alpha+\Delta} (\check Z_t + \check N_t) $$
+
+        $\Delta$ governs the sensitivity of $\check U_t$ to the marginal rate of capital. The limiting case where $\Delta \to \infty$ is the standard (linearized) model and $\check U_t$ is fixed at full utilization. The limit $\delta \to 0$ represents the case of no utilization so that $\check Y_t$ depend solely on technology and labor.
+
+        \item The linearized labor demand function is $\check w_t = \check Y_t - \check N_t$. Substituting the expression for $\check Y_t$,
+
+            $$ \check w_t = \frac{\alpha \Delta}{1-\alpha+\Delta} \check K_t + \frac{(1-\alpha) (1+\Delta)}{1-\alpha+\Delta} (\check Z_t + \check N_t) - N_t $$
+
+        We can obtain an upward sloping demand function if labor exhibits increasing returns to scale.
+
+            $$ \frac{(1-\alpha) (1+\Delta)}{1-\alpha+\Delta} > 1 $$
+            $$ (1-\alpha) (1+\Delta) > 1 - \alpha + \Delta $$
+            $$ 1 - \alpha + \Delta - \Delta \alpha > 1 - \alpha + \Delta $$
+            $$ - \Delta \alpha > 1 $$
+
+        Since $\Delta, \alpha > 0$, indeterminacy is impossible in this model. One way to achieve indeterminacy is to incorporate positive production externalities so that aggregate labor has increasing returns to scale. A model with endogenous capital utilization is more likely to exhibit indeterminacy because it amplifies the importance of labor in production.
+
+    \end{enumerate}
+
+\end{document}
