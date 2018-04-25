@@ -58,15 +58,15 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	The first order conditions are: 
 	
 	\begin{align*}
-	\frac{\partial \mathcal{L}}{\partial N_{t}} : \quad & W_{t} = (1-\alpha)  \left( U_{t} K_{t-1}  \right)^{\alpha} \left(Z_{t} N_{t}  \right)^{-\alpha} \\
+	\frac{\partial \mathcal{L}}{\partial N_{t}} : \quad & W_{t} = (1-\alpha) \frac{Y_t}{N_t} \\
 	\frac{\partial \mathcal{L}}{\partial I_{t}} : \quad & q_t = 1 \\
-	\frac{\partial \mathcal{L}}{\partial K_{t}} : \quad & q_t = \mathbb{E}_t \frac{1}{1 + R_{t+1}} \left[ \alpha \left( U_{t+1} K_{t}  \right)^{\alpha} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha}  + q_{t+1} \left( 1-\delta(U_{t+1}) \right) \right] \\
-		\frac{\partial \mathcal{L}}{\partial U_{t}} : \quad & q_t \delta^{'}(U_t) K_{t-1}  = \alpha \left( U_t K_{t-1} \right)^{\alpha -1} K_{t-1} \left( Z_t N_t \right)^{1-\alpha} 
+	\frac{\partial \mathcal{L}}{\partial K_{t}} : \quad & q_t = \mathbb{E}_t \frac{1}{1 + R_{t+1}} \left[ \alpha \left( U_{t+1} K_{t}  \right)^{\alpha-1} U_{t+1} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha}  + q_{t+1} \left( 1-\delta(U_{t+1}) \right) \right] \\
+		\frac{\partial \mathcal{L}}{\partial U_{t}} : \quad & q_t \delta^{'}(U_t) K_{t-1}  = \alpha \frac{Y_t}{U_t}
 	\end{align*}
 	
 	Combining the second and the third equations, we get the expression for the rental rate of capital. 
 	\begin{equation*}
-	R_{t+1} = \alpha \left( U_{t+1} K_{t}  \right)^{\alpha} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha} - \delta(U_{t+1})
+	R_{t+1} = \alpha U_{t+1}^{\alpha} K_{t}^{\alpha-1}  \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha} - \delta(U_{t+1})
 	\end{equation*}
 	The rental rate depends on $U_t$ because both $MPK$ and depreciation rates depend on $U_t$. 
 	
