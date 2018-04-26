@@ -104,7 +104,7 @@
 
             $$ 1 + r_t = \alpha U_{t+1}^\alpha \bigg ( \frac{K_{t+1}}{Z_{t+1} N_{t+1}} \bigg )^{\alpha-1} + 1 - \delta(U_t) $$
 
-        Rental rate depends on the marginal product of capital and depreciation which are themselves both dependant on $U_t$.
+        Rental rate depends on the marginal product of capital and depreciation which are themselves both dependent on $U_t$.
 
         \item Utilization satisfies $\alpha K_t^\alpha \big ( \frac{U_t}{Z_t N_t} \big )^{\alpha-1} = q_t \delta'(U_t) K_t$.
 
@@ -180,15 +180,52 @@
 
         \item Observing labor supply volatilities, the model with home production implies $\eta$ weakly smaller than in the classical RBC because that model does not account for shifting ``employment'' in home production. With high elasticity of substitution, $\varepsilon_m \to \infty$ and households will more readily substitute market employment with home production. If goods are complements, $\varepsilon_m$ approaches the Frisch elasticity $\eta$.
 
-        \item
+        \item Using $\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1}  C_m^{\rho-1} = \lambda$ we can substitute the budget constraints and $L_h = L_m W^{\frac{\rho}{\rho-1}}$ to get
 
-        \item
+            $$ ((W L_m)^{\rho} + L_h^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda $$
 
-        \item Higher elasticity of substitution ($\rho \to 1$) results in higher ``total'' elasticity which can help explain labor supply volatilities without an infeasibly high Frisch elasticity.
+        	$$ ((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda $$
+
+        Now the previous expression for $L_m$ becomes
+
+        	$$ L_m = \frac{ \left[((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})} $$
+
+        	$$ L_m = \frac{ \left[((W^{\rho} + W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})} $$
+
+        	$$ L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1} L_m^{1-\rho} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})} $$
+
+        	$$ L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1}  W ^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})} $$
+
+        	$$ L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta $$
+
+
+        \item Differentiate the expression.
+
+        	\begin{equation*}
+        	\frac{\partial L_m}{\partial W} = \eta W^{\eta -1 } \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} + W^\eta \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right)  \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -2} \left( \frac{\rho}{\rho-1} \right) W^{\frac{1}{\rho-1}}
+        	\end{equation*}
+
+        	\begin{align*}
+        	\frac{\partial L_m}{\partial W} \frac{W}{L_m} &= \eta + \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right) \left( \frac{\rho}{\rho-1} \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
+        	& = \eta + \left(  \frac{\rho}{1-\rho} - \eta \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
+            & = \eta \left ( 1 - \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right ) + \frac{\rho}{1-\rho} \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}
+        	\end{align*}
+
+        This elasticity has a similar interpretation to the labor elasticity previously derived. The current elasticity is smaller because we control for wealth effects; it only reflects labor responses to relative marginal utilities. In other words, these are the elasticities for the uncompensated and compensated labor supply functions, respectively.
+
+        \item Higher elasticity of substitution ($\rho \to 1$) results in higher ``total'' elasticity which can help explain large labor supply volatilities without an infeasibly high Frisch elasticity.
 
     \end{enumerate}
 
 \section{$q$-Theory with Variable Capital Utilization}
+
+The firm solves the profit maximization problem.
+
+    $$ \max_{\{L_t, I_t, U_t\}} \ev \sum_{t=0}^\infty \prod_{s=0}^t (1+r_t)^{-1} (Y_t - L_t w_t - I_t) $$
+    $$ Y_t = Z_t (U_t K_t)^\alpha L_t^{1-\alpha} $$
+    $$ K_{t+1} = (1-\delta(U_t))K_t + I_t $$
+
+We equalize prices of capital and the consumption good as in equilibrium.
 
 \section{Fiscal Multipliers in the RBC Model}
 
