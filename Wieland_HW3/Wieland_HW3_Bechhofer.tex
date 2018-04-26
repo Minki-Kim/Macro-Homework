@@ -96,7 +96,7 @@ q_t = 1
 \]
 for capital at time $t$ we have
 \[
-q_t = E \left[ \frac{1}{1+r_{t+1}} \left( \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} (Z_{t+1} N_{t+1})^{1-\alpha} + q_{t+1} (1 - \delta(U_{t+1})  \right) \right]
+q_t = E \left[ \frac{1}{1+r_{t+1}} \left( \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} (Z_{t+1} N_{t+1})^{1-\alpha} + q_{t+1} (1 - \delta(U_{t+1}))  \right) \right]
 \]
 and finally we have the condition for utilization
 \[
@@ -315,7 +315,28 @@ which simplifies to
 \[
 \frac{\partial L_m}{\partial W} \cdot \frac{W}{ L_m} =  \eta +\frac{\rho  \left(\eta  \left(\frac{1}{\rho }-1\right)-1\right)}{(\rho -1) \left(W^{\frac{\rho }{1-\rho }}+1\right)}
 \]
+)
+\section{$q$-Theory with Variable Capital Utilization}
 
+\subsection*{(a)}
+
+Firms choose utilization, investment, and labor to maximize the expected value of 
+\[
+\sum_{s} \left( \prod_{k=1}^{s} \left(1 + r_{t+k} \right) \right)^{-1} 
+\times   Z_{t+s} \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} L_{t+s}^{1-\alpha}  - W_{t+s} L_{t+s} - I_{t+s} \left[ 1 + \phi \left( \frac{I_{t+s}}{K_{t+s-1}} \right) \right] 
+\]
+given the constraints
+\[
+\left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) = 0
+\]
+This problem is truly dynamic because the adjustment cost links the present and future period investment decisions. 
+
+\subsection*{(b)}
+The first order conditions are
+\[
+W_t =(1-\alpha)  Z_{t} \left( U_{t} K_{t-1}  \right)^{\alpha} L_{t}^{-\alpha}
+\]
+for labor
 
 
 \end{document}
