@@ -14,9 +14,6 @@ vCG = coef(2);
 vKK = coef(3);
 vKG = coef(4);
 
-vLK = alpha/(1/eta+alpha)-vCK/(1/eta+alpha);
-vLG = -vCG/(1/eta+alpha);
-
 delta = 0.02;
 eta = 10;
 alpha = 1/3;
@@ -27,6 +24,10 @@ IYss = delta*KYss;
 YIss = 1/IYss;
 GYss = 0.2;
 CYss = 1-IYss-GYss;
+
+vLK = alpha/(1/eta+alpha)-vCK/(1/eta+alpha);
+vLG = -vCG/(1/eta+alpha);
+
     
 for t=1:T
     g_ts(t+1) = rhog*g_ts(t);
