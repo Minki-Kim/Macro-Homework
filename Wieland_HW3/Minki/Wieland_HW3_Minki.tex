@@ -99,7 +99,22 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
     \end{equation*}
     Since capital stock is not fully used in production, the contributions of $Z_t$ and $N_t$ in $Y_t$ is higher than when $\Delta = \infty$. 
     \end{enumerate}
-    \item 
+    \item Since the labor demand curve is downward sloping, to attain indeterminacy we need a downward sloping labor supply curve. Household's labor supply curve is: 
+    \begin{equation*}
+    L_t = W_t^{\frac{1}{\chi}}
+    \end{equation*}
+    Hence, negative value of $\chi$ is needed to make the labor supply curve downward sloping. Therefore, with $\chi >0$ assumption, it is impossible to make indeteminacy by adjusting $\chi$. 
+    
+    We can also check if it's possible to attain a downward-sloping labor demand curve. The linearized labor demand function is $\check W_t = \check Y_t - \check N_t$. Substituting the expression for $\check Y_t$,
+    
+    $$ \check W_t =  \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + \frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t} \right) - \check N_t $$
+    
+    We can obtain an upward sloping labor demand function if labor exhibits increasing returns to scale, which is when the following condition is satisfied:
+    \begin{align*}
+    &\frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} > 1  \\
+    \rightarrow & \frac{-\Delta \alpha}{1 + \Delta - \alpha } > 0 
+    \end{align*}
+    Since $\Delta, \alpha > 0$, indeterminacy is only possible when $1 + \Delta < \alpha$. Hence, with a Cobb-Douglas production function with $0 < \alpha < 1$, indeterminacy is impossible in this model.  
 \end{enumerate}
 
 \section{Homework in macroeconomics}
