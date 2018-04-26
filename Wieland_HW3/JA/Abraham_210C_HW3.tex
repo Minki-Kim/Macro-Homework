@@ -198,7 +198,6 @@
 
         	$$ L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta $$
 
-
         \item Differentiate the expression.
 
         	\begin{equation*}
@@ -247,7 +246,7 @@
 
         Rental rate depends on $U_t$ through depreciation and the marginal productivity of capital.
 
-        \item Now log-linearize the FOC for utilization.
+        \item Now log-linearize the FOC for utilization and solve.
 
             $$ \alpha \frac{Y_t}{U_t} = q_t \delta'(U_t) K_t $$
             $$ \ln \alpha + \ln Y_t - \ln U_t = \ln q_t + \ln \delta'(U_t) + \ln K_t $$
@@ -256,8 +255,48 @@
 
         $\check q_t$ affects the tradeoff the firm makes when employing capital. A higher value of capital $\check q_t$ makes the cost of utilization, through higher depreciation of capital, more severe.
 
+        \item Firms will invest (divest) if $q$ is greater (less) than unity. Hence procyclicality of investment is tightly linked to procyclicality of $q$. This model predicts that utilization is \emph{countercyclical} since $U$ is inversely related to $q$. Cyclicality, however, also depends on
+
+        % other factors may be driving investment cyclicality than return to capital:
+        % GE considerations: Y through L
+        % depends on the underlying shocks: G, Z, demand
+        % how do adjustment costs change things?
+
+        \item Consider a positive productivity shock.
+
     \end{enumerate}
 
 \section{Fiscal Multipliers in the RBC Model}
+
+    The log-linearized system is
+
+        \begin{align*}
+            \text{Labor markets:~} & \check{C}_t + \frac{1}{\eta} \check{L}_t = \check{Y}_t - \check{L}_t \\
+            \text{Asset markets:~} & \ev \check{C}_{t+1} - \check{C}_t = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} (\ev \check{Y}_{t+1} - \check{K}_{t+1} ) \\
+            \text{Capital law of motion:~} & \check{K}_{t+1} = (1-\delta) \check{K}_t + \delta \check{I}_t \\
+            \text{Production:~} & \check{Y}_t = \alpha \check{K}_t + (1-\alpha) \check{L}_t \\
+            \text{National accounting:~} & \check{Y}_t = \frac{\bar{C}}{\bar{Y}} \check{C}_t + \frac{\bar{I}}{\bar{Y}} \check{I}_t + \frac{\bar{G}}{\bar{Y}} \check{G}_t \\
+            \text{Exogenous fiscal policy:~} & \check{G}_t = \rho_g \check{G}_{t-1} + \epsilon_t^g
+        \end{align*}
+
+
+    \begin{enumerate}
+
+        \item We can reduce the system to two endogenous variables.
+
+            $$ \check{K}_{t+1} = (1-\delta) \check{K}_t + \delta \check{I}_t $$
+            $$ \check{K}_{t+1} = (1-\delta) \check{K}_t + \delta \check{I}_t $$
+
+        Endogenous variables in reduced form are linear in $\check K_t$ and $\check G_t$.
+
+            \begin{align*}
+                \check C_t & = \nu_{CK} \check K_t + \nu_{CG} \check G_t \\
+                \check K_{t+1} & = \nu_{KK} \check K_t + \nu_{KG} \check G_t
+            \end{align*}
+
+        \item Fix $Z=1$ and let $\rho_g = 0.9$.
+
+    \end{enumerate}
+
 
 \end{document}
