@@ -244,7 +244,7 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	\begin{equation*}
 	r_{t+1} = \alpha \frac{Y_{t+1}}{K_{t+1}} + \frac{I_{t+1}^2}{K_{t+1}^2} \phi' \bigg ( \frac{I_t}{K_t} \bigg )  + \delta(U_{t+1})
 	\end{equation*}
-	The rental rate of captial is a function of $U$ because the depreciation rate and the marginal product of capital depend on $U$. It is also a function of $q$ because -
+	The rental rate of captial is a function of $U$ because the depreciation rate and the marginal product of capital depend on $U$. It is also a function of $q$ because replacing capital is costly, so optimizing requires taking into account just how far the firm is from equalizing replacement cost and marginal value for capital.
 	
 	\item Log-linearized version of the FOC for utilization is:
 	\begin{align*}
@@ -262,50 +262,96 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 \end{enumerate}
 
 \section{Fiscal multiplier in the RBC model}
-\begin{enumerate}[label = (\alph*)]
-	\item
-	The log-linearized system of equations is
-	\begin{align*}
-		&\check{K}_t = (1-\delta) \check{K}_{t-1} + \delta \check{I}_t \\
-		&\check{C}_t + \frac{1}{\eta} \check{L}_t = \check{Y}_t - \check{L}_t \\
-		&E_t \check{C}_{t+1} - \check{C}_t = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} (E_t \check{Y}_{t+1} - \check{K}_t ) \\
-		&\check{Y}_t = \alpha \check{K}_{t-1} + (1-\alpha) \check{L}_t \\
-		&\check{Y}_t = \frac{\bar{C}}{\bar{Y}} \check{C}_t + \frac{\bar{I}}{\bar{Y}} \check{I}_t + \frac{\bar{G}}{\bar{Y}} \check{G}_t \\
-		&\check{G}_t = \rho_g \check{G}_{t-1} + \epsilon_t^g
-	\end{align*}
-	Guess that the policy functions take the form
-	\begin{align*}
-		&\check{C}_t = v_{CK} \check{K}_{t-1} + v_{CG} \check{G}_{t} \\
-		&\check{K}_t = v_{KK} \check{K}_{t-1} + v_{KG} \check{G}_{t}
-	\end{align*}
-	Now plug the policy functions into the system of equations and we are left with the log-linearized consumption Euler equation and labor-leisure condition in terms of parameters, coefficients of the policy functions, and state variables:
-	\begin{dmath*}
-		(v_{CK} v_{KK} - v_{CK}) \check{K}_{t-1} + (v_{CK} v_{KG} + v_{CG}\rho_g - v_{CG}) \check{G}_{t} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KK} \frac{1}{\delta} - v_{KK} \right] \check{K}_{t-1} + \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KG} + \frac{\bar{C}}{\bar{Y}} v_{CG} \rho_g + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KG} \frac{1}{\delta} + \frac{\bar{I}}{\bar{Y}} v_{KG} \rho_g \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \rho_g - v_{KG} \right] \check{G}_t
-	\end{dmath*}
-	\begin{dmath*}
-		\left[ v_{CK} - \left( \frac{1}{\eta} + 1 \right) \frac{\alpha}{1-\alpha} \right] \check{K}_{t-1} + v_{CG} \check{G}_t = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) \frac{1}{\delta} \right] \check{K}_{t-1} + \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CG} + \frac{\bar{I}}{\bar{Y}} v_{KG} \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \right] \check{G}_{t}
-	\end{dmath*}
-	By comparing the coefficients on $\check{K}_{t-1}$ and $\check{G}_t$ in both equations, we obtain 4 equations
-	\begin{dmath*}
-		v_{CK} v_{KK} - v_{CK} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KK} \frac{1}{\delta} - v_{KK} \right]
-	\end{dmath*}
-	\begin{dmath*}
-		v_{CK} v_{KG} + v_{CG}\rho_g - v_{CG} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KG} + \frac{\bar{C}}{\bar{Y}} v_{CG} \rho_g + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KG} \frac{1}{\delta} + \frac{\bar{I}}{\bar{Y}} v_{KG} \rho_g \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \rho_g - v_{KG} \right]
-	\end{dmath*}
-	\begin{dmath*}
-		v_{CK} - \left( \frac{1}{\eta} + 1 \right) \frac{\alpha}{1-\alpha} = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) \frac{1}{\delta} \right]
-	\end{dmath*}
-	\begin{dmath*}
-		v_{CG} \check{G}_t = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CG} + \frac{\bar{I}}{\bar{Y}} v_{KG} \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \right] \check{G}_{t}
-	\end{dmath*}
+\begin{enumerate}[label=(\alph*)]
 
-	\item
-	Increase in government expenditure is only temporary, and the boost in output is transitory. Households compensate for the increased government expenditure by decreasing consumption, decreasing savings, and increasing labor supply. The households desired level of steady-state capital remains unchanged. This causes MPL (and wages) to decline while MPK (and interest rate) to increase.
+\item The log-linearized system of equations is
+\begin{align*}
+&\check{K}_t = (1-\delta) \check{K}_{t-1} + \delta \check{I}_t \\
+&\check{C}_t + \frac{1}{\eta} \check{L}_t = \check{Y}_t - \check{L}_t \\
+&E_t \check{C}_{t+1} - \check{C}_t = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} (E_t \check{Y}_{t+1} - \check{K}_t ) \\
+&\check{Y}_t = \alpha \check{K}_{t-1} + (1-\alpha) \check{L}_t \\
+&\check{Y}_t = \frac{\bar{C}}{\bar{Y}} \check{C}_t + \frac{\bar{I}}{\bar{Y}} \check{I}_t + \frac{\bar{G}}{\bar{Y}} \check{G}_t \\
+&\check{G}_t = \rho_g \check{G}_{t-1} + \epsilon_t^g
+\end{align*}
+Guess that the policy functions take the form
+\begin{align*}
+&\check{C}_t = v_{CK} \check{K}_{t-1} + v_{CG} \check{G}_{t} \\
+&\check{K}_t = v_{KK} \check{K}_{t-1} + v_{KG} \check{G}_{t}
+\end{align*}
+Now plug the policy functions into the system of equations and we are left with the log-linearized consumption Euler equation and labor-leisure condition in terms of parameters, coefficients of the policy functions, and state variables:
+\begin{dmath*}
+	(v_{CK} v_{KK} - v_{CK}) \check{K}_{t-1} + (v_{CK} v_{KG} + v_{CG}\rho_g - v_{CG}) \check{G}_{t} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KK} \frac{1}{\delta} - v_{KK} \right] \check{K}_{t-1} + \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KG} + \frac{\bar{C}}{\bar{Y}} v_{CG} \rho_g + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KG} \frac{1}{\delta} + \frac{\bar{I}}{\bar{Y}} v_{KG} \rho_g \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \rho_g - v_{KG} \right] \check{G}_t
+\end{dmath*}
+\begin{dmath*}
+	\left[ v_{CK} - \left( \frac{1}{\eta} + 1 \right) \frac{\alpha}{1-\alpha} \right] \check{K}_{t-1} + v_{CG} \check{G}_t = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) \frac{1}{\delta} \right] \check{K}_{t-1} + \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CG} + \frac{\bar{I}}{\bar{Y}} v_{KG} \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \right] \check{G}_{t}
+\end{dmath*}
+By comparing the coefficients on $\check{K}_{t-1}$ and $\check{G}_t$ in both equations, we obtain 4 equations
+\begin{dmath*}
+	v_{CK} v_{KK} - v_{CK} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KK} \frac{1}{\delta} - v_{KK} \right]
+\end{dmath*}
+\begin{dmath*}
+	v_{CK} v_{KG} + v_{CG}\rho_g - v_{CG} = \frac{\alpha \frac{\bar{Y}}{\bar{K}}}{\alpha \frac{\bar{Y}}{\bar{K}} + (1-\delta)} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} v_{KG} + \frac{\bar{C}}{\bar{Y}} v_{CG} \rho_g + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) v_{KG} \frac{1}{\delta} + \frac{\bar{I}}{\bar{Y}} v_{KG} \rho_g \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \rho_g - v_{KG} \right]
+\end{dmath*}
+\begin{dmath*}
+	v_{CK} - \left( \frac{1}{\eta} + 1 \right) \frac{\alpha}{1-\alpha} = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CK} + \frac{\bar{I}}{\bar{Y}} (v_{KK} - 1 + \delta) \frac{1}{\delta} \right]
+\end{dmath*}
+\begin{dmath*}
+	v_{CG} \check{G}_t = \frac{-\alpha - \frac{1}{\eta}}{1-\alpha} \left[ \frac{\bar{C}}{\bar{Y}} v_{CG} + \frac{\bar{I}}{\bar{Y}} v_{KG} \frac{1}{\delta} + \frac{\bar{G}}{\bar{Y}} \right] \check{G}_{t}
+\end{dmath*}
 
-	\item
-	The multiplier is about 1.13.
+Solving numerically, we get
+\begin{align*}
+v_{CK} &\approx 0.66 \\
+v_{CG} &\approx -0.09 \\
+v_{KK} &\approx 0.97 \\
+v_{KG} &\approx -0.01 
+\end{align*}
 
-	\item
-	Now the increase in government expenditure is permanent, and the boost in output persists forever. Households decrease consumption and increase labor supply by a lot more compared to before because they are increasing their savings in this situation. This is because the households want to attain a higher level of steady-state capital. This sharp increase in labor supply causes wages to decline by more and interest rate to increase more. The level of increase in output is much larger; the multiplier is about 1.4.
+\item The increase in government expenditure is only temporary, and the boost in output is transitory. Households compensate for the increased government expenditure by decreasing consumption, decreasing savings, and increasing labor supply. The households desired level of steady-state capital remains unchanged. This causes MPL (and wages) to decline while MPK (and interest rate) to increase.
+This is shown in Figure \ref{5b}.
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{IRF_b_plot.pdf}
+		\caption{Impulse response to a unit shock in government spending.}
+		\label{5b}
+	\end{center}
+\end{figure}
+
+
+\item The multiplier is about 1.13. The new impulse response is shown in Figure \ref{5c}.
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{IRF_c_plot.pdf}
+		\caption{Impulse response to a unit shock in government spending in levels.}
+		\label{5c}
+	\end{center}
+\end{figure}
+
+\item We now have
+\begin{align*}
+v_{CK} &\approx 0.66 \\
+v_{CG} &\approx -0.27 \\
+v_{KK} &\approx 0.97 \\
+v_{KG} &\approx 0.003 
+\end{align*}
+
+Increased output persists, so households decrease consumption and increase labor supply even more as a result of increased savings to get a higher level of steady-state capital. This increase in labor supply causes wages to decline by more and the interest rate to increase more. The level of increase in output is much larger; the multiplier is about 1.4.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{IRF_d_plot.pdf}
+		\caption{Impulse response to the permanent shock}
+		\label{5d}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{IRF_d_Y_plot.pdf}
+		\caption{Impulse response to the permanent shock in levels}
+		\label{5b}
+	\end{center}
+\end{figure}
 \end{enumerate}
 \end{document}
