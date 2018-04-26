@@ -138,7 +138,7 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	&= \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right) 
 	\end{align*}
 	
-	\item Consider a case where $\rho \rightarrow 1$ ($C_m$ and $C_h$) being perfect substitutes. Then, $\frac{\rho}{1 - \rho} \rightarrow \infty$, pushing up the Frisch elasticity to infinity. Intuitively, if the household can home-produce everything on the market, there is no reason to supply labor to the market when the wage is lower than the value of the home produced goods. 
+	\item Consider a case where $\rho \rightarrow 1$ ($C_m$ and $C_h$ being perfect substitutes). Then, $\frac{\rho}{1 - \rho} \rightarrow \infty$, pushing up the Frisch elasticity to infinity. Intuitively, if the household can home-produce everything on the market, there is no reason to supply labor to the market when the wage is lower than the value of the home produced goods. 
 	
 	As $\rho$ gets smaller, the Frisch elasticity also approaches to $\eta$. If home produced goods and goods on the market are not substitutable, then the Frisch elasticity is exactly equals to $\eta$. 
 	
@@ -183,7 +183,7 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	\begin{equation*}
 	L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta
 	\end{equation*}
-	\item Differentiate $L_m$ w.r.t $W$
+	Differentiate $L_m$ w.r.t $W$
 	\begin{equation*}
 	\frac{\partial L_m}{\partial W} = \eta W^{\eta -1 } \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} + W^\eta \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right)  \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -2} \left( \frac{\rho}{\rho-1} \right) W^{\frac{1}{\rho-1}}
 	\end{equation*}
@@ -193,9 +193,18 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	& = \eta + \left(  \frac{\rho}{1-\rho} - \eta \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
 	& =  \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right) - \eta \left(  \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}  \right)
 	\end{align*}
-
-
-	\item
+	\item The Frisch elasticity of labor measures the percentage change in hours worked due to the percentage change in wages, holding constant the marginal utility of wealth. This implies that the Frisch elasticity of $L_m$ in our model is expressed as:
+    \begin{equation*}
+    \varepsilon_{L_m, W} \big|_{\lambda = \bar{\lambda}} = \frac{\partial L_m}{\partial W} \cdot \frac{W}{L_m} \big|_{\lambda = \bar{\lambda}}
+    \end{equation*}
+    This is what we derived in (h). In other words, the Frisch elasticity is the compensated labor elasticity of wage. However, if calculate the Frisch elasticity of $L_m$ holding the total consumption level $C$ as constant, we have 
+    \begin{align*}
+    \varepsilon_{L_m, W}\big|_{C = \bar{C}} &= \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right) - \eta \left(  \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}  \right) \\
+    & = \varepsilon_{L_m, W} \big|_{\lambda = \bar{\lambda}} - \eta \left(  \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}  \right)
+    \end{align*}
+    The last negative term represents the wealth effect from the rise in $W$, since we are not holding the wealth effect constant in this case. However, the intuition from (g) still survives. 
+    
+	\item Even if $\eta$ itself is small, the model can generate a high Frisch elasticitiy by adjusting the substitutability parameter $\rho$. If home produced and market produced goods are highly substitutable, households would want to move their labor almost entirely from the home production to the labor market. This induces a high Frisch elasticity regardless of the value of $\eta$. 
 
 \end{enumerate}
 
