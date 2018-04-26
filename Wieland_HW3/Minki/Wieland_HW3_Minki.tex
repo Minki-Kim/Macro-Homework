@@ -50,10 +50,9 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 \section{Variable capital utilization in an RBC model}
 \begin{enumerate}[label=(\alph*)]
 	\item The Lagrangian of the firm's profit maximization problem is: 
-	\begin{align*}
-	\mathcal{L} =& \mathbb{E}_t \sum_{s} \left( \prod_{k=1}^{s} \left(1 + R_{t+k} \right) \right)^{-1} \\\
-	 &\times \left[  \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} \left(Z_{t+s} N_{t+s}  \right)^{1-\alpha}  - W_{t+s} N_{t+s} - I_{t+s} + q_{t+s} \left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) \right] 
-	\end{align*}
+	\begin{dmath*}
+	\mathcal{L} = \mathbb{E}_t \sum_{s} \left( \prod_{k=1}^{s} \left(1 + R_{t+k} \right) \right)^{-1} \times \left[  \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} \left(Z_{t+s} N_{t+s}  \right)^{1-\alpha}  - W_{t+s} N_{t+s} - I_{t+s} + q_{t+s} \left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) \right] 
+	\end{dmath*}
 	The first order conditions are: 
 	
 	\begin{align*}
@@ -184,9 +183,9 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta
 	\end{equation*}
 	Differentiate $L_m$ w.r.t $W$
-	\begin{equation*}
+	\begin{dmath*}
 	\frac{\partial L_m}{\partial W} = \eta W^{\eta -1 } \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} + W^\eta \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right)  \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -2} \left( \frac{\rho}{\rho-1} \right) W^{\frac{1}{\rho-1}}
-	\end{equation*}
+	\end{dmath*}
 	Hence the elasticity of $L_m$ w.r.t $W$ is
 	\begin{align*}
 	\frac{\partial L_m}{\partial W} \frac{W}{L_m} &= \eta + \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right) \left( \frac{\rho}{\rho-1} \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
