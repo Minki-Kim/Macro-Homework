@@ -355,7 +355,29 @@ The first order conditions are
 	\begin{equation*}
 	r_{t+1} = \alpha \frac{Y_{t+1}}{K_{t+1}} + \frac{I_{t+1}^2}{K_{t+1}^2} \phi' \bigg ( \frac{I_t}{K_t} \bigg )  + \delta(U_{t+1})
 	\end{equation*}
-	The rental rate of capital is a function of utilization because the depreciation rate and the marginal product of capital depend on utilization. It is also a function of $q$ because -
+	The rental rate of capital is a function of utilization because the depreciation rate and the marginal product of capital depend on utilization. 
+	It is also a function of $q$ because replacing capital is costly, so optimizing requires taking into account just how far the firm is from equalizing replacement cost and marginal value for capital.
+	
+	\subsection*{(c)}
+	 The log-linearized version of the FOC for utilization is:
+	\begin{align*}
+	\check U_t = \frac{\check Y_t  - \check K_t - \check q_t}{1 + \Delta} = \frac{\check{MPK}_t - \check q_t}{1 + \Delta} \\
+	\end{align*}
+	Thus we have that the sign of the percentage deviation of utilization from its steady state value depends on the percentage change in $ MPK_t -  q_t$.  
+	Here $q_t$ is the ratio of the value of additional unit of capital to its replacement cost, not always 1. 
+	The percentage change in $ MPK_t -  q_t$ is the net gain of adding one more unit of capital in the production. When this is positive, it is profitable for the firm to use more capital, implying $\check U_t >0$. 
+	
+	\subsection*{(d)} 
+	Utilization is negatively correlated with $q$. 
+	Since $q$ and investment are positively correlated, procyclical investment can imply counter-cyclical utilization depending on the procyclicality of $MPK$. 
+	
+	\subsection*{(e)} When a technology shock looks approximately permanent, it is profitable to accumulate capital, meaning $\check{MPK} <0$. 
+	$U_t$ is therefore countercyclical in the high persistence case. 
+	Accumulating more capital necessitates reduced utilization to prevent depreciation. 
+	
+	$U_t$ can be procyclical when the shock is transitory, because the increased capital won't be worth much when the shock is over; $\check{MPK} >0$.
+	
+
 
 
 \section{Fiscal multiplier in the RBC model}
@@ -432,8 +454,6 @@ The first order conditions are
 \subsection*{(d)}
 
 We now have
-
-Solving numerically, we get
 	\begin{align*}
 	v_{CK} &\approx 0.66 \\
 	v_{CG} &\approx -0.27 \\
