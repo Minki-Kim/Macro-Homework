@@ -1,10 +1,14 @@
 # ECON 210C HW3 Q5 - Churn Ken Lee
 
+# Load required packages
+using NLsolve
+using Plots; gr()
+
 # Change working directory
 cd("C:/Users/churn/Documents/UCSD/Spring_2018/ECON_210C/Macro-Homework/Wieland_HW3/Ken")
 
 # Define a function that computes the residuals of the 4 equations.
-function Residuals(vck, vcg, vkk, vkg)
+function Residuals(guess)
     α = 0.33
     β = 0.99
     δ = 0.02
@@ -15,6 +19,10 @@ function Residuals(vck, vcg, vkk, vkg)
     KYss = 1/YKss
     IYss = δ*KYss
     CYss = 1 - IYss - GYss
+    vck = guess[1]
+    vcg = guess[2]
+    vkk = guess[3]
+    vkg = guess[4]
 
     eulerLHSK = vck*vkk - vck
     eulerLHSG = vck*vkg + vcg*ρ - vcg
@@ -36,3 +44,13 @@ function Residuals(vck, vcg, vkk, vkg)
 
     return diff
 end
+
+# Solve system using NLsolve
+results = nlsolve(Residuals, [1.1; 1.1; 1.1; 1.1]; inplace = false)
+
+# Obtain solution from results
+vck = results.zero[1]
+vcg = results.zero[2]
+vkk = results.zero[3]
+vkg = results.zero[4]
+

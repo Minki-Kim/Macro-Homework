@@ -15,7 +15,7 @@ vKK = coef(3);
 vKG = coef(4);
 
 delta = 0.02;
-eta = 10;
+eta = 0.5;
 alpha = 1/3;
 beta = 0.99;
 YKss = (1/beta-1+delta)/alpha;
@@ -157,7 +157,7 @@ print(h,'Q5_levelrho1.pdf','-dpdf','-r0')
 function gap = model(coef)
     global rhog
     delta = 0.02;
-    eta = 10;
+    eta = 0.5;
     alpha = 1/3;
     beta = 0.99;
     YKss = (1/beta-1+delta)/alpha;
