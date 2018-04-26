@@ -96,7 +96,7 @@ q_t = 1
 \]
 for capital at time $t$ we have
 \[
-q_t = E \left[ \frac{1}{1+r_{t+1}} \left( \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} (Z_{t+1} N_{t+1})^{1-\alpha} + q_{t+1} (1 - \delta(U_{t+1})  \right) \right]
+q_t = E \left[ \frac{1}{1+r_{t+1}} \left( \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} (Z_{t+1} N_{t+1})^{1-\alpha} + q_{t+1} (1 - \delta(U_{t+1}))  \right) \right]
 \]
 and finally we have the condition for utilization
 \[
@@ -108,6 +108,48 @@ Combining the investment and capital optimality conditions yields the expression
 	R_{t+1} = \alpha U_{t+1}^{\alpha} K_t^{\alpha -1} \left(Z_{t+1} N_{t+1}  \right)^{1-\alpha} - \delta(U_{t+1})
 \]
 The rental rate depends on utilization because the marginal product of capital and its depreciation rate depend on utilization. 
+
+\subsection*{(b)}
+The log linearized version of the utilization optimality condition
+	 \[
+	 q_t \delta^{'}(U_t) K_{t-1}  = \alpha U_t^{\alpha -1} K_{t-1}^\alpha \left( Z_t N_t \right)^{1-\alpha}
+	 \] 
+	 is
+	\begin{align*}
+	&\check{q_t}+ \frac{\delta^{''}(\bar{U}) \bar{U}}{\delta^{'}(\bar{U})} \check{U}_t + \check{K}_{t-1} = (\alpha -1) \check{U_t} + \alpha \check{K_{t-1}}  + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right) 
+	\end{align*}
+We know $\check{q_t}=0$ from the investment optimality condition and  we also know 
+\[
+\check{Y_t} = \alpha \left( \check{U_t} + \check{K_{t-1}} \right) + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right)
+\] 
+because the production function is given, so we have
+	\begin{align*}
+	\check{U_t} = \frac{1}{1 + \Delta} \left( \check{Y_t} - \check{K_{t-1}}\right)
+	\end{align*}
+
+\subsection*{(c)}
+
+The log-linearized production function is
+	\begin{align*}
+	\check{Y_t} &= \alpha \left( \check{U_t} + \check{K_{t-1}} \right) + (1-\alpha) \left(  \check{Z_t} + \check{N_t}\right) \\
+	& = \frac{\alpha}{1 + \Delta} \left( \check{Y_t} - \check{K_{t-1}} \right) + \alpha \check{K_{t-1}} + (1-\alpha ) \left(  \check{Z_t} + \check{N_t}\right)
+	\end{align*} 
+	Isolate $\check{Y_t}$:
+	\begin{align*}
+	\check{Y_t} &= \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + \frac{(1+\Delta)(1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t} \right)  \\
+	& = \check{Z_t} + \check{N_t} \quad \left( \text{when } \Delta = 0 \right) \\
+	& = \alpha \check{K_{t-1}} + (1-\alpha) \left( \check{Z_t } + \check{N_t} \right)   \quad \left( \text{when } \Delta = \infty \right)
+	\end{align*}
+
+     $\Delta = 0$ implies the capital stock is impotent, and output thus only depends on technology and labor. 
+$\Delta = \infty$ implies full utilization, so output depends on all three inputs, with weights equal to the Cobb-Douglas coefficients. 
+    
+In every other case, we have 
+    \begin{equation*}
+    \check{Y_t} = \frac{\Delta \alpha }{1 + \Delta - \alpha} \check{K_{t-1}} + (1-\alpha) \left( \check{Z_t} + \check{N_t} \right)+ \frac{\alpha (1-\alpha)}{1+ \Delta - \alpha} \left(  \check{Z_t} + \check{N_t} \right)
+    \end{equation*}
+    so $Z_t$ and $N_t$ in $Y_t$ matter relatively more (with capital not being fully utilized) relative to the $\Delta = \infty$ case. 
+
 
 \section{Homework in macroeconomics}
 
@@ -238,10 +280,63 @@ and the $L_m$ terms on the right side cancel so we have
 \[
 L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1}  W ^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
 \]
- 
+and we can rewrite the numerator to get
+\[
+L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1}  W ^{\rho}\right]^{\eta} }{(1 + W^{\frac{\rho}{\rho-1}})}
+\] 
+equivalent to 
+\[
+L_m = \frac{ \left[(W^{\rho}(1 + W^{\frac{\rho}{\rho-1}}))^{\frac{1}{\rho} -1}  W ^{\rho}\right]^{\eta} }{(1 + W^{\frac{\rho}{\rho-1}})}
+\] 
+and
+\[
+L_m = \frac{ \left[(1 + W^{\frac{\rho}{\rho-1}})^{\frac{1}{\rho} -1}  W^{1-\rho} W ^{\rho}\right]^{\eta} }{(1 + W^{\frac{\rho}{\rho-1}})}
+\] 
+and
+\[
+L_m = \frac{ \left[(1 + W^{\frac{\rho}{\rho-1}})^{\frac{1}{\rho} -1}  W \right]^{\eta} }{(1 + W^{\frac{\rho}{\rho-1}})}
+\] 
+to finally get
+\[
+L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta
+\]
+
 \subsection*{(i)}
 
+Differentiating, we have
+\[
+\frac{\partial L_m}{\partial W} = \frac{\rho  \left(\frac{\eta  (1-\rho )}{\rho }-1\right) W^{\eta +\frac{\rho }{\rho -1}-1} \left(W^{\frac{\rho }{\rho -1}}+1\right)^{\frac{\eta  (1-\rho )}{\rho }-2}}{\rho -1}+\eta  W^{\eta -1} \left(W^{\frac{\rho }{\rho -1}}+1\right)^{\frac{\eta  (1-\rho )}{\rho }-1}
+\]
+and we have the elasticity as
+\[
+\frac{\partial L_m}{\partial W} \cdot \frac{W}{ L_m} = \frac{\rho  \left(\frac{\eta  (1-\rho )}{\rho }-1\right) W^{\frac{\rho }{\rho -1}} \left(W^{\frac{\rho }{\rho -1}}+1\right)^{-1}}{\rho -1} + \eta 
+\]
+which simplifies to 
+\[
+\frac{\partial L_m}{\partial W} \cdot \frac{W}{ L_m} =  \eta +\frac{\rho  \left(\eta  \left(\frac{1}{\rho }-1\right)-1\right)}{(\rho -1) \left(W^{\frac{\rho }{1-\rho }}+1\right)}
+\]
+)
+\section{$q$-Theory with Variable Capital Utilization}
 
+\subsection*{(a)}
+
+Firms choose utilization, investment, and labor to maximize the expected value of 
+\[
+\sum_{s} \left( \prod_{k=1}^{s} \left(1 + r_{t+k} \right) \right)^{-1} 
+\times   Z_{t+s} \left( U_{t+s} K_{t+s-1}  \right)^{\alpha} L_{t+s}^{1-\alpha}  - W_{t+s} L_{t+s} - I_{t+s} \left[ 1 + \phi \left( \frac{I_{t+s}}{K_{t+s-1}} \right) \right] 
+\]
+given the constraints
+\[
+\left( -K_{t+s} + (1-\delta(U_t))K_{t+s-1} + I_{t+s} \right) = 0
+\]
+This problem is truly dynamic because the adjustment cost links the present and future period investment decisions. 
+
+\subsection*{(b)}
+The first order conditions are
+\[
+W_t =(1-\alpha)  Z_{t} \left( U_{t} K_{t-1}  \right)^{\alpha} L_{t}^{-\alpha}
+\]
+for labor
 
 
 \end{document}
