@@ -140,4 +140,56 @@
 
     \end{enumerate}
 
+\section{Macroeconomics of Home Production}
+
+    The household solves
+
+        $$ \max_{c_m, c_h, L_h, L_m} (C_m^\rho + C_h^\rho)^\frac{1}{\rho} - \bigg ( \frac{1}{\eta}+1 \bigg )^{-1} (L_h + L_m)^{\frac{1}{\eta}+1} $$
+        $$ \text{subject to~} C_m \leq w L_m, C_h \leq L_h $$
+
+    The prices of consumption goods are equivalent.
+
+    \begin{enumerate}
+
+        \item The first order conditions are
+
+            $$ \mathcal L = (C_m^\rho + C_h^\rho)^\frac{1}{\rho} - \bigg ( \frac{1}{\eta}+1 \bigg )^{-1} (L_h + L_m)^{\frac{1}{\eta}+1} + \lambda (w L_m - C_m) + \xi (L_h - C_h) $$
+            $$ \lambda = (C_m^\rho + C_h^\rho)^\frac{1-\rho}{\rho} C_m^{\rho-1} $$
+            $$ \xi = (C_m^\rho + C_h^\rho)^\frac{1-\rho}{\rho} C_h^{\rho-1} $$
+            $$ (L_h + L_m)^\frac{1}{\eta} = \lambda w = \xi $$
+
+        \item $w = \frac{\xi}{\lambda}$. Wage is the ratio of marginal utilities of market and home goods.
+
+        \item $\lambda \frac{C_m}{C_h}^{1-\rho} = \xi$. The ratio of marginal utilities depends on the share of consumption.
+
+        \item $C_h = L_h = C_m w^\frac{-1}{1-\rho}$. The share of consumption depends on the relative wage.
+
+        \item Begin with $(L_h + L_m)^\frac{1}{\eta} = \lambda w$.
+
+            $$ L_m = (\lambda w)^\eta - L_h $$
+            $$ = (\lambda w)^\eta - C_m w^\frac{-1}{1-\rho} $$
+            $$ = (\lambda w)^\eta - L_m w^\frac{-\rho}{1-\rho} $$
+            $$ = (\lambda w)^\eta (1 + w^\frac{-\rho}{1-\rho})^{-1}  $$
+
+        \item Differentiate the above expression.
+
+            $$ \frac{\partial L_m}{\partial w} = \frac{(1 + W^{\frac{-\rho}{1-\rho}}) \lambda^{\eta} \eta W^{\eta - 1} - (\lambda W)^{\eta} (\frac{-\rho}{1-\rho}) W^{\frac{-\rho}{1-\rho} - 1}}{(1 + W^{\frac{-\rho}{1-\rho}})^2} $$
+
+            $$ \varepsilon_m = \frac{\partial L_m}{\partial w} \frac{w}{L_m} = \frac{(1 + W^{\frac{-\rho}{1-\rho}}) \eta  -  (\frac{-\rho}{1-\rho}) W^{\frac{-\rho}{1-\rho}}}{(1 + W^{\frac{-\rho}{1-\rho}})} $$
+        	$$ = \eta + \bigg ( \frac{\rho}{1-\rho} \bigg ) \bigg ( \frac{W^{\frac{-\rho}{1-\rho}}}{1 + W^{\frac{-\rho}{1-\rho}}} \bigg ) $$
+
+        \item Observing labor supply volatilities, the model with home production implies $\eta$ weakly smaller than in the classical RBC because that model does not account for shifting ``employment'' in home production. With high elasticity of substitution, $\varepsilon_m \to \infty$ and households will more readily substitute market employment with home production. If goods are complements, $\varepsilon_m$ approaches the Frisch elasticity $\eta$.
+
+        \item
+
+        \item
+
+        \item Higher elasticity of substitution ($\rho \to 1$) results in higher ``total'' elasticity which can help explain labor supply volatilities without an infeasibly high Frisch elasticity.
+
+    \end{enumerate}
+
+\section{$q$-Theory with Variable Capital Utilization}
+
+\section{Fiscal Multipliers in the RBC Model}
+
 \end{document}

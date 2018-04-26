@@ -144,9 +144,59 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	
 	As $\rho$ gets smaller, the Frisch elasticity also approaches to $\eta$. If home produced goods and goods on the market are not substitutable, then the Frisch elasticity is exactly equals to $\eta$. 
 	\item
-	 
-	\item 
-	
+	We had
+	\[
+	\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1}  C_m^{\rho-1} = \lambda
+	\]
+	so substitute the budget constraints
+	\[
+	((W L_m)^{\rho} + L_h^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda
+	\]
+	and use the substitution
+	\[
+	L_h = L_m W^{\frac{\rho}{\rho-1}}
+	\]
+	to get
+	\[
+	((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda
+	\]
+	so now substitute back in to
+	\[
+	L_m = \frac{(\lambda W)^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+	\]
+	and we have
+	\[
+	L_m = \frac{ \left[((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+	\]
+	and we can simplify to get
+	\[
+	L_m = \frac{ \left[((W^{\rho} + W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+	\]
+	and again to get
+	\[
+	L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1} L_m^{1-\rho} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+	\]
+	and the $L_m$ terms on the right side cancel so we have
+	\[
+	L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1}  W ^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+	\]
+	Simplify this a little bit more:
+	\begin{equation*}
+	L_m = \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} W^\eta
+	\end{equation*}
+	\item Differentiate $L_m$ w.r.t $W$
+	\begin{equation*}
+	\frac{\partial L_m}{\partial W} = \eta W^{\eta -1 } \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -1} + W^\eta \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right)  \left( 1 + W^{\frac{\rho}{\rho-1}} \right)^{\eta \left( \frac{1-\rho}{\rho} \right) -2} \left( \frac{\rho}{\rho-1} \right) W^{\frac{1}{\rho-1}}
+	\end{equation*}
+	Hence the elasticity of $L_m$ w.r.t $W$ is
+	\begin{align*}
+	\frac{\partial L_m}{\partial W} \frac{W}{L_m} &= \eta + \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right) \left( \frac{\rho}{\rho-1} \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
+	& = \eta + \left(  \frac{\rho}{1-\rho} - \eta \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}
+	\end{align*}
+	Compare this result to the previous result in $(f)$:
+	\begin{equation*}
+	\frac{\partial L_m}{\partial W} \frac{W}{L_m} = \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right)
+	\end{equation*}
 	\item
 
 \end{enumerate}

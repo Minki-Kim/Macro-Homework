@@ -204,60 +204,44 @@ as the elasticity of $L_h$ with respect to $W$.
 
 We had
 \[
-L_m = \frac{(\lambda W)^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1}  C_m^{\rho-1} = \lambda
 \]
-and from part c we had
+so substitute the budget constraints
 \[
-\xi = \lambda \left( \frac{C_h}{C_m} \right)^{\rho-1}
+((W L_m)^{\rho} + L_h^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda
 \]
-which we can substitute from the first order conditions to get
-\[
-\left(  L_h + L_m \right)^{\frac{1}{\eta} } = \lambda \left( \frac{C_h}{C_m} \right)^{\rho-1}
-\]
-with the budget constraint giving us
-\[
-\left(  L_h + L_m \right)^{\frac{1}{\eta} } = \lambda \left( \frac{L_h}{WL_m} \right)^{\rho-1}
-\]
-so we have
-\[
-\lambda = \left(  L_h + L_m \right)^{\frac{1}{\eta} } \left( \frac{L_h}{WL_m} \right)^{1-\rho}
-\]
-and now
-We had
-\[
-L_m = \frac{\left(  L_h + L_m \right) \left( \frac{L_h}{WL_m} \right)^{\eta - \eta \rho} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
-\]
-and this gets us
-\[
-L_m = \frac{\left(  L_h + L_m \right) \left( \frac{L_h}{L_m} \right)^{\eta - \eta \rho} W^{\eta \rho}}{(1 + W^{\frac{\rho}{\rho-1}})}
-\]
-and we know
+and use the substitution
 \[
 L_h = L_m W^{\frac{\rho}{\rho-1}}
 \]
-so we have
+to get
 \[
-L_m = \frac{\cancel{\left(   L_m W^{\frac{\rho}{\rho-1}} + L_m \right)} \left( \frac{ \cancel{L_m} W^{\frac{\rho}{\rho-1}}}{\cancel{L_m}} \right)^{\eta - \eta \rho} W^{\eta \rho}}{\cancel{(1 + W^{\frac{\rho}{\rho-1}})}}
+((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda
 \]
-so that gets us to
+so now substitute back in to
 \[
-L_m = W^{\frac{\rho}{\rho-1} \times (\eta - \eta \rho)} \times W^{\eta \rho}
+L_m = \frac{(\lambda W)^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
 \]
-equivalently 
+and we have
 \[
-L_m = W^{\frac{\rho}{\rho-1} \times (\eta - \eta \rho) + \eta \rho} 
+L_m = \frac{ \left[((W L_m)^{\rho} + ( W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
 \]
-
+and we can simplify to get
+\[
+L_m = \frac{ \left[((W^{\rho} + W^{\frac{\rho^2}{\rho-1}}) L_m^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+\]
+and again to get
+\[
+L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1} L_m^{1-\rho} (W L_m)^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+\]
+and the $L_m$ terms on the right side cancel so we have
+\[
+L_m = \frac{ \left[(W^{\rho} + W^{\frac{\rho^2}{\rho-1}})^{\frac{1}{\rho} -1}  W ^{\rho-1}\right]^{\eta} W^{\eta}}{(1 + W^{\frac{\rho}{\rho-1}})}
+\]
+ 
 \subsection*{(i)}
 
-We now have
-\[
-\frac{\partial L_h}{\partial W} = \left(\frac{\rho}{\rho-1} \times (\eta - \eta \rho) + \eta \rho \right) W^{\frac{\rho}{\rho-1} \times (\eta - \eta \rho) + \eta \rho - 1 } 
-\]
-with 
-\[
-\frac{\partial L_m}{\partial W} \cdot \frac{W}{L_m} = \left(\frac{\rho}{\rho-1} \times (\eta - \eta \rho) + \eta \rho \right)
-\]
+
 
 
 \end{document}
