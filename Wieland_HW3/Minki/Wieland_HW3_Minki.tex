@@ -141,12 +141,13 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	\item Consider a case where $\rho \rightarrow 1$ ($C_m$ and $C_h$) being perfect substitutes. Then, $\frac{\rho}{1 - \rho} \rightarrow \infty$, pushing up the Frisch elasticity to infinity. Intuitively, if the household can home-produce everything on the market, there is no reason to supply labor to the market when the wage is lower than the value of the home produced goods. 
 	
 	As $\rho$ gets smaller, the Frisch elasticity also approaches to $\eta$. If home produced goods and goods on the market are not substitutable, then the Frisch elasticity is exactly equals to $\eta$. 
+	
 	\item
-	We had
+	From the first order condition for market consumption goods, we had
 	\[
 	\left( C_m^\rho + C_h^\rho \right)^{\frac{1}{\rho} -1}  C_m^{\rho-1} = \lambda
 	\]
-	so substitute the budget constraints
+	Assuming interior solutions, substitute the budget constraints
 	\[
 	((W L_m)^{\rho} + L_h^{\rho})^{\frac{1}{\rho} -1} (W L_m)^{\rho-1} = \lambda
 	\]
@@ -189,12 +190,11 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	Hence the elasticity of $L_m$ w.r.t $W$ is
 	\begin{align*}
 	\frac{\partial L_m}{\partial W} \frac{W}{L_m} &= \eta + \left( \eta \left( \frac{1-\rho}{\rho} \right) -1  \right) \left( \frac{\rho}{\rho-1} \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
-	& = \eta + \left(  \frac{\rho}{1-\rho} - \eta \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}
+	& = \eta + \left(  \frac{\rho}{1-\rho} - \eta \right) \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \\
+	& =  \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right) - \eta \left(  \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}}  \right)
 	\end{align*}
-	Compare this result to the previous result in $(f)$:
-	\begin{equation*}
-	\frac{\partial L_m}{\partial W} \frac{W}{L_m} = \eta + \left( \frac{\rho}{1-\rho} \right) \left( \frac{W^{\frac{\rho}{\rho-1}}}{1 + W^{\frac{\rho}{\rho-1}}} \right)
-	\end{equation*}
+
+
 	\item
 
 \end{enumerate}
@@ -210,6 +210,25 @@ As one would expect, the fits get better as we calibrate the Frisch elasticity t
 	\end{split}
 	\end{align*}
 	This problem is truly dynamic because the presence of an adjustment cost links the present and future period investment decisions. 
+	\item The first order conditions are: 
+	\begin{align*}
+		\frac{\partial \mathcal{L}}{\partial L_t}: &\quad  w_t = (1-\alpha) \frac{Y_t}{L_t} \\
+		\frac{\partial \mathcal{L}}{\partial L_t}: & \quad q_t = 1 + \phi \bigg ( \frac{I_t}{K_t} \bigg ) + \frac{I_t}{K_t} \phi' \bigg ( \frac{I_t}{K_t} \bigg ) \\
+		\frac{\partial \mathcal{L}}{\partial K_t}: & \quad q_t = (1+r_{t+1})^{-1} \bigg ( \alpha \frac{Y_{t+1}}{K_{t+1}} + \frac{I_{t+1}^2}{K_{t+1}^2} \phi' \bigg ( \frac{I_t}{K_t} \bigg ) + q_{t+1} (1-\delta(U_{t+1})) \bigg ) \\
+		\frac{\partial \mathcal{L}}{\partial U_t}: &\quad  \alpha \frac{Y_t}{U_t} = q_t \delta'(U_t) K_t
+	\end{align*}
+	Combining the second and third equations, we can get an expression for the rental rate of capital: 
+	\begin{equation*}
+	r_{t+1} = \alpha \frac{Y_{t+1}}{K_{t+1}} + \frac{I_{t+1}^2}{K_{t+1}^2} \phi' \bigg ( \frac{I_t}{K_t} \bigg )  + \delta(U_{t+1})
+	\end{equation*}
+	The rental rate of captial is a function of $U$ because the depreciation rate and the marginal product of capital depend on $U$. It is also a function of $q$ because -
+	
+	\item Log-linearized version of the FOC for utilization is:
+	\begin{align*}
+	\check U_t = \frac{\check Y_t  - \check K_t - \check q_t}{1 + \Delta} = \frac{\check MPK_t - \check q_t}{1 + \Delta} \\
+	\end{align*}
+	Hence the sign of the percentage deviation of utilization from its steady state value depends on $\check MPK_t - \check q_t$. In this model, $q_t$ can be different from 1. Considering that $q_t$ is a Lagrangian multiplier attached to the capital accumulation equation, the interpretation of $q_t$ is \textit{Tobin's marginal q}, which is the ratio of the value of additional unit of capital to its replacement cost. Hence, $\check MPK_t - \check q_t$ represents the net gain of adding one more unit of capital in the production. When $\check MPK_t - \check q_t > 0$, it is profitable for the firm to use more units of capital, hence $\check U_t >0$. 
+	\item 
 	\item 
 \end{enumerate}
 
