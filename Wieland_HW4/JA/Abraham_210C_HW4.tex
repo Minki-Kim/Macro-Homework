@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[backend=bibtex, style=authortitle, citestyle=authoryear-icomp, url=false]{biblatex}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{caption, graphicx}
+\usepackage{secdot, sectsty}
+\usepackage{bbm}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{inconsolata}
+\usepackage{lmodern}
+
+\newcommand{\inv}[1]{#1^{-1}}
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\asconv}{\xrightarrow{a.s.}}
+\newcommand{\pconv}{\xrightarrow{p}}
+\newcommand{\dconv}{\xrightarrow{d}}
+\newcommand{\msconv}{\xrightarrow{m.s.}}
+\newcommand{\liminfty}{\lim_{n \to \infty}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\lhood}{\mathcal{L}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{claim}{Claim}
+
+\let\oldforall\forall
+\let\forall\undefined
+\DeclareMathOperator{\forall}{\oldforall}
+\DeclareMathOperator{\ev}{E}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em
+}
+
+\allsectionsfont{\rmfamily}
+\sectionfont{\normalsize}
+\subsectionfont{\normalfont\normalsize\selectfont\itshape}
+\subsubsectionfont{\normalfont\normalsize\selectfont\itshape}
+
+\sectiondot{subsection}
+
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\thesection.\Alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\linespread{1}
+\pagestyle{fancy}
+\rhead{Econ 210C Homework 4}
+\lhead{Justin Abraham}
+
+\begin{document}
+
+\section{Labor Supply Problem}
+
+    Households maximize lifetime utility.
+
+        $$ \max_{\{C_t, L_t\}} = \sum_{t=0}^\infty \beta^t U(C_t, L_t) $$
+        $$ \sum_{t=0}^\infty (1+r)^{-t} (C_t - w_t L_t) = 0 $$
+
+    Assume $\beta = (1+r)^{-1}$ and wages follow a law of motion.
+
+        $$ w_t = \begin{cases}
+        w^H, & t = 1, 3, 5, \dots \\
+        w^L, & t = 2, 4, 6, \dots
+        \end{cases} $$
+
+    We derive the labor supply functions for two variants of the utility function. First, let $U(C_t, L_t) = \log C_t + \log(1-L_t)$. The consumption-leisure condition is given by
+
+        $$ \mathcal L = \sum_{t=0}^\infty (1+r)^{-t} [\log C_t + \log(1-L_t) - \lambda_t (C_t - w_t L_t)] $$
+        $$ \frac{1}{C_t} w_t =  \frac{1}{1-L_t} $$
+        $$ \hat L_t(w_t) = \frac{w_t - C_t}{w_t} $$
+
+    Labor supply responds to shocks according to $\frac{\partial \hat L_t}{\partial w_t} = C_t w_t^{-2}$ and an elasticity of $\varepsilon_{\hat L} = C_t (L_t w_t)^{-1}$. Now let $U(C_t, L_t) = \log C_t + \log(1- 0.5 (L_t + L_{t-1}))$.
+
+        $$ \mathcal L = \sum_{t=1}^\infty (1+r)^{-t} [\log C_t + \log(1- 0.5 (L_t + L_{t-1})) - \lambda_t (C_t - w_t L_t)] $$
+        $$ \lambda_t = \frac{1}{C_t} $$
+        $$ \lambda_t w_t = \frac{0.5}{1-L_t} + \frac{0.5}{1-L_t} $$
+
+\section{Demand Shocks}
+
+    An economy contains a continuum of identical consumers who solve
+
+        $$ \max_{\{C_t, L_t\}} \ev \sum_{t=0}^\infty \beta^t \bigg ( \log C_t - v_t \frac{L_t^{1+\chi}}{1+\chi} \bigg ) $$
+        $$ P_t K_{t+1} = W_t L_t + (P_t + d_t) K_t + \Pi_t - C_t $$
+        $$ v_t \geq 0, \chi > 0 $$
+
+    The capital stock is fixed at $\bar K$ and neither depreciates nor accumulates.
+
+    \begin{enumerate}
+
+        \item The consumption-leisure condition at time $t$ is $\frac{W_t}{C_t} = v_t L_t^\chi$.
+        \item The consumer's intertemporal substitution satisfies $\frac{1}{C_t} = \frac{\beta}{C_{t+1} P_t} (P_{t+1} + d_{t+1})$.
+        \item
+        \item Labor supply is given by $L_t = \frac{W_t \lambda_t}{v_t}^\frac{1}{\chi}$ with elasticity $\frac{1}{\chi}$. A higher value of $v_t$ is associated with a higher marginal utility of leisure and implies a steeper labor supply curve.
+        \item In this model, cyclicality is driven by demand shocks $v_t$.
+
+    \end{enumerate}
+
+\section{Business Cycle and External Returns to Scale}
+
+    A continuum of competitive firms operate the production technology $Y_{it} = E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha}$. Firms take $E_t = Y_t^\frac{\gamma - 1}{\gamma}$ exogenously. The market clearing condition for consumption goods is $Y_t = C_t$.
+
+    \begin{enumerate}
+
+        \item The firm first order conditions yields the labor demand function.
+
+            $$ \max_{K_{it}, L_{it}} E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha} - w_t L_t - d_t K_t $$
+
+    \end{enumerate}
+
+\section{Textbook Problems}
+
+\end{document}
