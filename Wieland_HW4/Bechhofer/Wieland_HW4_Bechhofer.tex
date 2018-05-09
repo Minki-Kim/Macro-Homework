@@ -1,0 +1,55 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{breqn}
+\usepackage{float}
+\usepackage{breqn}
+
+\title{Econ 210C Problem Set \# 4}
+\author{Nathaniel Bechhofer}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+
+
+
+\maketitle
+
+\section{Labor supply problem}
+\section{Demand shock}
+
+\section{Business cycle and external returns to scale}
+
+\subsection*{(a)}
+
+Each firm sets wage equal to marginal product of labor, so we have
+\[
+W_t = Y_t^{1-1/\gamma} \left(\frac{K_{it}}{L_{it}}\right)^{\alpha} Z_t^{1-\alpha}
+\]
+and so we can find labor demand as a function of wages
+\[
+L_{it} = (W_t Z_t^{\alpha-1} Y_t^{1/\gamma -1} K_{it}^{-\alpha})^{-\frac{1}{\alpha}}
+\]
+which simplifies to
+\[
+L_{it} = W_t^{-\frac{1}{\alpha}} Z_t^{\frac{1-\alpha}{\alpha}} Y_t^{\frac{1-1/\gamma}{\alpha}} K_{it}
+\]
+
+\section{Problems from Romer}
+\subsection{Problem 6.10}
+
+\subsection{Problem 6.11}
+
+\subsection{Problem 6.12}
+
+\end{document}
