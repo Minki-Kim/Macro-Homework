@@ -46,6 +46,10 @@ and optimality therefore implies we have
 \]
 as the inter-temporal optimality condition.
 
+\subsection*{(c)}
+
+
+
 \section{Business cycle and external returns to scale}
 
 \subsection*{(a)}
@@ -86,5 +90,60 @@ Y_t = \left(\frac{L_t}{K_t} \right)^{\frac{\alpha}{1-1/\gamma}} W_t^{\frac{1}{1-
 \subsection{Problem 6.11}
 
 \subsection{Problem 6.12}
+
+\subsubsection*{(a)}
+First, we can substitute our wage expression $w = \theta p$ to get
+\[
+p = \theta p + (1-\alpha) \ell - s \implies p = \frac{(1-\alpha) \ell - s}{1-\theta}
+\]
+and we are given aggregate demand, so we have
+\[
+y = m - p = m - \frac{(1-\alpha) \ell - s}{1-\theta}
+\]
+and from our output equation we have
+\[
+s + \alpha \ell = m - \frac{(1-\alpha) \ell - s}{1-\theta} \implies \ell = \frac{(1-\theta) m + \theta s}{1-\theta \alpha}
+\]
+which we can substitute into our price equation to get
+\[
+p = \frac{(1-\theta) m - s}{1-\theta \alpha}
+\]
+and now we have our output
+\[
+y = \frac{(1-\theta) \alpha m + s}{1-\theta \alpha}
+\]
+and we can find wage using the original wage expression to get
+\[
+w = \theta \times \frac{(1-\theta) m - s}{1-\theta \alpha}
+\]
+and we can now find how employment responds to shocks.
+
+We can take mixed second derivatives to obtain
+\[
+\frac{\partial^2 \ell}{\partial m \partial \theta} = \frac{\alpha - 1}{(1-\theta \alpha)^2}
+\]
+for how indexation moderates the effect of a monetary shock and
+\[
+\frac{\partial^2 \ell}{\partial s \partial \theta} = \frac{1}{(1-\theta \alpha)^2}
+\]
+for how indexation moderates the effect of a supply shock.
+
+Since $\alpha - 1 < 0$, we have that greater indexation reduces the effect of a monetary shock, while $1 > 0$ tell us that greater indexation scales the effects of supply shocks up.
+
+\subsubsection*{(b)}
+
+With independence we can just use the formula for the variance of a linear combination of two random variables. So we have
+\[
+\operatorname{Var}(\ell) = \left(\frac{1-\theta}{1-\theta \alpha}\right)^2 \operatorname{Var}(m) + \left(\frac{\theta}{1-\theta \alpha}\right)^2 \operatorname{Var}(s)
+\]
+so minimizing this requires the first order condition
+\[
+(1-\theta)(\alpha-1) \operatorname{Var}(m) + \theta \operatorname{Var}(s)
+\]
+so solving for $\theta$ we get
+\[
+\theta^* = \frac{(1-\alpha) \operatorname{Var}(m)}{(1-\alpha) \operatorname{Var}(m) + \operatorname{Var}(s)}
+\]
+as the wage indexation that minimizes employment variance.
 
 \end{document}
