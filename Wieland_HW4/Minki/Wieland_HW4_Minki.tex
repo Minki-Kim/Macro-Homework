@@ -59,8 +59,25 @@ The first order conditions for this individual are:
 \end{enumerate}
 \section{Demand shock}
 \begin{enumerate}[label=(\alph*)]
-	\item 
-	\item
+	\item A representative consumer solves the following utility maximization problem: 
+	\begin{equation*}
+	\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \left[ \log C_t - \nu_t \frac{L_t^{1 +\chi}}{1+\chi} + \lambda_t \left( W_t L_t + (P_t + d_t) K_t + \Pi_t - C_t - P_t K_{t+1} \right) \right]
+	\end{equation*}
+	The first order conditions are: 
+	\begin{align*}
+	\frac{1}{C_t} &= \lambda_t \\
+	\nu_t L_t^\chi &= \lambda_t W_t \\
+	\lambda_t P_t &= \beta \mathbb{E}_t \lambda_{t+1} \left(  P_{t+1} + d_{t+1} \right)  \\
+	P_t K_{t+1} + C_t & = W_t L_t + (P_t + d_t) K_t + \Pi_t
+	\end{align*}
+	
+	\item Suppose the representative consumer reduces one unit of consumption today and invest those forgone amount of consumption into capital. By giving up one unit of consumption today, the consumer incurs a marginal loss in utility: $\lambda_t$. 
+	
+	However, the consumer now can use increased amount of capital the next period. Additional amount of capital generates additional amount of dividend net the cost paid to purchase the additional capital in period $t$, which is captured by $\frac{d_{t+1}}{P_t}$, which can be converted to utility term by multiplying $\lambda_{t+1}$. On top of this, the consumer can enjoy a capital gain or incur a capital loss depending on how the price of capital changes from $t$ to $t+1$. This is captured by $\frac{P_{t+1}}{P_t}$. Finally, all these gains are discounted by $\beta$ because they are realized in period $t+1$. In conclusion, we get 
+	\begin{equation*}
+	\lambda_t = \beta \mathbb{E}_t \frac{\lambda_{t+1} (P_{t+1} + d_t)}{P_t}
+	\end{equation*}
+	
 	\item
 	\item
 	\item
