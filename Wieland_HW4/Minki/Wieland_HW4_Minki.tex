@@ -26,13 +26,36 @@
 \maketitle
 
 \section{Labor supply problem}
+An individual with time-separable utility solves the following maximization problem: 
+\begin{equation*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bigg( \log C_t + \log (1-L_t)  + \lambda_t  \left(  w_t L_t - C_t \right) \bigg)
+\end{equation*}
+The first order conditions of the individual are: 
+\begin{align*}
+\frac{1}{C_t} &= \lambda_t  \\
+\lambda_t w_t &= \frac{1}{1-L_t} 
+\end{align*}
+On the other hand, an individiual with non-separable preferences solves the following dynamic maximization problem :
+\begin{equation*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bigg( \log C_t + \log\left( 1 - 0.5 \left[ L_t + L_{t-1} \right] \right) + \lambda_t  \left(  w_t L_t - C_t \right)  \bigg)
+\end{equation*}
+The first order conditions for this individual are: 
+\begin{gather*}
+\frac{1}{C_t} = \lambda_t  \\
+\lambda_t w_t = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+\end{gather*}
 \begin{enumerate}[label=(\alph*)]
-	\item individuals with time-separable utility solve the following maximization problem: 
+	\item I assume that there is no means for individuals to save in the economy. Hence, the budget constraint $w_t L_t = C_t$ is satisfied every period. Then, for an individual with separable utility, labor supply is just 
 	\begin{equation*}
-	\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bigg( \log C_t + \log (1-L_t) \bigg) + \lambda \sum_{t=0}^{\infty} \beta^t \left( C_t - w_t L_t \right)
+	L_t = \frac{1}{2}
 	\end{equation*}
-	Since the future wage schedule is known in advance, the problem is translated into the following form:
-	\item
+	Therefore, labor supply does not respond to shocks in this case. Now consider the labor supply for an individual with non-separable preferences. Labor supply for those individuals is characterized by the following equation:
+	\begin{equation*}
+	\frac{w_t}{C_t}  = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+	\end{equation*}
+	When the positive shock is expected to hit the economy in period $t$, the individual can adjust her labor supply not just in period $t$, but period $t-1$ and $t+1$. For instance, in the wake of negative shock, the individual can choose to work less in period $t$ (when the negative shock is in effect) and work more in the adjacent two periods. Therefore, compared to the case when the utility was separable, labor supply changes are larger to the same shock. 
+	
+	\item Since $L_t = \frac{1}{2}$ for the separable preferences, labor supply is perfectly inelastic ($\varepsilon_{L,w} = 0$). One would generate higher value of labor supply elasticity by introducing non-separability to preferences. 
 \end{enumerate}
 \section{Demand shock}
 \begin{enumerate}[label=(\alph*)]
