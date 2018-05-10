@@ -1,0 +1,258 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{breqn}
+\usepackage{float}
+\usepackage{breqn}
+
+\title{Econ 210C Problem Set \# 4}
+\author{Nathaniel Bechhofer}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+\maketitle
+
+\section{Labor supply problem}
+An individual with time-separable utility solves the following maximization problem: 
+\begin{equation*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bigg( \log C_t + \log (1-L_t)  + \lambda_t  \left(  w_t L_t - C_t \right) \bigg)
+\end{equation*}
+The first order conditions of the individual are: 
+\begin{align*}
+\frac{1}{C_t} &= \lambda_t  \\
+\lambda_t w_t &= \frac{1}{1-L_t} 
+\end{align*}
+On the other hand, an individiual with non-separable preferences solves the following dynamic maximization problem :
+\begin{equation*}
+\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bigg( \log C_t + \log\left( 1 - 0.5 \left[ L_t + L_{t-1} \right] \right) + \lambda_t  \left(  w_t L_t - C_t \right)  \bigg)
+\end{equation*}
+The first order conditions for this individual are: 
+\begin{gather*}
+\frac{1}{C_t} = \lambda_t  \\
+\lambda_t w_t = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+\end{gather*}
+\begin{enumerate}[label=(\alph*)]
+    \item I assume that there is no means for individuals to save in the economy. Hence, the budget constraint $w_t L_t = C_t$ is satisfied every period. Then, for an individual with separable utility, labor supply is just 
+    \begin{equation*}
+    L_t = \frac{1}{2}
+    \end{equation*}
+    Therefore, labor supply does not respond to shocks in this case. Now consider the labor supply for an individual with non-separable preferences. Labor supply for those individuals is characterized by the following equation:
+    \begin{equation*}
+    \frac{w_t}{C_t}  = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+    \end{equation*}
+    When the positive shock is expected to hit the economy in period $t$, the individual can adjust her labor supply not just in period $t$, but period $t-1$ and $t+1$. For instance, in the wake of negative shock, the individual can choose to work less in period $t$ (when the negative shock is in effect) and work more in the adjacent two periods. Therefore, compared to the case when the utility was separable, labor supply changes are larger to the same shock. 
+    
+    \item Since $L_t = \frac{1}{2}$ for the separable preferences, labor supply is perfectly inelastic ($\varepsilon_{L,w} = 0$). One would generate higher value of labor supply elasticity by introducing non-separability to preferences. 
+\end{enumerate}
+\section{Demand shock}
+\begin{enumerate}[label=(\alph*)]
+	\item A representative consumer solves the following utility maximization problem: 
+	\begin{equation*}
+	\mathcal{L} = \sum_{t=0}^{\infty} \beta^t \left[ \log C_t - \nu_t \frac{L_t^{1 +\chi}}{1+\chi} + \lambda_t \left( W_t L_t + (P_t + d_t) K_t + \Pi_t - C_t - P_t K_{t+1} \right) \right]
+	\end{equation*}
+	The first order conditions are: 
+	\begin{align*}
+	\frac{1}{C_t} &= \lambda_t \\
+	\nu_t L_t^\chi &= \lambda_t W_t \\
+	\lambda_t P_t &= \beta \mathbb{E}_t \lambda_{t+1} \left(  P_{t+1} + d_{t+1} \right)  \\
+	P_t K_{t+1} + C_t & = W_t L_t + (P_t + d_t) K_t + \Pi_t
+	\end{align*}
+	
+	\item Suppose the representative consumer reduces one unit of consumption today and invest those forgone amount of consumption into capital. By giving up one unit of consumption today, the consumer incurs a marginal loss in utility: $\lambda_t$. 
+	
+	However, the consumer now can use increased amount of capital the next period. Additional amount of capital generates additional amount of dividend net the cost paid to purchase the additional capital in period $t$, which is captured by $\frac{d_{t+1}}{P_t}$, which can be converted to utility term by multiplying $\lambda_{t+1}$. On top of this, the consumer can enjoy a capital gain or incur a capital loss depending on how the price of capital changes from $t$ to $t+1$. This is captured by $\frac{P_{t+1}}{P_t}$. Finally, all these gains are discounted by $\beta$ because they are realized in period $t+1$. In conclusion, we get 
+	\begin{equation*}
+	\lambda_t = \beta \mathbb{E}_t \frac{\lambda_{t+1} (P_{t+1} + d_t)}{P_t}
+	\end{equation*}
+	
+	\item Capital market is cleared at $K_t^d = K_t^s$. Capital demand is not specified in this model, because we did not specify the supply side of the economy. Capital supply follows the Euler equation obtained in (b). Consumers supply capital up to the point where marginal benefit of additional supply of capital is equal to the marginal cost of giving up consumptions. 
+	
+	\item The representative consumer's labor supply schedule is: 
+	\begin{equation*}
+	L_t = \left( \frac{\lambda_t W_t}{\nu_t} \right)^{\frac{1}{\chi}}
+	\end{equation*}
+	The shock $\nu_t$ is interpreted as a labor disutility shock (or generally preference / taste shock). Higher values of $\nu_t$ increases the disutility of labor supply, hence reduces the labor supply of the consumer. To see how the change of $\nu_t$ affects the labor supply curve, consider a simple case where $\chi = 1$. Then labor supply curve is characterized as: 
+	\begin{equation*}
+	W_t = \frac{\nu_t}{\lambda_t} L_t = \nu_t C_t L_t  
+	\end{equation*}
+	Hence, a positive $\nu_t$ shock makes the labor supply curve steeper. 
+	
+	\item With a strongly countercyclical $\nu_t$, the real wage can be acyclical or even countercyclical even when the consumption and labor supply are procyclical. One of the puzzles that the RBC model generates is that real wage is too procyclical. Introducing $\nu_t$ can solve this problem, but preference shock is hard to justfy.  
+\end{enumerate}
+
+\section{Business cycle and external returns to scale}
+\subsection*{(a)}
+
+Each firm sets wage equal to marginal product of labor, so we have
+\[
+W_t = Y_t^{1-1/\gamma} \left(\frac{K_{it}}{L_{it}}\right)^{\alpha} Z_t^{1-\alpha}
+\]
+and so we can find labor demand as a function of wages
+\[
+L_{it} = (W_t Z_t^{\alpha-1} Y_t^{1/\gamma -1} K_{it}^{-\alpha})^{-\frac{1}{\alpha}}
+\]
+which simplifies to
+\[
+L_{it} = W_t^{-\frac{1}{\alpha}} Z_t^{\frac{1-\alpha}{\alpha}} Y_t^{\frac{1-1/\gamma}{\alpha}} K_{it}
+\]
+
+\subsection*{(b)}
+
+Integrating both sides over all firms, we have
+\[
+L_t = W_t^{-\frac{1}{\alpha}} Z_t^{\frac{1-\alpha}{\alpha}} Y_t^{\frac{1-1/\gamma}{\alpha}} K_t
+\]
+so we can start to solve for aggregate production, so we get
+\[
+Y_t^{\frac{1-1/\gamma}{\alpha}} = \frac{L_t}{K_t} \times W_t^{\frac{1}{\alpha}} Z_t^{\frac{\alpha - 1}{\alpha}}
+\]
+and solving for $Y$ gives
+\[
+Y_t = \left(\frac{L_t}{K_t} \right)^{\frac{\alpha}{1-1/\gamma}} W_t^{\frac{1}{1-1/\gamma}} Z_t^{\frac{\alpha - 1}{1-1/\gamma}}
+\]
+
+
+
+\section{Problems from Romer}
+\subsection{Problem 6.10}
+\begin{enumerate}[label=(\alph*)]
+	\item Using the given three equations, it is easy to get the closed form solution for $p, p^{*}$, and $y$. 
+	\begin{align*}
+	p & = \frac{f \phi m'}{1 - f + f\phi} \\
+	p^{*} & = \frac{\phi m'}{1 - f + f\phi} \\
+	y & = \frac{m' (1-f)}{1 - f + f\phi}
+	\end{align*}
+	\item The following figure summarizes the results
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\textwidth]{611b}
+		\caption{A firm's incentive to adjust its price}
+	\end{figure}
+	\item Whether a firm adjusts its price or not depends on the size of the menu cost, $Z$. Assume that $\phi <1$. Now suppose the menu cost is very low, lower than the incentive of a firm when no other firm is adjusting their prices. In this case, all firms adjusting their prices can be a Nash equilibrium. 
+	
+	Suppose, on the other hand, the case when the menu cost is really high, higher than the incentive of a firm when all the other firms are adjusting their prices. In this case, no price adjustment is the only Nash equilibrium. 
+	
+	Now suppose that the size of the menu cost lies somewhere between the above two extremes. Specifically, say that $Z = K p^{*} (f)$ for some $f$. Then, a fraction $f$ of the firms adjusting their prices is the only Nash equilibrium, because for $f' \neq f$ some firms have incentives to deviate from adjusting (not adjusting) prices. 
+\end{enumerate}
+\subsection{Problem 6.11}
+\begin{enumerate}[label = (\alph*)]
+	\item If the firm does not adjust its price and stays at $r^{*}(y_0)$ level, its profit is $\pi \left( y_1, r^{*}(y_0)  \right)$. On the other hand, if the firm choose to adjust its price to the optimal level for $y_1$, its profit is $\pi \left( y_1, r^{*}(y_1)  \right)$ The difference between these two is a potential gain from adjusting the price, so can be interpreted as the incentive to adjust its price. 
+	\item Second-order Taylor approximation of $G = \pi \left( y_1, r^{*}(y_1)  \right) - \pi \left( y_1, r^{*}(y_0)  \right)$ is: 
+	
+	\begin{align*}
+	G &= \pi \left( y_1, r^{*}(y_1)  \right) - \pi \left( y_1, r^{*}(y_0)  \right) \\
+	 & \simeq 
+	\end{align*}
+\end{enumerate}
+    \subsection{Problem 6.12}
+    
+    \subsubsection*{(a)}
+    First, we can substitute our wage expression $w = \theta p$ to get
+    \[
+    p = \theta p + (1-\alpha) \ell - s \implies p = \frac{(1-\alpha) \ell - s}{1-\theta}
+    \]
+    and we are given aggregate demand, so we have
+    \[
+    y = m - p = m - \frac{(1-\alpha) \ell - s}{1-\theta}
+    \]
+    and from our output equation we have
+    \[
+    s + \alpha \ell = m - \frac{(1-\alpha) \ell - s}{1-\theta} \implies \ell = \frac{(1-\theta) m + \theta s}{1-\theta \alpha}
+    \]
+    which we can substitute into our price equation to get
+    \[
+    p = \frac{(1-\theta) m - s}{1-\theta \alpha}
+    \]
+    and now we have our output
+    \[
+    y = \frac{(1-\theta) \alpha m + s}{1-\theta \alpha}
+    \]
+    and we can find wage using the original wage expression to get
+    \[
+    w = \theta \times \frac{(1-\theta) m - s}{1-\theta \alpha}
+    \]
+    and we can now find how employment responds to shocks.
+    
+    We can take mixed second derivatives to obtain
+    \[
+    \frac{\partial^2 \ell}{\partial m \partial \theta} = \frac{\alpha - 1}{(1-\theta \alpha)^2}
+    \]
+    for how indexation moderates the effect of a monetary shock and
+    \[
+    \frac{\partial^2 \ell}{\partial s \partial \theta} = \frac{1}{(1-\theta \alpha)^2}
+    \]
+    for how indexation moderates the effect of a supply shock.
+    
+    Since $\alpha - 1 < 0$, we have that greater indexation reduces the effect of a monetary shock, while $1 > 0$ tell us that greater indexation scales the effects of supply shocks up.
+    
+    \subsubsection*{(b)}
+    
+    With independence we can just use the formula for the variance of a linear combination of two random variables. So we have
+    \[
+    \operatorname{Var}(\ell) = \left(\frac{1-\theta}{1-\theta \alpha}\right)^2 \operatorname{Var}(m) + \left(\frac{\theta}{1-\theta \alpha}\right)^2 \operatorname{Var}(s)
+    \]
+    so minimizing this requires the first order condition
+    \[
+    (1-\theta)(\alpha-1) \operatorname{Var}(m) + \theta \operatorname{Var}(s)
+    \]
+    so solving for $\theta$ we get
+    \[
+    \theta^* = \frac{(1-\alpha) \operatorname{Var}(m)}{(1-\alpha) \operatorname{Var}(m) + \operatorname{Var}(s)}
+    \]
+    as the wage indexation that minimizes employment variance.
+    
+    \subsubsection*{(c.i)}
+    
+    We can easily see that we have
+    \[
+    y_i - y = \alpha (\ell_i - \ell) \implies \ell_i = \ell + \frac{y_i - y}{\alpha} = \ell - \frac{\theta_i - \theta}{\alpha} \times \phi p
+    \]
+    and we already have expressions for employment and the price levels that we can substitute to get
+    \[
+    \ell_i = \frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)) m + (\theta \alpha + \phi (\theta_i - \theta)) s}{(1-\theta \alpha) \alpha}
+    \]
+    for employment at firm $i$.
+    
+    \subsubsection*{(c.ii)}
+    
+    We now have
+    \[
+    \operatorname{Var}(\ell_i) = \left(\frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(m) + \left(\frac{\theta \alpha + \phi (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(s)
+    \]
+    so we must satisfy the first order condition
+    \[
+    (\alpha - 1) \phi [(1-\theta) \alpha - \theta_i (1-\alpha) \phi + \theta (1-\alpha)] \operatorname{Var}(m) + \phi[\theta \alpha + \phi \theta_i - \phi \theta] \operatorname{Var}(s) = 0
+    \]
+    which allows us to solve for $\theta_i$ to get
+    \[
+    \theta_i^* = \frac{(1-\alpha) \phi ((1-\theta)\alpha + \theta \phi (1-\alpha)) \operatorname{Var}(m) + \phi \theta(\alpha - \phi) \operatorname{Var}(s)}{(\phi(1-\alpha))^2 \operatorname{Var}(m) + \phi^2 \operatorname{Var}(s)}
+    \]
+    
+    \subsubsection*{(c.iii)}
+    
+    The Nash equilibrium value implies that each firm's first order condition can have $\theta_i$ and $\theta$ identical. So we need 
+    \[
+    (\alpha - 1) \phi [(1-\theta) \alpha - \theta (1-\alpha) \phi + \theta (1-\alpha)] \operatorname{Var}(m) + \phi[\theta \alpha + \phi \theta - \phi \theta] \operatorname{Var}(s) = 0
+    \]
+    which simplifies to 
+    \[
+    (1-\theta) \alpha (1 - \alpha) \phi \operatorname{Var}(m) - \theta \alpha \phi \operatorname{Var}(s) = 0
+    \]
+    allowing us to solve for the Nash value of $\theta$ as
+    \[
+    \theta_{\text{Nash}} = \frac{(1-\alpha) \operatorname{Var}(m)}{(1-\alpha) \operatorname{Var}(m) + \operatorname{Var}(s)}
+    \]
+    which is the same value as in part b.
+    
+    \end{document}
+    
