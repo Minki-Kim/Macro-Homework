@@ -26,6 +26,32 @@
 \maketitle
 
 \section{Labor supply problem}
+An individual with time-separable utility has first order conditions
+\begin{align*}
+\frac{1}{C_t} &= \lambda_t  \\
+\lambda_t w_t &= \frac{1}{1-L_t} 
+\end{align*}
+while an individual with non-separable preferences has first order conditions
+\begin{gather*}
+\frac{1}{C_t} = \lambda_t  \\
+\lambda_t w_t = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+\end{gather*}
+\subsection*{(a)}
+	Since investment is impossible, $w_t L_t = C_t$ always, so separable utility implies 
+	\begin{equation*}
+	L_t = \frac{1}{2}
+	\end{equation*}
+	which does not allow for any response to shocks. 
+	With non-separable preferences, we have:
+	\begin{equation*}
+	\frac{w_t}{C_t}  = \frac{0.5}{1 - 0.5 \left( L_t + L_{t-1} \right)} + \beta \frac{0.5}{1 - 0.5 \left( L_{t+1} + L_t \right)}
+	\end{equation*}
+	so individuals adjust their labor supply in neighboring periods when a shock is expected (so they work less when the return is lower).
+	Labor supply changes are larger in the non separable case. 
+	
+\subsection*{(b)} 
+Labor supply is perfectly inelastic for separable preferences; the labor supply elasticity is higher in the non separable case. 
+
 \section{Demand shock}
 
 \subsection*{(a)}
@@ -48,6 +74,21 @@ as the inter-temporal optimality condition.
 
 \subsection*{(c)}
 
+The price of capital is such that $K_t^s = \bar{K}$, constrained by the Euler equation.
+
+\subsection*{(e)} 
+We have
+	\begin{equation*}
+	L_t = \left( \frac{\lambda_t W_t}{\nu_t} \right)^{\frac{1}{\chi}}
+	\end{equation*}
+	so $\nu_t$ is a labor disutility shock, with higher values of $\nu_t$ meaning more disutility of labor supply, and therefore lower labor suppky. 
+	When $\chi = 1$, we have the labor supply curve 
+	\begin{equation*}
+	W_t = \frac{\nu_t}{\lambda_t} L_t = \nu_t C_t L_t  
+	\end{equation*}
+	showing that a positive $\nu_t$ shock steepens the labor supply curve. 
+	
+	\subsection*{(e)} Strongly countercyclical $\nu_t$ allows countercyclical real wages when consumption and labor supply are procyclical, so the issue that the RBC model has of highly procyclical wages can be addressed, though it seems almost like an epicycle.
 
 
 \section{Business cycle and external returns to scale}
@@ -58,36 +99,103 @@ Each firm sets wage equal to marginal product of labor, so we have
 \[
 W_t = Y_t^{1-1/\gamma} \left(\frac{K_{it}}{L_{it}}\right)^{\alpha} Z_t^{1-\alpha}
 \]
-and so we can find labor demand as a function of wages
+and substituting back in we have
 \[
-L_{it} = (W_t Z_t^{\alpha-1} Y_t^{1/\gamma -1} K_{it}^{-\alpha})^{-\frac{1}{\alpha}}
+W _ { t } = ( 1- \alpha ) \frac{Y_{i,t}}{L_{i,t}}
 \]
-which simplifies to
-\[
-L_{it} = W_t^{-\frac{1}{\alpha}} Z_t^{\frac{1-\alpha}{\alpha}} Y_t^{\frac{1-1/\gamma}{\alpha}} K_{it}
-\]
-
 \subsection*{(b)}
 
-Integrating both sides over all firms, we have
-\[
-L_t = W_t^{-\frac{1}{\alpha}} Z_t^{\frac{1-\alpha}{\alpha}} Y_t^{\frac{1-1/\gamma}{\alpha}} K_t
-\]
-so we can start to solve for aggregate production, so we get
-\[
-Y_t^{\frac{1-1/\gamma}{\alpha}} = \frac{L_t}{K_t} \times W_t^{\frac{1}{\alpha}} Z_t^{\frac{\alpha - 1}{\alpha}}
-\]
-and solving for $Y$ gives
-\[
-Y_t = \left(\frac{L_t}{K_t} \right)^{\frac{\alpha}{1-1/\gamma}} W_t^{\frac{1}{1-1/\gamma}} Z_t^{\frac{\alpha - 1}{1-1/\gamma}}
-\]
+\begin{align*}
+	Y_t &= \int_{0}^{1} E_t K_{i,t}^\alpha \left( Z_t L_{i,t} \right)^{1-\alpha} di \\
+	& = E_t Z_t^{1-\alpha} \int_{0}^{1} K_{i,t}^\alpha  L_{i,t}^{1-\alpha} di \\
+	& = E_t K_t^\alpha (Z_t L_t)^{1-\alpha}
+	\end{align*}
+	Substitute $E_t = Y_t^{1- \frac{1}{\gamma}}$, and we have increasing returns to scale at the aggregate level
+	\begin{equation*}
+	Y _ { t } = \left[ K _ { t } ^ { \alpha } \left( Z _ { t } L _ { t } \right) ^ { 1- \alpha } \right] ^ { \gamma }
+	\end{equation*}
+	with social labor demand curve
+	\[
+	W _ { t } = \gamma ( 1- \alpha ) Y _ { t } L _ { t } ^ { - 1}
+	\] and no economic profit without imperfect competition. 
 
+\subsection*{(c)}
+A negative $\nu_t$ shock implies labor supply increases. 
+The implied increased income means consumption increases. 
+Social labor demand is flatter, and we can calibrate the externality to match empirical wage increases (with the externality moderate enough to get a downward slope).
+Average labor productivity is procyclical because it increases with real wages. 
+
+\subsection*{(d)}
+ $\gamma = 1$ gives a standard RBC model that does not have a flattened social labor demand curve, which has the puzzle that real wages and labor productivity are too procyclical. 
+ 
+ \subsection*{(e)}
+ The statement is correct; in a standard RBC model strong procyclicality of wages is inevitable. 
+ The researcher might use $\nu_t$ shocks that are negatively correlated with technology shocks to get a flatter labor supply curve and smaller volatility for wages with larger volatility for aggregate labor. 
+A change in preferences across all agents in the real world seems quite implausible.	If $\gamma > 1$, we can calibrate the externality to get the mildly procyclical wage and labor productivity needed. 
 
 
 \section{Problems from Romer}
 \subsection{Problem 6.10}
 
+\subsubsection*{(a)} We just solve the system for $p, p^{*}$, and $y$ to get 
+	\begin{align*}
+	p & = \frac{f \phi m'}{1 - f + f\phi} \\
+	p^{*} & = \frac{\phi m'}{1 - f + f\phi} \\
+	y & = \frac{m' (1-f)}{1 - f + f\phi}
+	\end{align*}
+	
+	\subsubsection*{(b)} The following figure summarizes the results
+	
+	
+	\subsubsection*{(c)} Whether a firm adjusts its price is a function of$Z$. 
+	Assume that $\phi <1$ and suppose the menu cost is lower than the incentive of a firm when no other firm is adjusting their prices, then all firms adjusting their prices can be a Nash equilibrium. 
+	
+	When the menu cost is higher than the incentive of a firm when all the other firms are adjusting their prices, no price adjustment is the only Nash equilibrium. 
+	
+	In the intermediate case $Z = K p^{*} (f)$ for some $f$, and a fraction $f$ of the firms adjusting their prices is the only Nash equilibrium, because for $f' \neq f$ some firms have incentives to deviate. 
+
 \subsection{Problem 6.11}
+
+\subsubsection*{(a)}
+If the firm does not adjust its price it has profit $\pi \left( y_1, r^{*}(y_0)  \right)$ as compared to $\pi \left( y_1, r^{*}(y_1)  \right)$ when adjusting. 
+The difference between these two is the potential gain from and therefore the incentive to engage in a price adjustment.
+Smaller $G$ implies stickier prices (because adjustments are more rare). 
+
+\subsubsection*{(b)}
+
+We have
+\[
+\frac{\partial G}{\partial y_1} = \pi_1(y_1, r^*(y_1)) + \pi_2(y_1, r^*(y_1)) \cdot \frac{\partial r^*(y_1)}{\partial y_1} - \pi_1(y_1, r^*(y_0))
+\]
+but since $\pi_2(y_0, r^*(y_0)) = 0$ characterizes $r^*$, we have that this is zero when evaluated at $y_0$.
+
+Now we have
+\begin{tiny}
+\begin{align*}
+\frac{\partial^2 G}{\partial y_1^2} = \pi_{11}(y_1, r^*(y_1))  &+ \pi_{12}(y_1, r^*(y_1)) \frac{\partial r^*(y_1)}{\partial y_1} + \left(\pi_{21}(y_1, r^*(y_1)) + \pi_{22}(y_1, r^*(y_1)) \frac{\partial r^*(y_1)}{\partial y_1} \right) \frac{\partial r^*(y_1)}{\partial y_1} \\&+ \pi_2(y_1, r^*(y_1)) \cdot \frac{\partial^2 r^*(y_1)}{\partial y_1^2} - \pi_11(y_1, r^*(y_0))
+\end{align*}
+\end{tiny}
+but we know
+\[
+\pi_2(y_1, r^*(y_1)) = 0
+\]
+and 
+\[
+\pi_{12} = \pi_{21}
+\]
+so we can evaluate at $y_0$ to get
+\[
+\frac{\partial^2 G}{\partial y_1^2} \vert_{y_0} = 2 \pi_{12}(y_0, r^*(y_0)) \frac{\partial r^*(y_0)}{\partial y} + \pi_{22}(y_0, r^*(y_0)) \cdot \frac{\partial^2 r^*(y_0)}{\partial y^2}
+\]
+
+Implicitly differentiating $\pi_2(y_0, r^*(y_0)) = 0$ gives 
+\[
+\pi_{21} = - \pi_22 \times \frac{\partial r^*(y_0)}{\partial y}
+\]
+which we can substitute to get our Taylor series expansion, which only includes the second order term, as
+\[
+G \approx - \frac{1}{2} \pi_{22}(y_0, r^*(y_0)) \left(\frac{\partial r^*(y_0)}{\partial y}\right)^2 (y_1-y_0)^2
+\]
 
 \subsection{Problem 6.12}
 
