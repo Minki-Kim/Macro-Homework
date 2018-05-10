@@ -94,8 +94,21 @@ The first order conditions for this individual are:
 \end{enumerate}
 \section{Business cycle and external returns to scale}
 \begin{enumerate}[label=(\alph*)]
-	\item 
-	\item
+	\item An individual firm $i$'s labor demand is: 
+	\begin{equation*}
+	\left.\begin{array} { c } { \max _ { K _ { t } ,L _ { i } } E _ { t } K _ { i t } ^ { \alpha } \left( Z _ { t } L _ { i t } \right) ^ { 1- \alpha } - w _ { t } L _ { i t } - d _ { t } K _ { i t } } \\ { w _ { t } = ( 1- \alpha ) Y _ { i t } L _ { i t } ^ { - 1} } \end{array} \right.
+	\end{equation*}
+	\item Since all firms are identical, aggregate production funciton is:
+	\begin{align*}
+	Y_t &= \int_{0}^{1} E_t K_{i,t}^\alpha \left( Z_t L_{i,t} \right)^{1-\alpha} di \\
+	& = E_t Z_t^{1-\alpha} \int_{0}^{1} K_{i,t}^\alpha  L_{i,t}^{1-\alpha} di \\
+	& = E_t K_t^\alpha (Z_t L_t)^{1-\alpha}
+	\end{align*}
+	Using that $E_t = Y_t^{1- \frac{1}{\gamma}}$, we can show that the aggregate production function exhibits increasing returns to scale. 
+	\begin{equation*}
+	Y _ { t } = \left[ K _ { t } ^ { \alpha } \left( Z _ { t } L _ { t } \right) ^ { 1- \alpha } \right] ^ { \gamma }
+	\end{equation*}
+	Hence the social labor demand curve is $w _ { t } = \gamma ( 1- \alpha ) Y _ { t } L _ { t } ^ { - 1}$. There is no economic profit in individual firm level, because an individual firm does not have pricing power (perfect competition). We need imperfect competition to generate economic profit in individual firm level. 
 	\item
 	\item
 	\item
@@ -133,5 +146,95 @@ The first order conditions for this individual are:
 	\item 
 \end{enumerate}
 \subsection{Problem 6.12}
+\begin{enumerate}[label = (\alph*)]
+	\item First, we can substitute our wage expression $w = \theta p$ to get
+	\[
+	p = \theta p + (1-\alpha) \ell - s \implies p = \frac{(1-\alpha) \ell - s}{1-\theta}
+	\]
+	and we are given aggregate demand, so we have
+	\[
+	y = m - p = m - \frac{(1-\alpha) \ell - s}{1-\theta}
+	\]
+	and from our output equation we have
+	\[
+	s + \alpha \ell = m - \frac{(1-\alpha) \ell - s}{1-\theta} \implies \ell = \frac{(1-\theta) m + \theta s}{1-\theta \alpha}
+	\]
+	which we can substitute into our price equation to get
+	\[
+	p = \frac{(1-\theta) m - s}{1-\theta \alpha}
+	\]
+	and now we have our output
+	\[
+	y = \frac{(1-\theta) \alpha m + s}{1-\theta \alpha}
+	\]
+	and we can find wage using the original wage expression to get
+	\[
+	w = \theta p = \theta \times \frac{(1-\theta) m - s}{1-\theta \alpha}
+	\]
+	and we can now find how employment responds to shocks. We can take cross-partial derivatives to obtain:
+	\[
+	\frac{\partial^2 \ell}{\partial m \partial \theta} = \frac{\alpha - 1}{(1-\theta \alpha)^2}
+	\]
+	for how indexation moderates the effect of a monetary shock and
+	\[
+	\frac{\partial^2 \ell}{\partial s \partial \theta} = \frac{1}{(1-\theta \alpha)^2}
+	\]
+	for how indexation moderates the effect of a supply shock.
+	
+	Since $\alpha - 1 < 0$, we have that greater indexation reduces the effect of a monetary shock, while $1 > 0$ tell us that greater indexation scales the effects of supply shocks up.
+	
+	\item With independence we can just use the formula for the variance of a linear combination of two random variables. So we have
+	\begin{align*}
+	Var(\ell) = \left(\frac{1-\theta}{1-\theta \alpha}\right)^2  \quad Var(m) + \left(\frac{\theta}{1-\theta \alpha}\right)^2 Var(s)
+	\end{align*}
+	Take the partial derivative of this with respect to $\theta$ to get the first order condition: 
+	\[
+	(1-\theta)(\alpha-1) Var(m) + \theta Var(s)
+	\]
+	so solving for $\theta$ we get
+	\[
+	\theta^* = \frac{(1-\alpha) Var(m)}{(1-\alpha) Var(m) + Var(s)}
+	\]
+	as the wage indexation that minimizes employment variance.
+	
+	\item \begin{enumerate}[label = (\roman*)]
+		\item We can easily see that we have
+		\[
+		y_i - y = \alpha (\ell_i - \ell) \implies \ell_i = \ell + \frac{y_i - y}{\alpha} = \ell - \frac{\theta_i - \theta}{\alpha} \times \phi p
+		\]
+		and we already have expressions for employment and the price levels that we can substitute to get
+		\[
+		\ell_i = \frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)) m + (\theta \alpha + \phi (\theta_i - \theta)) s}{(1-\theta \alpha) \alpha}
+		\]
+		for employment at firm $i$.
+		
+		\item We now have
+		\[
+		\operatorname{Var}(\ell_i) = \left(\frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(m) + \left(\frac{\theta \alpha + \phi (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(s)
+		\]
+		so we must satisfy the first order condition
+		\[
+		(\alpha - 1) \phi [(1-\theta) \alpha - \theta_i (1-\alpha) \phi + \theta (1-\alpha)] \operatorname{Var}(m) + \phi[\theta \alpha + \phi \theta_i - \phi \theta] \operatorname{Var}(s) = 0
+		\]
+		which allows us to solve for $\theta_i$ to get
+		\[
+		\theta_i^* = \frac{(1-\alpha) \phi ((1-\theta)\alpha + \theta \phi (1-\alpha)) \operatorname{Var}(m) + \phi \theta(\alpha - \phi) \operatorname{Var}(s)}{(\phi(1-\alpha))^2 \operatorname{Var}(m) + \phi^2 \operatorname{Var}(s)}
+		\]
+		
+		\item The Nash equilibrium value implies that each firm's first order condition can have $\theta_i$ and $\theta$ identical. So we need 
+		\[
+		(\alpha - 1) \phi [(1-\theta) \alpha - \theta (1-\alpha) \phi + \theta (1-\alpha)] \operatorname{Var}(m) + \phi[\theta \alpha + \phi \theta - \phi \theta] \operatorname{Var}(s) = 0
+		\]
+		which simplifies to 
+		\[
+		(1-\theta) \alpha (1 - \alpha) \phi \operatorname{Var}(m) - \theta \alpha \phi \operatorname{Var}(s) = 0
+		\]
+		allowing us to solve for the Nash value of $\theta$ as
+		\[
+		\theta_{\text{Nash}} = \frac{(1-\alpha) \operatorname{Var}(m)}{(1-\alpha) \operatorname{Var}(m) + \operatorname{Var}(s)}
+		\]
+		which is the same value as in part b.
+	\end{enumerate}
+\end{enumerate}
 
 \end{document}
