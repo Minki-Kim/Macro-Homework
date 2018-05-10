@@ -109,7 +109,7 @@
     \begin{enumerate}
 
         \item The consumption-leisure condition at time $t$ is $\frac{W_t}{C_t} = v_t L_t^\chi$.
-        \item The consumer's intertemporal substitution satisfies $\frac{P_t}{C_t} = \frac{\beta}{C_{t+1}} (P_{t+1} + d_{t+1})$.
+        \item The consumer's intertemporal substitution satisfies $\frac{P_t}{C_t} = \ev \frac{\beta}{C_{t+1}} (P_{t+1} + d_{t+1})$.
         \item Since capital stock is fixed it must satisfy $\bar K = K_t = K_{t+1} = K^d \forall t$.
         \item Labor supply is given by $L_t = \frac{W_t \lambda_t}{v_t}^\frac{1}{\chi}$ with elasticity $\frac{1}{\chi}$. A higher value of $v_t$ is associated with a higher marginal utility of leisure and implies a steeper labor supply curve.
         \item In this model, it is not necessary for wages to be procycical in order for labor supply and consumption to be. Labor supply will contract in response to a positive demand shock $v_t$. If we embed this model of demand shocks into a RBC framework, we might imagine that dividends (through a lower marginal product of capital) and hence consumption will also exhibit cyclicality in response to a $v_t$ shock. One advantage of this modification is that consumption will be more procyclical since $v_t$ affects the household's labor-leisure tradeoff. A demand-driven business cycle has a disadvantage in forcing wages to be even more procyclical since there a demand shock is associated with a lower labor elasticity. We thus require a further modification to improve fit.
@@ -169,21 +169,62 @@
 
         \item The profit of an imperfectly competitive, representative firm is given by a concave function $\pi(y, r_i)$. Let $r^*(y)$ denote the profit-maximizing price set by the firm.
 
-            \begin{enumerate}
+        \begin{enumerate}
 
-                \item The firm's incentive to adjust its own price is $G = \pi(y_1, r^*(y_1)) - \pi(y_1, r^*(y_0))$ or the difference between firm profits under the new and old prices, given the new money supply and output.
+            \item The firm's incentive to adjust its own price is $G = \pi(y_1, r^*(y_1)) - \pi(y_1, r^*(y_0))$ or the difference between firm profits under the new and old prices, given the new money supply and output.
 
-                \item Consider the second-order Taylor approximation around $y_1$.
+            \item Consider the second-order Taylor approximation around $y_1$.
 
-                    $$ \pi(y_1, r^*(y_0)) = \pi(y_1, r^*(y_1)) + \pi'_r(y_1, r^*(y_1)) r^*(y_0) (y_1 - y_0) + \frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
+                $$ \pi(y_1, r^*(y_0)) = \pi(y_1, r^*(y_1)) + \pi'_r(y_1, r^*(y_1)) r^*(y_0) (y_1 - y_0) + \frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
 
-                Applying the first order condition for real price and rearranging yields
+            Applying the first order condition for real price and rearranging yields
 
-                    $$ G \approx -\frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
+                $$ G \approx -\frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
 
-                \item $\pi''_r(y_1, r^*(y_1))$ is the sensitivity of the profit function to price changes while $r^*(y_0)^2$ is a measure of real rigidity, the responsiveness of real prices to output.
+            \item $\pi''_r(y_1, r^*(y_1))$ is the sensitivity of the profit function to price changes while $r^*(y_0)^2$ is a measure of real rigidity, the responsiveness of real prices to output.
 
-            \end{enumerate}
+        \end{enumerate}
+
+        \item Firm $i$ operates a linearized technology $y_i = s + \alpha \ell_i$. Prices are given by $p_i = w_i + (1-\alpha) \ell_i - s$. The aggregate output and price are $y = s + \alpha \ell$ and $p = w + (1-\alpha) \ell - s$. Wages are indexed to prices through $w = \theta p$. Aggregate demand is $y = m - p$. Supply shock $s$ and money supply $m$ are independent, mean-zero random variables.
+
+        \begin{enumerate}
+
+            \item
+
+                $$ p = \frac{(1-\theta) m - s}{1-\theta \alpha} $$
+                $$ y = \frac{(1-\theta) \alpha m + s}{1-\theta \alpha} $$
+                $$ w = \theta \frac{(1-\theta) m - s}{1-\theta \alpha} $$
+
+            The following second derivatives show that indexation reduces the impact of a monetary shock but aimplifies the impact of a supply shock.
+
+                $$ \frac{\partial^2 \ell}{\partial m \partial \theta} = \frac{\alpha - 1}{(1-\theta \alpha)^2} $$
+                $$ \frac{\partial^2 \ell}{\partial s \partial \theta} = \frac{1}{(1-\theta \alpha)^2} $$
+
+            \item The variance of employment is minimized by $\theta^*$.
+
+                $$ \min_\theta \var(\ell) = \left(\frac{1-\theta}{1-\theta \alpha}\right)^2 \sigma^2_m + \left(\frac{\theta}{1-\theta \alpha}\right)^2 \sigma^2_s $$
+                $$ (1-\theta)(\alpha-1) \sigma^2_m + \theta \sigma^2_s $$
+                $$ \theta^* = \frac{(1-\alpha) \sigma^2_m}{(1-\alpha) \sigma^2_m + \sigma^2_s} $$
+
+            \item Suppose firm $i$ faces demand $y_i = y - \eta(p_i - p)$ and indexes wages to its own price by $\theta_i$. Substitute the reduced form expressions to obtain an expression for $\ell_i$.
+
+                $$ \ell_i = \frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)) m + (\theta \alpha + \phi (\theta_i - \theta)) s}{(1-\theta \alpha) \alpha} $$
+
+            The variance of firm $i$'s labor demand is minimized by $\theta_i^*$.
+
+                $$ \var(\ell_i) = \left(\frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \sigma^2_m + \left(\frac{\theta \alpha + \phi (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \sigma^2_s $$
+
+                $$ (\alpha - 1) \phi [(1-\theta) \alpha - \theta_i (1-\alpha) \phi + \theta (1-\alpha)] \sigma^2_m + \phi[\theta \alpha + \phi \theta_i - \phi \theta] \sigma^2_s = 0 $$
+
+                $$ \theta_i^* = \frac{(1-\alpha) \phi ((1-\theta)\alpha + \theta \phi (1-\alpha)) \sigma^2_m + \phi \theta(\alpha - \phi) \sigma^2_s}{(\phi(1-\alpha))^2 \sigma^2_m + \phi^2 \sigma^2_s} $$
+
+            The value of the index that satistifies $\theta_i = \theta$ is the Nash equilibrium value.
+
+            $$ (\alpha - 1) \phi [(1-\theta) \alpha - \theta (1-\alpha) \phi + \theta (1-\alpha)] \sigma^2_m + \phi[\theta \alpha + \phi \theta - \phi \theta] \sigma^2_s = 0 $$
+
+            $$ \theta_{\text{Nash}} = \frac{(1-\alpha) \sigma^2_m}{(1-\alpha) \sigma^2_m + \sigma^2_s} $$
+
+        \end{enumerate}
 
     \end{enumerate}
 
