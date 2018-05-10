@@ -146,4 +146,33 @@ so solving for $\theta$ we get
 \]
 as the wage indexation that minimizes employment variance.
 
+\subsubsection*{(c.i)}
+
+We can easily see that we have
+\[
+y_i - y = \alpha (\ell_i - \ell) \implies \ell_i = \ell + \frac{y_i - y}{\alpha} = \ell - \frac{\theta_i - \theta}{\alpha} \times \phi p
+\]
+and we already have expressions for employment and the price levels that we can substitute to get
+\[
+\ell_i = \frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)) m + (\theta \alpha + \phi (\theta_i - \theta)) s}{(1-\theta \alpha) \alpha}
+\]
+for employment at firm $i$.
+
+\subsubsection*{(c.ii)}
+
+We now have
+\[
+\operatorname{Var}(\ell_i) = \left(\frac{(1-\theta) \alpha - \phi (1-\alpha) (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(m) + \left(\frac{\theta \alpha + \phi (\theta_i - \theta)}{(1-\theta \alpha) \alpha}\right)^2 \operatorname{Var}(s)
+\]
+so we must satisfy the first order condition
+\[
+(\alpha - 1) \phi [(1-\theta) \alpha - \theta_i (1-\alpha) \phi + \theta (1-\alpha)] \operatorname{Var}(m) + \phi[\theta \alpha + \phi \theta_i - \phi \theta] \operatorname{Var}(s) = 0
+\]
+which allows us to solve for $\theta_i$ to get
+\[
+\theta_i^* = \frac{(1-\alpha) \phi ((1-\theta)\alpha + \theta \phi (1-\alpha)) \operatorname{Var}(m) + \phi \theta(\alpha - \phi) \operatorname{Var}(s)}{(\phi(1-\alpha))^2 \operatorname{Var}(m) + \phi^2 \operatorname{Var}(s)}
+\]
+
+\subsubsection*{(c.iii)}
+
 \end{document}
