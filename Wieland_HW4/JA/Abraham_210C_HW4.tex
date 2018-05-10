@@ -79,15 +79,22 @@
 
     We derive the labor supply functions for two variants of the utility function. First, let $U(C_t, L_t) = \log C_t + \log(1-L_t)$. The consumption-leisure condition is given by
 
-        $$ \mathcal L = \sum_{t=0}^\infty (1+r)^{-t} [\log C_t + \log(1-L_t) - \lambda_t (C_t - w_t L_t)] $$
+        $$ \mathcal L = \sum_{t=0}^\infty (1+r)^{-t} [\log C_t + \log(1-L_t) - \lambda (C_t - w_t L_t)] $$
         $$ \frac{1}{C_t} w_t =  \frac{1}{1-L_t} $$
         $$ \hat L_t(w_t) = \frac{w_t - C_t}{w_t} $$
 
-    Labor supply responds to shocks according to $\frac{\partial \hat L_t}{\partial w_t} = C_t w_t^{-2}$ and an elasticity of $\varepsilon_{\hat L} = C_t (L_t w_t)^{-1}$. Now let $U(C_t, L_t) = \log C_t + \log(1- 0.5 (L_t + L_{t-1}))$.
+    Labor supply responds to shocks according to $\frac{\partial \hat L_t}{\partial w_t} = C_t w_t^{-2}$ in order to perfectly smooth consumption. Now let $U(C_t, L_t) = \log C_t + \log(1- 0.5 (L_t + L_{t-1}))$ and consider the nonnegativity constraint $L_t \geq 0$.
 
-        $$ \mathcal L = \sum_{t=1}^\infty (1+r)^{-t} [\log C_t + \log(1- 0.5 (L_t + L_{t-1})) - \lambda_t (C_t - w_t L_t)] $$
-        $$ \lambda_t = \frac{1}{C_t} $$
-        $$ \lambda_t w_t = \frac{0.5}{1-L_t} + \frac{0.5}{1-L_t} $$
+        $$ \mathcal L = \sum_{t=1}^\infty (1+r)^{-t} [\log C_t + \log(1- 0.5 (L_t + L_{t-1})) - \lambda (C_t - w_t L_t)] + \mu_t L_t $$
+        $$ \lambda = \frac{1}{C_t} $$
+        $$ \lambda_t w_t + \mu_t = \frac{0.5}{1-0.5(L_t + L_{t-1})} + \frac{0.5 (1+r)^{-t}}{1-0.5(L_{t+1} + L_t)} $$
+
+    Since households anticipate the wage schedule, the first order condition for labor can be written as follows.
+
+        $$ \lambda_t w_H + \mu_t = \frac{0.5}{1-0.5(L_H + L_L)} + \frac{0.5 (1+r)^{-t}}{1-0.5(L_L + L_H)} $$
+        $$ \lambda_t w_L + \mu_t = \frac{0.5}{1-0.5(L_H + L_L)} + \frac{0.5 (1+r)^{-t}}{1-0.5(L_L + L_H)} $$
+
+    These conditions are satisfied in the non-trivial case ($w_h \neq w_L$) if $\mu_t = 0$ when $t = 2, 4, 6, \dots$. This means that households will only work during high wage periods. Labor supply is much more elastic compared to the time-separable case since households only have preferences over the average labor supply over two periods. They experience no disutility from completely shifting labor to high return periods.
 
 \section{Demand Shocks}
 
@@ -102,25 +109,82 @@
     \begin{enumerate}
 
         \item The consumption-leisure condition at time $t$ is $\frac{W_t}{C_t} = v_t L_t^\chi$.
-        \item The consumer's intertemporal substitution satisfies $\frac{1}{C_t} = \frac{\beta}{C_{t+1} P_t} (P_{t+1} + d_{t+1})$.
-        \item
+        \item The consumer's intertemporal substitution satisfies $\frac{P_t}{C_t} = \frac{\beta}{C_{t+1}} (P_{t+1} + d_{t+1})$.
+        \item Since capital stock is fixed it must satisfy $\bar K = K_t = K_{t+1} = K^d \forall t$.
         \item Labor supply is given by $L_t = \frac{W_t \lambda_t}{v_t}^\frac{1}{\chi}$ with elasticity $\frac{1}{\chi}$. A higher value of $v_t$ is associated with a higher marginal utility of leisure and implies a steeper labor supply curve.
-        \item In this model, cyclicality is driven by demand shocks $v_t$.
+        \item In this model, it is not necessary for wages to be procycical in order for labor supply and consumption to be. Labor supply will contract in response to a positive demand shock $v_t$. If we embed this model of demand shocks into a RBC framework, we might imagine that dividends (through a lower marginal product of capital) and hence consumption will also exhibit cyclicality in response to a $v_t$ shock. One advantage of this modification is that consumption will be more procyclical since $v_t$ affects the household's labor-leisure tradeoff. A demand-driven business cycle has a disadvantage in forcing wages to be even more procyclical since there a demand shock is associated with a lower labor elasticity. We thus require a further modification to improve fit.
 
     \end{enumerate}
 
 \section{Business Cycle and External Returns to Scale}
 
-    A continuum of competitive firms operate the production technology $Y_{it} = E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha}$. Firms take $E_t = Y_t^\frac{\gamma - 1}{\gamma}$ exogenously. The market clearing condition for consumption goods is $Y_t = C_t$.
+    A continuum of competitive firms indexed by $i$ operate the production technology $Y_{it} = E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha}$. Firms take $E_t = Y_t^\frac{\gamma - 1}{\gamma}$ exogenously. The market clearing condition for consumption goods is $Y_t = C_t$.
 
     \begin{enumerate}
 
-        \item The firm first order conditions yields the labor demand function.
+        \item The firm first order conditions yields its factor demands.
 
-            $$ \max_{K_{it}, L_{it}} E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha} - w_t L_t - d_t K_t $$
+            $$ \max_{K_{it}, L_{it}} E_t K_{it}^\alpha (Z_t L_{it})^{1-\alpha} - w_t L_{it} - d_t K_{it} $$
+            $$ w_t = (1-\alpha) Y_{it} L_{it}^{-1} $$
+            $$ d_t = \alpha Y_{it} K_{it}^{-1} $$
+
+        \item With identical firms the aggregate production function is $Y_t = E_t K_t^\alpha (Z_t L_t)^{1-\alpha} = Y_t^\frac{\gamma - 1}{\gamma} K_t^\alpha (Z_t L_t)^{1-\alpha}$. Aggregate production exhibits increasing returns to scale $Y_t = [K_t^\alpha (Z_t L_t)^{1-\alpha}]^\gamma$ with $\gamma \geq 1$. Firms with increasing returns to scale in production make positive profit only if there is no markup? The social labor demand curve is $w_t = \gamma (1-\alpha) Y_t L_t^{-1}$.
+
+        \item Consider a positive demand shock in $v_t$. The stylized facts are largely consistent with the model predictions. Consumption and labor supply are procyclical because the demand shock motivates a substitution towards leisure. Labor productivity will be slightly less procyclical due to increasing returns to scale in aggregate. Procyclicality of wages is less clear, as production externalities imply a flatter social labor demand but a demand shock causes the labor supply to become steeper.
+
+        \item In the case where $\gamma = 1$ and $v_t$ is constant, we return to the standard RBC model with technology shocks. Co-movement of aggregate variables is consistent but consumption is excessively smooth and wages are too procyclical.
+
+        \item We have argued that introducing production externalities allows wages to be less procyclical but that $v_t$ shocks achieve the opposite effect. It is conceivable to examine a business cycle driven by both $v_t$ and $Z_t$ such that demand shocks are not so prominent as to induce greater wage procyclicality. A higher value of $\gamma$ flattens the social labor demand function, reducing wage fluctuations so that we might not have to rely on technology shocks as much to control wage procyclicality.
 
     \end{enumerate}
 
 \section{Textbook Problems}
+
+    \begin{enumerate}
+
+        \item Imperfectly competitive firms experience a loss $K(p_i - p^*)^2, K > 0$ from not adjusting prices. Let $p^* = p + \phi y$ and $y = m - p$. The fixed adjustment cost is $Z$. Suppose the initial state of the economy is $y = m = p = 0$ and $m$ changes to $m'$.
+
+        \begin{enumerate}
+
+            \item A fraction $f$ firms adjust prices so that the general price level is $p = f p^*$.
+
+                \begin{align*}
+                    p^* = & \frac{\phi m'}{1 + \phi f - f} \\
+                    p = & \frac{f \phi m'}{1 + \phi f - f} \\
+                    y = & m' - \frac{f \phi m'}{1 + \phi f - f}
+                \end{align*}
+
+            \item The loss from not adjusting is plotted as a function of $f$ in Figure \ref{fig:loss}.
+
+            \begin{figure}[h]
+                \centering
+                \caption{Firm loss as a function of fraction adjusting}
+                \label{fig:loss}
+                \includegraphics[width=\textwidth]{loss.png}
+            \end{figure}
+
+            \item Suppose $\phi < 1$ so that the incentive to adjust is increasing in the fraction of firms adjusting. Fix $Z > K(\phi m')^2$ when $f = 0$ so that no adjustment is the Nash equilibrium. In the case when $Z < KK(\phi m')^2$, firms will profitably adjust even when no other firm adjusts. Full price adjustment is the Nash equilibrium here. Now let $\phi > 1$ and $Z = K \frac{\phi m'}{1 + \phi f - f}^2$ for some $f \in (0,1)$. Since the incentive is now decreasing as a function of $f$, only up to $f$ fraction of firms will adjust until the incentive is less than the menu cost. This will be a Nash equilibrium.
+
+        \end{enumerate}
+
+        \item The profit of an imperfectly competitive, representative firm is given by a concave function $\pi(y, r_i)$. Let $r^*(y)$ denote the profit-maximizing price set by the firm.
+
+            \begin{enumerate}
+
+                \item The firm's incentive to adjust its own price is $G = \pi(y_1, r^*(y_1)) - \pi(y_1, r^*(y_0))$ or the difference between firm profits under the new and old prices, given the new money supply and output.
+
+                \item Consider the second-order Taylor approximation around $y_1$.
+
+                    $$ \pi(y_1, r^*(y_0)) = \pi(y_1, r^*(y_1)) + \pi'_r(y_1, r^*(y_1)) r^*(y_0) (y_1 - y_0) + \frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
+
+                Applying the first order condition for real price and rearranging yields
+
+                    $$ G \approx -\frac{1}{2} \pi''_r(y_1, r^*(y_1)) r^*(y_0)^2 (y_1 - y_0)^2 $$
+
+                \item $\pi''_r(y_1, r^*(y_1))$ is the sensitivity of the profit function to price changes while $r^*(y_0)^2$ is a measure of real rigidity, the responsiveness of real prices to output.
+
+            \end{enumerate}
+
+    \end{enumerate}
 
 \end{document}
