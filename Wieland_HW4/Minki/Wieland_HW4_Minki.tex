@@ -146,12 +146,35 @@ The first order conditions for this individual are:
 \begin{enumerate}[label = (\alph*)]
 	\item If the firm does not adjust its price and stays at $r^{*}(y_0)$ level, its profit is $\pi \left( y_1, r^{*}(y_0)  \right)$. On the other hand, if the firm choose to adjust its price to the optimal level for $y_1$, its profit is $\pi \left( y_1, r^{*}(y_1)  \right)$ The difference between these two is a potential gain from adjusting the price, so can be interpreted as the incentive to adjust its price. The smaller $G$ is, the stickier prices are. 
 	
-	\item Second-order Taylor approximation of $G = \pi \left( y_1, r^{*}(y_1)  \right) - \pi \left( y_1, r^{*}(y_0)  \right)$ is: 
+	\item Now we have
+		\begin{align*}
+		\begin{split}
+		\frac{\partial^2 G}{\partial y_1^2} = \pi_{11}(y_1, r^*(y_1))  &+ \pi_{12}(y_1, r^*(y_1)) \frac{\partial r^*(y_1)}{\partial y_1} + \left(\pi_{21}(y_1, r^*(y_1)) \\
+		&+ \pi_{22}(y_1, r^*(y_1)) \frac{\partial r^*(y_1)}{\partial y_1} \right) \frac{\partial r^*(y_1)}{\partial y_1} + \pi_2(y_1, r^*(y_1)) \cdot \frac{\partial^2 r^*(y_1)}{\partial y_1^2} - \pi_11(y_1, r^*(y_0))
+		\end{split}
+		\end{align*}
+	but we know
+	\[
+	\pi_2(y_1, r^*(y_1)) = 0
+	\]
+	and 
+	\[
+	\pi_{12} = \pi_{21}
+	\]
+	so we can evaluate at $y_0$ to get
+	\[
+	\frac{\partial^2 G}{\partial y_1^2} \vert_{y_0} = 2 \pi_{12}(y_0, r^*(y_0)) \frac{\partial r^*(y_0)}{\partial y} + \pi_{22}(y_0, r^*(y_0)) \cdot \frac{\partial^2 r^*(y_0)}{\partial y^2}
+	\]
 	
-	\begin{align*}
-	G &= \pi \left( y_1, r^{*}(y_1)  \right) - \pi \left( y_1, r^{*}(y_0)  \right) \\
-	 & \simeq 
-	\end{align*}
+	Implicitly differentiating $\pi_2(y_0, r^*(y_0)) = 0$ gives 
+	\[
+	\pi_{21} = - \pi_22 \times \frac{\partial r^*(y_0)}{\partial y}
+	\]
+	which we can substitute to get our Taylor series expansion, which only includes the second order term, as
+	\[
+	G \approx - \frac{1}{2} \pi_{22}(y_0, r^*(y_0)) \left(\frac{\partial r^*(y_0)}{\partial y}\right)^2 (y_1-y_0)^2
+	\]
+
 	\item $\pi_{22}$ is the curvature of the profit function, which captures the degree of insensitivity of the profit function. $r^{*'}(y_0)$ is the degree of real rigidity. It captures how sensitive the optimal price is to changes in output. 
 \end{enumerate}
 \subsection{Problem 6.12}
