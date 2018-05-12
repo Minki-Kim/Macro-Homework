@@ -27,6 +27,14 @@
 
 \section{Problems from Romer}
 \subsection{Romer, Problem 6.13.}
+\begin{enumerate}[label = (\alph*)]
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+	\item
+\end{enumerate}
 \subsection{Romer, Problem 7.10.}
 \section{Quadratic cost of adjusting prices and effect of money \\ (Rotemberg 1982)}
 \begin{enumerate}[label = (\alph*)]
@@ -47,17 +55,30 @@
 \begin{enumerate}[label = (\alph*)]
 	\item The economy is characterized by the following log-linearized equations:
 	\begin{align*}
-	 \tilde { C } _ { t } &= E _ { t } \tilde { C } _ { t + 1} - \frac { 1} { \psi } \left( i _ { t } - E _ { t } \pi _ { t + 1} \right)  \\ 
-	 \pi _ { t } &= \beta E _ { t } \pi _ { t + 1} + \kappa \left( \frac { \tilde {W} } { P } \right)_t ,\quad \kappa = \frac { ( 1- \theta ) ( 1- \beta \theta ) } { \theta }  \\
-	\left( \frac { \tilde{ W } } { P } \right) _ { t } &= \psi \tilde { C } _ { t } + \frac { 1} { \eta } L _ { t } \\
-	\tilde { Y } _ { t } &= \check { L } _ { t } \\
-	\tilde{ Y }_t &= s_g \tilde{G}_t + (1-s_g) \tilde{ C }_t \\
+	 \check { C } _ { t } &= E _ { t } \check { C } _ { t + 1} - \frac { 1} { \psi } \left( i _ { t } - E _ { t } \pi _ { t + 1} \right)  \\ 
+	 \pi _ { t } &= \beta E _ { t } \pi _ { t + 1} + \kappa \left( \frac { \check {W} } { P } \right)_t ,\quad \kappa = \frac { ( 1- \theta ) ( 1- \beta \theta ) } { \theta }  \\
+	\left( \frac { \check{ W } } { P } \right) _ { t } &= \psi \check { C } _ { t } + \frac { 1} { \eta } L _ { t } \\
+	\check { Y } _ { t } &= \check { L } _ { t } \\
+	\check{ Y }_t &= s_g \check{G}_t + (1-s_g) \check{ C }_t \\
 	i_t &= \phi_\pi \pi_t, \quad \phi_\pi > 1
 	\end{align*}
 	The first equation is a standard Euler equation. The second equation is a recursive formulation of inflation rate, telling us that current inflation is a present value of future marginal costs. The third equation is household's labor supply. The fourth equation denotes aggregate production function. The fifth equation is national account, where $s_g$ is the share the government spending. Finally, the last equtaion implies that the central bank follows the Taylor rule. 
-	\item 
-	\item 
-	\item 
+	
+	\item The reduced system is characterized as follows: 
+	\begin{align*}
+	\check{ C }_t &= E_t \check{ C }_{t+1} - \frac{1}{\psi} \left(\phi_\pi \pi_t - E_t\pi_{t+1} \right) \\
+	\pi_t &= \beta E_t \pi_{t+1} + \kappa \left( \psi \check{ C }_t + \frac{s_g}{\eta} \check{ G}_t + \frac{(1-s_g)}{\eta} \check{ C }_t \right)
+	\end{align*}
+	We have two endogenous variables ($\check{ C }_t, \pi_t$) and one exogenous variable ($\check{ G}_t$). 
+	
+	\item Assume that government spending has the following dynamics: 
+	\begin{equation*}
+	\check { G } _ { t } = \rho \check { G } _ { t - 1} + \epsilon _ { t } ,\quad \epsilon _ { t } \sim i .i .d .\left( 0,\sigma ^ { 2} \right)
+	\end{equation*} 
+	Since both $\check{ C }_t$ and $\pi_t$ are jump-variables, the only state variable is $\check{ G}_t$.  
+	
+	\item In general, the determinacy of a new Keynesian model depends on the Taylor rule parameter, which in this model is $\phi$. Since $\phi > 1$, one can expect that the model would have unique stable solution. 
+	 
 	\item
 	\item 
 	\item 
