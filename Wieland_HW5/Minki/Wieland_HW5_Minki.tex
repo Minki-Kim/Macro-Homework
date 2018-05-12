@@ -75,14 +75,45 @@
 	\begin{equation*}
 	\check { G } _ { t } = \rho \check { G } _ { t - 1} + \epsilon _ { t } ,\quad \epsilon _ { t } \sim i .i .d .\left( 0,\sigma ^ { 2} \right)
 	\end{equation*} 
-	Since both $\check{ C }_t$ and $\pi_t$ are jump-variables, the only state variable is $\check{ G}_t$.  
+	Since both $\check{ C }_t$ and $\pi_t$ are jump-variables, the only state variable is $\check{ G}_t$.  $1$ is not a state variable because the model is log-linearized. Since $\check{ C }_{t-1}$ and $\pi_{t-1}$ do not show up in the system, lagged endogenous variables are also not state variables. 
 	
-	\item In general, the determinacy of a new Keynesian model depends on the Taylor rule parameter, which in this model is $\phi$. Since $\phi > 1$, one can expect that the model would have unique stable solution. 
-	 
-	\item
-	\item 
-	\item 
-	\item 
+	\item Since rational expectation was introduced to the literature, numerous researchers have commented on the multiplicity of solution paths in linear rational expectation models. Since models with inifinite number of solutions which are consistent with rational expectation are evidently unusable, seeking for a solution procedure which can single out a unique, bubble-free solution was a natural flow of the literature. 
+	
+	McCallum(1983) suggests a solution procedure called the \textit{minimum state variable (MSV) criterion}. Since the multiplicity (or sunspots) arises from redundant state variables which are unnecessary but not formally inconsistent with rational expectations, he suggests to rule out those state variable from the beginning. In our model, the minimum set of state variables is $\{\check{ G }_t\}$. The solution equations for $\check{ C }_t$ and $\pi_t$ are expressed as functions of state variable $\check{ G }_t$:
+	\begin{align*}
+	\check{ C }_t &= c_g \check{ G}_t \\
+	E_t \check{ C }_{t+1} &=c_g \rho \check{ G}_t \\
+	\pi_t &= \pi_g \check{ G }_t \\
+    E_t \pi_{t+1} & = \pi_g \rho \check{ G }_t	
+	\end{align*}
+	Plugging in these guessed form of solution equations into the system: 
+	\begin{gather*}
+	c_g \check{ G}_t = c_g \rho \check{ G}_t - \frac{1}{\psi} \left(\phi_\pi \pi_g \check{ G }_t - \pi_g \rho \check{ G }_t\right) \\
+	\pi_g \check{ G }_t = \beta \pi_g \rho \check{ G }_t + \kappa \left( \psi c_g \check{ G}_t + \frac{s_g}{\eta} \check{ G}_t + \frac{(1-s_g)}{\eta} c_g \check{ G}_t \right)
+	\end{gather*}
+	With some algebraic effort, we get 
+	\begin{align*}
+	\pi _ { g } &= \frac { \frac { \kappa } { \eta } ( 1- \rho ) s _ { g } } { ( 1- \beta \rho ) ( 1- \rho ) + \frac { \kappa } { \psi } \left[ \psi + \frac { 1} { \eta } \left( 1- s _ { g } \right) \right] \left( \phi _ { \pi } - \rho \right) } \\
+	c _ { g } &= \frac { - \frac { \kappa } { \eta \psi } \left( \phi _ { \pi } - \rho \right) s _ { g } } { \left( 1 -  \beta \rho \right) ( 1- \rho ) + \frac { \kappa } { \psi } \left[ \psi + \frac { 1} { \eta } \left( 1- s _ { g } \right) \right] \left( \phi _ { \pi } - \rho \right) }
+	\end{align*}
+	\item Following the solutioin obtained in (d), 
+	\begin{align*}
+	\frac{d Y}{d G} =  1 + \frac{d C}{d G} &= 1 + \frac{1-s_g}{s_g} \frac{d \check{ C }}{d \check{ G }} \\
+	& = 1 + \frac{c_g (1-s_g)}{s_g} \\
+	& = 1 - \frac {  \frac { \kappa } { \eta \psi } \left( \phi _ { \pi } - \rho \right) (1-s _ { g }) } { \left( 1 -  \beta \rho \right) ( 1- \rho ) + \kappa \left[ 1 + \frac { 1} { \eta \psi } \left( 1- s _ { g } \right) \right] \left( \phi _ { \pi } - \rho \right) } \\
+	& = 1 - \frac {  \frac { \kappa } { \eta \psi } \left( \phi _ { \pi } - \rho \right) (1-s _ { g }) } { \left( 1 -  \beta \rho \right) ( 1- \rho ) + \kappa(\phi_\pi - \rho) + \frac { \kappa } { \eta \psi } \left( 1- s _ { g } \right)  \left( \phi _ { \pi } - \rho \right) } \\
+	& \qquad \text{Let } \frac { \kappa } { \eta \psi } \left( \phi _ { \pi } - \rho \right) (1-s _ { g }) = A \\
+	& = 1 - \frac{A}{\left( 1 -  \beta \rho \right) ( 1- \rho ) + \kappa(\phi_\pi - \rho) + A} 
+	\end{align*}
+	\item Since $\left( 1 -  \beta \rho \right) ( 1- \rho ) + \kappa(\phi_\pi - \rho) >1$, $	dY / dG  < 1$. The government spending multiplier is smaller than one because the Taylor rule effectively stabilizes the inflation, hence cools down the economy.
+	\item When $\phi = 0$, the government spending multiplier is:
+	\begin{align*}
+	\frac{d Y}{d G} &=  1 + \frac{\frac{\kappa}{\eta \phi} \rho(1-s_g)}{(1-\beta \rho)(1-\rho) - \frac{\kappa}{\psi} \left[ \psi + \frac{1}{\eta} (1-s_g) \right]} \\
+	& > 1
+	\end{align*}
+	So the government spending multiplier is larger than 1 even for a very low persistence shock. This is because the monetary policy is not raising nominal interest rate enough to make the real interest rate $r_t = i_t - E_t \pi_{t+1}$ also rise. Since the real interest rate is too low, even a small demand shock can make a ripple effect. 
+	
+	\item Assuming $\phi_\pi = 0$, or generally any value of $\phi_\pi$ which violate the Taylor principle ($\phi_\pi >1$) is problematic because the model becomes explosive. 
 	\item 
 	\item 
 	\item 
