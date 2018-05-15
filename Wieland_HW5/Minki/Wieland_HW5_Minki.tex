@@ -39,14 +39,56 @@
 	r V_P = b(V_C - V_p - c)
 	\]
 
-	\item If the individual is looking for others with coconuts, there are no dividends, whereas there is a payoff of $V_P - V_C + \bar{U}$ when someone with a coconut is found, which occurs with probability $aL$.
+	\item If the individual is looking for others with coconuts, there are no dividends, whereas there is a payoff of $V_P - V_C + \bar{u}$ when someone with a coconut is found, which occurs with probability $aL$.
 	Thus,
 	\[
-	rV_C = a L (V_P - V_C + \bar{U})
+	rV_C = a L (V_P - V_C + \bar{u})
 	\]
-	\item 
-	\item 
-	\item 
+	\item Substituting the equation from part a into the equation from part b yields
+	\[
+	V_P = \frac{rV_C}{aL} + V_C - \bar{u} \implies r \times \left(\frac{rV_C}{aL} + V_C - \bar{u}\right) = b \times \left(\frac{rV_C}{aL} + \bar{u} - c\right)
+	\]
+	which gets us
+	\[
+	V_C \times \left(\frac{r^2 + r a L + r b}{a L}\right) = \bar{u} (r+b) - bc
+	\]
+	so we have
+	\[
+	V_C = \frac{a L ( \bar{u} (r+b) - bc)}{r^2 + r a L + r b}
+	\]
+	and substituting in gets us
+	\[
+	V_P = \frac{\bar{u} (r+b) - bc}{r + a L + b} + \frac{a L ( \bar{u} (r+b) - bc)}{r^2 + r a L + r b} - \bar{u}
+	\]
+	so we can subtract and simplify to get our final answer
+	\[
+	V_C - V_P = \frac{bc + a L \bar{u}}{r + a L + b}
+	\]
+	\item We have the condition
+	\[
+	a L \times L = b \times (N - L)
+	\]
+	which is a quadratic in $L$ that we can use the quadratic formula for (ignoring the negative solution)
+	\[
+	L = \frac{-b + \sqrt{b^2 + 4 a b N}}{2a}
+	\]
+	and use the given substitution to obtain
+	\[
+	L = \frac{-b + \sqrt{9b^2}}{2a} = \frac{b}{a}
+	\]
+	\item We need the cost of climbing to be worthwhile, implying the condition
+	\[
+	V_C - V_P \geq c
+	\]
+	but we already have a closed form for $V_C - V_P$ we can use and apply our substitution to, so we have
+	\[
+	\frac{b c + b \bar{u}}{r + 2 b} \geq c
+	\]
+	and so we can solve for the constraint on c to get
+	\[
+	c \leq \frac{b \bar{u}}{r + b}
+	\]
+	for the possible values of $c$.
 	\item
 \end{enumerate}
 \subsection{Romer, Problem 7.10.}
