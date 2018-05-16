@@ -100,6 +100,51 @@
 	
 \end{enumerate}
 \subsection{Romer, Problem 7.10.}
+
+We have average price in each time period
+\[
+p_t = (1-\alpha) (p_{y-1} + \gamma \pi_{t-1}) + \alpha x_t
+\]
+Subtract last period's price from both sides
+\[
+p_t - p_{t-1} = (1-\alpha) \gamma \pi_{t-1} + \alpha (x_t - p_{t-1})
+\]
+Expand the right side
+\[
+p_t - p_{t-1} = (1-\alpha) \gamma \pi_{t-1} + \alpha (x_t  - p_t + p_t - p_{t-1})
+\]
+Substitute
+\[
+\pi_t = (1-\alpha) \gamma \pi_{t-1} + \alpha (x_t  - p_t + \pi_t)
+\]
+Rearrange to get
+\[
+x_t - p_t = \frac{1-\alpha}{\alpha} \times (\pi_t - \gamma \pi_{t-1})
+\]
+
+We now have a new problem for the firm
+\[
+\min_{x_t} \frac{1}{2} \times (x_t - (p_t + \phi y_t))^2 + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j  \frac{1}{2} E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right)^2
+\]
+since firms have to set a price today that can cause them a loss today, but they also have to take into account the future, which is both discounted (accounted for with the $\beta$ term) and where they may be able to adjust prices anyway (hence the $1-\alpha$ term).
+The partial indexation means that the price in period $t$ is the previous period's price plus $\gamma \pi_{t-1}$, so we account for all of these changes with the $x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k}$ term.
+The profit maximizing price in the future is accounted for with the $p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k}$ term.
+
+Now we solve the firm's problem using the first order condition
+\[
+x_t - (p_t + \phi y_t) + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+\]
+Now we want to get a geometric series to simplify, but we can't do that with terms inside the expectation. 
+However, the $x_t$ and $p_t$ terms inside the expectation are chosen and known today, so we can pull them out of the expectation and have a new summation to simplify as follows
+\[
+\left[ \sum_{j=0}^{\infty} [\beta \times (1-\alpha)]^j x_t - p_t \right] + \phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+\]
+so we can use the formula for an infinite geometric series to get
+\[
+\frac{x_t - p_t}{1 - \beta (1-\alpha)} + \phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+\]
+
+
 \section{Quadratic cost of adjusting prices and effect of money \\ (Rotemberg 1982)}
 \begin{enumerate}[label = (\alph*)]
 	\item 
