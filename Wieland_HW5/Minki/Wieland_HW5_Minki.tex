@@ -124,26 +124,110 @@ x_t - p_t = \frac{1-\alpha}{\alpha} \times (\pi_t - \gamma \pi_{t-1})
 
 We now have a new problem for the firm
 \[
-\min_{x_t} \frac{1}{2} \times (x_t - (p_t + \phi y_t))^2 + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j  \frac{1}{2} E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right)^2
+\min_{x_t} \frac{1}{2} \times (x_t - (p_t + \phi y_t))^2 + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j  \frac{1}{2} E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j} \right] \right)^2
 \]
 since firms have to set a price today that can cause them a loss today, but they also have to take into account the future, which is both discounted (accounted for with the $\beta$ term) and where they may be able to adjust prices anyway (hence the $1-\alpha$ term).
 The partial indexation means that the price in period $t$ is the previous period's price plus $\gamma \pi_{t-1}$, so we account for all of these changes with the $x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k}$ term.
-The profit maximizing price in the future is accounted for with the $p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k}$ term.
+The profit maximizing price in the future is accounted for with the $p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j}$ term.
 
 Now we solve the firm's problem using the first order condition
 \[
-x_t - (p_t + \phi y_t) + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+x_t - (p_t + \phi y_t) + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( x_t + \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ p_t + \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j} \right] \right) = 0
 \]
 Now we want to get a geometric series to simplify, but we can't do that with terms inside the expectation. 
 However, the $x_t$ and $p_t$ terms inside the expectation are chosen and known today, so we can pull them out of the expectation and have a new summation to simplify as follows
 \[
-\left[ \sum_{j=0}^{\infty} [\beta \times (1-\alpha)]^j x_t - p_t \right] + \phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+\left[ \sum_{j=0}^{\infty} [\beta \times (1-\alpha)]^j x_t - p_t \right] -\phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j} \right] \right) = 0
 \]
 so we can use the formula for an infinite geometric series to get
 \[
-\frac{x_t - p_t}{1 - \beta (1-\alpha)} + \phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+k} \right] \right) = 0
+\frac{x_t - p_t}{1 - \beta (1-\alpha)} - \phi y_t +  \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j} \right] \right) = 0
 \]
+which we can iterate forward one period to get
+\[
+E_t \frac{x_{t+1} - p_{t+1}}{1 - \beta (1-\alpha)} - \phi E_t y_{t+1} +  \sum_{j=2}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=1}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=2}^j \pi_{t+k} + \phi y_{t+j} \right] \right) = 0
+\]
+and we now have a new substitution of the form
+\[
+E_t [x_{t+1} - p_{t+1}] = \phi E_t y_{t+1} - \sum_{j=2}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=1}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=2}^j \pi_{t+k} + \phi y_{t+j} \right] \right)
+\]
+which accounts for all but a few of the terms in the 
+\[
+\sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left( \sum_{k=0}^{j-1} \gamma \pi_{t+k} - \left[ \sum_{k=1}^j \pi_{t+k} + \phi y_{t+j} \right] \right)
+\]
+expression.
+The $j=1$ term
+\[
+\beta (1-\alpha) E_t \left( \gamma \pi_{t} - \left[ \pi_{t+1} \right] \right)
+\]
+along with the $k=0$ parts of the $j>1$ terms for partial indexation
+\[
+\sum_{j=2}^{\infty}\beta^j (1-\alpha)^j \gamma \pi_t 
+\]
+and the $k=1$ parts of the $j>1$ terms for the future profit maximizing prices
+\[
+- \sum_{j=2}^{\infty} \beta^j (1-\alpha)^j \pi_{t+1}
+\]
+remain.
 
+So after moving $x_t - p_t$ to the left, we are left with
+\begin{align*}
+x_t - p_t = &(1 - \beta (1-\alpha)) \left[\phi y_t - \beta (1-\alpha) (\gamma \pi_{t} - \pi_{t+1}) + \sum_{j=2}^{\infty} \beta^j (1-\alpha)^j E_t \left\{ - \gamma \pi_t  + \pi_{t+1} \right\} \right] \\ &+ \beta (1-\alpha) E_t [x_{t+1} - p_{t+1}]
+\end{align*}
+and we can rewrite this as
+\[
+x_t - p_t = (1 - \beta (1-\alpha)) \left[\phi y_t + \sum_{j=1}^{\infty} \beta^j (1-\alpha)^j E_t \left\{ - \gamma \pi_t  + \pi_{t+1} \right\} \right] + \beta (1-\alpha) E_t [x_{t+1} - p_{t+1}]
+\]
+which we can apply the geometric series formula to and obtain
+\[
+x_t - p_t = (1 - \beta (1-\alpha)) \left[\phi y_t + \frac{\beta \times (1-\alpha)}{1 - \beta \times (1-\alpha)} E_t \left\{ - \gamma \pi_t  + \pi_{t+1} \right\} \right] + \beta (1-\alpha) E_t [x_{t+1} - p_{t+1}]
+\]
+which we can simplify to 
+\[
+x_t - p_t = (1 - \beta (1-\alpha)) \phi y_t + \beta (1-\alpha) \left\{ - \gamma \pi_t + E_t \pi_{t+1} + E_t [x_{t+1} - p_{t+1}] \right\}
+\]
+which is another formula for $x_t - p_t$ now available. So we have
+\[
+ \frac{1-\alpha}{\alpha} \times (\pi_t - \gamma \pi_{t-1}) = (1 - \beta (1-\alpha)) \phi y_t + \beta (1-\alpha) \left\{ - \gamma \pi_t + E_t \pi_{t+1} + E_t [x_{t+1} - p_{t+1}] \right\}
+\]
+and we can iterate the earlier formula forward to get the substitution
+\[
+E_t[x_{t+1} - p_{t+1}] = \frac{1-\alpha}{\alpha} \times E_t(\pi_{t+1} - \gamma \pi_{t})
+\]
+giving us
+\[
+ \frac{1-\alpha}{\alpha} \times (\pi_t - \gamma \pi_{t-1}) = (1 - \beta (1-\alpha)) \phi y_t + \beta (1-\alpha) \left\{ - \gamma \pi_t + E_t \pi_{t+1} + \frac{1-\alpha}{\alpha} \times E_t(\pi_{t+1} - \gamma \pi_{t}) \right\}
+\]
+which simplifies as
+\[
+\frac{1-\alpha}{\alpha} \times (\pi_t - \gamma \pi_{t-1}) = (1 - \beta (1-\alpha)) \phi y_t + \beta \times \frac{1-\alpha}{\alpha} \left\{ - \gamma \pi_t + E_t \pi_{t+1} \right\}
+\]
+which we now want to solve for $\pi_t$ to get the Phillips curve.
+So we can collect terms on either side to get
+\[
+\frac{1-\alpha}{\alpha} \times \pi_t + \beta \times \frac{1-\alpha}{\alpha} \gamma \pi_t = (1 - \beta (1-\alpha)) \phi y_t + \beta \times \frac{1-\alpha}{\alpha} E_t \pi_{t+1} + \frac{1-\alpha}{\alpha} \gamma \pi_{t-1}
+\]
+and collect coefficients on the left to have
+\[
+\pi_t \times \frac{1-\alpha}{\alpha} \times (1 + \beta \gamma) = (1 - \beta (1-\alpha)) \phi y_t + \beta \times \frac{1-\alpha}{\alpha} E_t \pi_{t+1} + \frac{1-\alpha}{\alpha} \gamma \pi_{t-1}
+\]
+and finally we simplify to get
+\[
+\pi_t = \frac{1}{1 + \beta \gamma}  \times \frac{\alpha}{1-\alpha} \times (1 - \beta (1-\alpha)) \phi y_t + \frac{\beta}{1 + \beta \gamma}E_t \pi_{t+1} +  \frac{1}{1 + \beta \gamma} \gamma \pi_{t-1}
+\]
+as our answer.
+
+When $\gamma = 0$, we have just
+\[
+\pi_t =  \frac{\alpha}{1-\alpha} \times (1 - \beta (1-\alpha)) \phi  y_t +  \beta E_t \pi_{t+1} 
+\]
+which is indeed the new Keynesian Phillips curve.
+
+When $\gamma = 0$, we have 
+\[
+\pi_t = \frac{1}{1 + \beta}  \times \frac{\alpha}{1-\alpha} \times (1 - \beta (1-\alpha)) \phi y_t + \frac{\beta}{1 + \beta}E_t \pi_{t+1} +  \frac{1}{1 + \beta} \pi_{t-1}
+\]
+which is indeed the new Keynesian Phillips curve with indexation.
 
 \section{Quadratic cost of adjusting prices and effect of money \\ (Rotemberg 1982)}
 \begin{enumerate}[label = (\alph*)]
