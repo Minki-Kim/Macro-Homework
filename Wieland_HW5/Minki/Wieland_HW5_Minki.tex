@@ -327,9 +327,32 @@ which is indeed the new Keynesian Phillips curve with indexation.
 	The model makes a similar prediction: monetary shock causes a temporary increase in output.
 
 \end{enumerate}
+
 \section{New Keynesian model in Dynare}
 \begin{enumerate}[label = (\alph*)]
-	\item 
+	\item The derivation is straightforward when the production function is CRS ($\alpha = 0$), but we have $\alpha = 1/3$. This makes the algebra greatly complicated. Recall that the optimal reset price is :
+	\begin{equation*}
+	P _ { t } ^ { * } = \frac { \mathbb { E } _ { t } \sum \theta ^ { k } \left( Q _ { t ,t + k } Y _ { t + k | t } \right) \frac { \sigma } { \sigma - 1} \Sigma _ { t + k } ^ { \prime } } { \mathbb { E } _ { t } \sum \theta ^ { k } Q _ { t ,t + k } Y _ { t + k | t } }
+	\end{equation*}
+	Substituting all variables which are defined contingent to time $t$ into unconditional variables yields:
+	\begin{align*}
+	P_t^* &=  \frac{\sigma}{\sigma - 1}\frac{\mathbb{ E }_t \sum (\theta \beta)^k \left[ \left( \frac{C_{t+k}}{C_t}\right)^{-\psi} \frac{P_t}{P_{t+k}} Y_{t+k} \left( \frac{P_t^*}{P_{t+k}}\right)^{-\sigma}   P_{t+k} MC_{t+k|t} \right]} {\mathbb{ E }_t \sum (\theta \beta)^k  \left[ \left( \frac{C_{t+k}}{C_t}\right)^{-\psi} \frac{P_t}{P_{t+k}} Y_{t+k} \left( \frac{P_t^*}{P_{t+k}}\right)^{-\sigma} \right]} \\
+	& = \frac{\sigma}{\sigma - 1}\frac{\mathbb{ E }_t \sum (\theta \beta)^k \left[ \left( \frac{C_{t+k}}{C_t}\right)^{-\psi} \frac{P_t}{P_{t+k}} Y_{t+k} \left( \frac{P_t^*}{P_{t+k}}\right)^{-\sigma}   P_{t+k} MC_{t+k} \left(  \frac{P_t^*}{P_{t+k}}\right)^{\frac{-\sigma \alpha}{1-\alpha}} \right]} {\mathbb{ E }_t \sum (\theta \beta)^k  \left[ \left( \frac{C_{t+k}}{C_t}\right)^{-\psi} \frac{P_t}{P_{t+k}} Y_{t+k} \left( \frac{P_t^*}{P_{t+k}}\right)^{-\sigma} \right]} \\
+	& = \frac{\sigma}{\sigma - 1}\frac{\mathbb{ E }_t \sum (\theta \beta)^k \left[ \left( C_{t+k}\right)^{-\psi}  Y_{t+k} P_{t+k}^\sigma    MC_{t+k} \left(  \frac{P_t^*}{P_{t+k}}\right)^{\frac{-\sigma \alpha}{1-\alpha}} \right]} {\mathbb{ E }_t \sum (\theta \beta)^k  \left[ \left( C_{t+k}\right)^{-\psi} P_{t+k}^{\sigma-1} Y_{t+k}  \right]} \\
+	& = \frac{\sigma}{\sigma - 1}\frac{\mathbb{ E }_t \sum (\theta \beta)^k \left[ \left( C_{t+k}\right)^{-\psi}  Y_{t+k} P_{t+k}^{\frac{\sigma}{1-\alpha}}    MC_{t+k}  {P_t^*}^{\frac{-\sigma \alpha}{1-\alpha}} \right]} {\mathbb{ E }_t \sum (\theta \beta)^k  \left[ \left( C_{t+k}\right)^{-\psi} P_{t+k}^{\sigma-1} Y_{t+k}  \right]} \\ 
+	& =  \frac{\sigma}{\sigma - 1}\frac{ {P_t^*}^{\frac{-\sigma \alpha}{1-\alpha}} \mathbb{ E }_t \sum (\theta \beta)^k \left[ \left( C_{t+k}\right)^{-\psi}  Y_{t+k} P_{t+k}^{\frac{\sigma}{1-\alpha}}    MC_{t+k}  \right]} {\mathbb{ E }_t \sum (\theta \beta)^k  \left[ \left( C_{t+k}\right)^{-\psi} P_{t+k}^{\sigma-1} Y_{t+k}  \right]} \\
+	& = \frac{\sigma}{\sigma - 1} \frac{{P_t^*}^{\frac{-\sigma \alpha}{1-\alpha}} Z_{2,t}}{Z_{1,t}}
+	\end{align*}
+	Hence, 
+	\begin{equation*}
+	{P_t^*}^{\frac{1-\alpha + \sigma \alpha}{1- \alpha}} = \frac{\sigma}{\sigma -1} \frac{Z_{2,t}}{Z_{1,t}}
+	\end{equation*}
+	where 
+	\begin{align*}
+	Z_{2,t} &= C_t^{-\psi} Y_t P_t^{\frac{\sigma}{1-\alpha}} MC_t + (\theta \beta) \mathbb{ E }_t Z_{2,t+1} \\
+	Z_{1,t} & = C_t^{-\psi} Y_t P_t^{\sigma-1} + (\theta \beta) \mathbb{ E }_t Z_{1,t+1}
+	\end{align*}
+	We can use this expression in defining inflation and reset price in the Dynare code for (b) and (c)
 	\item Please refer to the attached Dynare code. 
 	\item I calibrated the persistence parameter of each shock to make the impulse responses close to those in the lecture note. Computed impulse responses are indeed very close to those in the lecture note, both qualitatively and quantitatively.
 	\begin{figure}[H]
