@@ -25,7 +25,7 @@ function [residual, g1, g2, g3] = Minki_dynare_5_static(y, x, params)
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-residual = zeros( 9, 1);
+residual = zeros( 10, 1);
 
 %
 % Model equations
@@ -59,11 +59,14 @@ residual(8)= lhs-rhs;
 lhs =y(9);
 rhs =y(9)*params(10)+x(2);
 residual(9)= lhs-rhs;
+lhs =y(10);
+rhs =y(6)-y(7);
+residual(10)= lhs-rhs;
 if ~isreal(residual)
   residual = real(residual)+imag(residual).^2;
 end
 if nargout >= 2,
-  g1 = zeros(9, 9);
+  g1 = zeros(10, 10);
 
   %
   % Jacobian matrix
@@ -89,6 +92,9 @@ if nargout >= 2,
   g1(7,8)=(-T50);
   g1(8,8)=1-params(9);
   g1(9,9)=1-params(10);
+  g1(10,6)=(-1);
+  g1(10,7)=1;
+  g1(10,10)=1;
   if ~isreal(g1)
     g1 = real(g1)+2*imag(g1);
   end
@@ -97,13 +103,13 @@ if nargout >= 3,
   % Hessian matrix
   %
 
-  g2 = sparse([],[],[],9,81);
+  g2 = sparse([],[],[],10,100);
 if nargout >= 4,
   %
   % Third order derivatives
   %
 
-  g3 = sparse([],[],[],9,729);
+  g3 = sparse([],[],[],10,1000);
 end
 end
 end
