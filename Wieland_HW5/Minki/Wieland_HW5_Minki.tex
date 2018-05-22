@@ -234,7 +234,8 @@ which is indeed the new Keynesian Phillips curve with indexation.
 	\item Convex costs of price adjustment fails to generate nominal stickiness of price changes. 
 	Empirical evidence tells us that average duration of price change is about an year. 
 	Continuously-changed price in this model is at odds with this fact. 
-	However, convex cost can be calibrated to match the magnitude of the price changes, because large price changes are followed by increasing costs. 
+	However, convex cost can be calibrated to match the magnitude of the price changes, because large price changes are followed by increasing costs.
+
 	\item 
 	The choice of price today shows up both today and tomorrow. 
 	So we have from the terms today and tomorrow the first order condition for $p_{i,t}$
@@ -245,18 +246,42 @@ which is indeed the new Keynesian Phillips curve with indexation.
 	\begin{equation*}
     p_{i,t} = \frac{1}{1 + c + \beta c} \left[ p_{i,t}^{*} + c p_{i,t-1} + c \beta E_t p_{i,t+1} \right]
 	\end{equation*}
-	Assume the solution takes the form $p_{i,t} = \nu_{-1} p_{i,t-1} + \sum_{l=0}^{\infty}\nu_l \mathbb{E}_t [p_{i,t+l}^{*}]$. Then
+	Assume the solution takes the form $p_{i,t} = \nu_{-1} p_{i,t-1} + \sum_{l=0}^{\infty}\nu_l \mathbb{E}_t [p_{i,t+l}^{*}]$.
+	Then
 	\begin{align*}
-	\mathbb{E}_t p_{i,t+1} &= \nu_{-1} p_{i,t} + \sum_{l=0}^{\infty} \nu_l \mathbb{E}_t p_{i,t+l+1}^{*} \\
+	p_{i,t+1} &= \nu_{-1} p_{i,t} + \sum_{l=0}^{\infty} \nu_l \mathbb{E}_t p_{i,t+l+1}^{*} \\
 	& = \nu_{-1} \left( \nu_{-1} p_{i,t-1} + \sum_{l=0}^{\infty}\nu_l \mathbb{E}_t [p_{i,t+l}^{*}] \right)+ \sum_{l=0}^{\infty} \nu_l \mathbb{E}_t p_{i,t+l+1}^{*}
-	\end{align*}  Substituting this to the first order conditions: 
-	\begin{align*}
-	 &\nu_{-1} p_{i,t-1} + \sum_{l=0}^{\infty}\nu_l \mathbb{E}_t [p_{i,t+l}^{*}] \\
-	 &\qquad  = \frac{1}{1 + c + \beta c} \left[ p_{i,t}^{*} + c p_{i,t-1} + c \beta E_t p_{i,t+1} \right] \\
-	&\qquad  = \frac{1}{1 + c + \beta c} \left[ p_{i,t}^{*} + c p_{i,t-1} + c \beta \Bigg( \nu_{-1} \left( \nu_{-1} p_{i,t-1} + \sum_{l=0}^{\infty}\nu_l \mathbb{E}_t [p_{i,t+l}^{*}] \right)+ \sum_{l=0}^{\infty} \nu_l \mathbb{E}_t p_{i,t+l+1}^{*}  \Bigg) \right]
 	\end{align*}
-	To hell with this
-	\item 
+	
+	Plugging this into the first order conditions and rearranging yields:
+	\begin{dmath*}
+		[1+c+\beta c] \nu_{-1} p_{i,t-1} + \sum_{l=0}^\infty \nu_l \left\lbrace 1+c+\beta c - \beta c \nu_{-1} \right\rbrace \mathbb{E}_t [p_{i,t+l}^*] = p_{i,t}^* + (c+\beta c \nu_{-1}^2) p_{i,t-1} + \beta c \sum_{l=0}^\infty  \nu_l \mathbb{E}_t [p_{i,t+1+l}^*]
+	\end{dmath*}
+	Match the coefficients on $p_{i,t-1}$, $p_{i,t}^*$, and $p_{t+l}^*$ to get
+	\begin{align*}
+		&(1 + c + \beta c) \nu_{-1} = c + \beta c \nu_{-1}^2 \\
+		&\nu_0 (1 + c + \beta c - \beta c \nu_{-1}) = 1 \\
+		&\nu_{l+1} (1 + c + \beta c - \beta c \nu_{-1}) = \beta c \nu_l \hspace{0.1in} \text{for $l \geq 0$}
+	\end{align*}
+	Solving for $\nu_{-1}$ in the first equation using the quadratic formula yields
+	\begin{equation*}
+		\nu_{-1} = \frac{1}{2 \beta c} \left(1 + c + \beta c - \sqrt{(1 + c + \beta c)^2 - 4 \beta c ^2} \right)
+	\end{equation*}
+	where I choose the root that is smaller than 1. Using the remaining 2 equations, we get the rest of the coefficients:
+	\begin{align*}
+		&\nu_0 = \frac{1}{1 + c + \beta c - \beta c \nu_{-1}} \\
+		&\nu_{l+1} = \frac{\beta c}{1 + c + \beta c - \beta c nu_{-1}}
+	\end{align*}
+
+	\item
+	Plugging the assumption into the first order condition yields and imposing symmetry, i.e., $p_{i,t} = p_t$, then rearranging yields
+	\begin{equation*}
+		[c + \beta c + \phi)] p_t = \phi m_t + c p_{t-1} + \beta c \mathbb{E}_t [p_{t+1}] 
+	\end{equation*}
+	Guess the solution takes the form
+	\begin{equation*}
+		p_t = \gamma_{-1} p_{t-1} + \sum_{l=0}^\infty \gamma_l \mathbb{E}_t m_{t+l}
+	\end{equation*}
 	\item 
 	\item
 \end{enumerate}
