@@ -362,7 +362,9 @@ which is indeed the new Keynesian Phillips curve with indexation.
 	{\pi_t^*}^{\frac{1-\alpha + \sigma \alpha}{1-\alpha}} = \frac{\sigma}{\sigma -1} \frac{z_{2,t}}{z_{1,t}}
 	\end{equation*}
 	I will call the LHS as a \textit{reset price inflation} rate. 
-	We can use this expression in defining inflation and reset price in the Dynare code for (b) and (c)
+	We can use this expression in defining inflation and reset price in the Dynare code for (b) and (c).
+	
+	Price dispersion term $\int _ { 0} ^ { 1} \left( \frac { P _ { t } ( i ) } { P _ { t } } \right) ^ { \frac { - \sigma } { 1- \alpha } } d i$ can also be expressed recursively using Calvo assumption and the reset price inflation. 
 	\item Please refer to the attached Dynare code. 
 	\item I calibrated the persistence parameter of each shock to make the impulse responses close to those in the lecture note. Computed impulse responses are indeed very close to those in the lecture note, both qualitatively and quantitatively.
 	\begin{figure}[H]
