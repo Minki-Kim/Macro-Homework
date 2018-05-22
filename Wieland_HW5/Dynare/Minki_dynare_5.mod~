@@ -7,7 +7,7 @@
 // Declare variables
 // ************************************************************************
 var
-c y w k i l pi z nu 
+c n y ynat ygap i pi z nu 
 ;
 
 varexo
@@ -64,9 +64,11 @@ pi = betaa*pi(+1) + kappadot*ygap;
 ygap = y - ynat;
 
 // 7. Natural level of output;
-ynat = (1 + (1/eta))/( (1-alphaa)*psi ) z;
+ynat = ((1 + (1/eta))/( (1-alphaa)*psi + (1/eta) + alphaa )) * z;
 
-// 8. 
+// . Technology shock
+
+// . Monetary policy shock
 end;
 
 
