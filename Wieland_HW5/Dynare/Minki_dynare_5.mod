@@ -94,6 +94,4 @@ resid(1);
 steady;
 check;
 
-stoch_simul(order=1, irf=20) nu ygap pi r; 
- 
-
+stoch_simul(order=1, irf=21, nograph); 

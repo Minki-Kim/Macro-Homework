@@ -202,9 +202,10 @@ M_.Sigma_e(2, 2) = M_.params(12);
 resid(1);
 steady;
 oo_.dr.eigval = check(M_,options_,oo_);
-options_.irf = 20;
+options_.irf = 21;
+options_.nograph = 1;
 options_.order = 1;
-var_list_ = char('nu','ygap','pi','r');
+var_list_ = char();
 info = stoch_simul(var_list_);
 save('Minki_dynare_5_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1
