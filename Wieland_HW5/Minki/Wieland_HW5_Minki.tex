@@ -231,8 +231,17 @@ which is indeed the new Keynesian Phillips curve with indexation.
 
 \section{Quadratic cost of adjusting prices and effect of money \\ (Rotemberg 1982)}
 \begin{enumerate}[label = (\alph*)]
-	\item Convex costs of price adjustment fails to generate nominal stickiness of price changes. Empirical evidencs tells us that average duration of price change is about an year. Continuously-changed price in this model is at odds with this fact. However, convex cost can be calibrated to match the magnitude of the price changes, because large price changes are followed by increasing costs. 
-	\item The first order condition is: 
+	\item Convex costs of price adjustment fails to generate nominal stickiness of price changes. 
+	Empirical evidence tells us that average duration of price change is about an year. 
+	Continuously-changed price in this model is at odds with this fact. 
+	However, convex cost can be calibrated to match the magnitude of the price changes, because large price changes are followed by increasing costs. 
+	\item 
+	The choice of price today shows up both today and tomorrow. 
+	So we have from the terms today and tomorrow the first order condition for $p_{i,t}$
+	\[
+	\cancel{2 \beta^t} (p_{i,t} - p_{i,t}^*) + \cancel{2 \beta^t} c (p_{i,t} - p_{i,t-1}) - \cancel{2 \beta^t} \beta c (E_t p_{i,t+1} - p_{i,t}) = 0
+	\]
+	The first order condition is: 
 	\begin{equation*}
     p_{i,t} = \frac{1}{1 + c + \beta c} \left[ p_{i,t}^{*} + c p_{i,t-1} + c \beta E_t p_{i,t+1} \right]
 	\end{equation*}
